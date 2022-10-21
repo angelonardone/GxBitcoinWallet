@@ -1,5 +1,8 @@
 # GxBitcoinWallet
- 
+
+### The first Bitcoin wallet created with GeneXus
+
+
 First clone it in your local machine with
 
 git clone https://github.com/angelonardone/GxBitcoinWallet
