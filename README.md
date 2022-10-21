@@ -8,6 +8,12 @@ then move to the newly created folder
 
 cd GxBitcoinWallet/
 
+Clean the project
+
+dotnet clean ./build/LastBuild.sln
+
+then build
+
 dotnet build -nologo -c Release /v:q /m /p:GxExternalReference="NBitcoin.dll;QBitNinja.Client.dll" ./build/LastBuild.sln
 
 then move to the web directory
