@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
+	
+	
+	<PropertyGroup>
+		<AssemblyName>developermenu</AssemblyName>
+		<TargetFramework>$(TargetFramework)</TargetFramework>
+		<OutputType>Library</OutputType>
+		<GenerateDependencyFile>false</GenerateDependencyFile>
+		<PostgresqlSupport>false</PostgresqlSupport>
+		<OfficeSupport>false</OfficeSupport>
+		<MailSupport>false</MailSupport>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<ProjectReference Include=".\..\appmasterpage\appmasterpage.csproj" />
+		<ProjectReference Include=".\..\recentlinks\recentlinks.csproj" />
+		<ProjectReference Include=".\..\promptmasterpage\promptmasterpage.csproj" />
+		<ProjectReference Include=".\..\rwdmasterpage\rwdmasterpage.csproj" />
+		<ProjectReference Include=".\..\rwdrecentlinks\rwdrecentlinks.csproj" />
+		<ProjectReference Include=".\..\rwdpromptmasterpage\rwdpromptmasterpage.csproj" />
+		<ProjectReference Include=".\..\wallet.wallets\wallet.wallets.csproj" />
+		<ProjectReference Include=".\..\wallet.wallets\wallet.wallets.csproj" />
+		<ProjectReference Include=".\..\wallet.oneaddress\wallet.oneaddress.csproj" />
+		<ProjectReference Include=".\..\wallet.bip44\wallet.bip44.csproj" />
+		<ProjectReference Include=".\..\wallet.showkeydetail\wallet.showkeydetail.csproj" />
+		<ProjectReference Include=".\..\wallet.notes\wallet.notes.csproj" />
+		<ProjectReference Include=".\..\wallet.newnote\wallet.newnote.csproj" />
+		<ProjectReference Include=".\..\wallet.editnote\wallet.editnote.csproj" />
+		<ProjectReference Include=".\..\wallet.files\wallet.files.csproj" />
+		<ProjectReference Include=".\..\test1\test1.csproj" />
+		<ProjectReference Include=".\..\test1\test1.csproj" />
+		<ProjectReference Include=".\..\wallet.enterpassword\wallet.enterpassword.csproj" />
+		<ProjectReference Include=".\..\wallet.htmlcreatewallet\wallet.htmlcreatewallet.csproj" />
+		<ProjectReference Include=".\..\wallet.resotrewallet\wallet.resotrewallet.csproj" />
+		<ProjectReference Include=".\..\wallet.openwallet\wallet.openwallet.csproj" />
+		<ProjectReference Include=".\..\wallet.showextendedkey\wallet.showextendedkey.csproj" />
+		<ProjectReference Include=".\..\test2\test2.csproj" />
+		<ProjectReference Include=".\..\test3\test3.csproj" />
+		<ProjectReference Include=".\..\wallet.showkeydetailoneaddress\wallet.showkeydetailoneaddress.csproj" />
+		<ProjectReference Include=".\..\GeneXus.Programs.Common\GeneXus.Programs.Common.csproj" />
+
+	</ItemGroup>
+
+	<ItemGroup>
+
+	</ItemGroup>
+	<ItemGroup>
+
+	</ItemGroup>
+	<ItemGroup Condition="'$(PostgresqlSupport)'=='true'">
+		<PackageReference Include="Npgsql" Version="3.2.7" PrivateAssets="All"/>
+	</ItemGroup>
+
+	<Import Project="..\DotNetCoreBaseProject.targets"/>	
+</Project>

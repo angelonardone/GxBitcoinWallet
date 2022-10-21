@@ -1,0 +1,10 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\wallet.resotrewallet.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\wallet.resotrewallet.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.resotrewallet\obj\Release\net6.0\wallet.resotrewallet.csproj.AssemblyReference.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.resotrewallet\obj\Release\net6.0\wallet.resotrewallet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.resotrewallet\obj\Release\net6.0\wallet.resotrewallet.csproj.CoreCompileInputs.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.resotrewallet\obj\Release\net6.0\wallet.resotrewallet.csproj.CopyComplete
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.resotrewallet\obj\Release\net6.0\wallet.resotrewallet.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.resotrewallet\obj\Release\net6.0\refint\wallet.resotrewallet.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.resotrewallet\obj\Release\net6.0\wallet.resotrewallet.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.resotrewallet\obj\Release\net6.0\ref\wallet.resotrewallet.dll

@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
+	
+	
+	<PropertyGroup>
+		<AssemblyName>test1</AssemblyName>
+		<TargetFramework>$(TargetFramework)</TargetFramework>
+		<OutputType>Library</OutputType>
+		<GenerateDependencyFile>false</GenerateDependencyFile>
+		<PostgresqlSupport>false</PostgresqlSupport>
+		<OfficeSupport>false</OfficeSupport>
+		<MailSupport>false</MailSupport>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<ProjectReference Include=".\..\GeneXus.Programs.Common\GeneXus.Programs.Common.csproj" />
+
+	</ItemGroup>
+
+	<ItemGroup>
+
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include = "$(WebDirectory)\nbitcoin\createexpubtkey.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\createkey.cs" />
+		<Compile Include = "$(WebDirectory)\test1.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\eccdecrypt.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\createextkey.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\qbitninja\retnumtransonaddress.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\aesencryptfile.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\verifycreatedaddressfrompasscode.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\createpassphrasecode.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\eccenctrypt.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\eccverifymsg.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\createaddressfrompassphrasecode.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\getecdhsharedkey.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\aesdecryptfile.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\eccsignmsg.cs" />
+
+	</ItemGroup>
+	<ItemGroup Condition="'$(PostgresqlSupport)'=='true'">
+		<PackageReference Include="Npgsql" Version="3.2.7" PrivateAssets="All"/>
+	</ItemGroup>
+
+	<Import Project="..\DotNetCoreBaseProject.targets"/>	
+</Project>

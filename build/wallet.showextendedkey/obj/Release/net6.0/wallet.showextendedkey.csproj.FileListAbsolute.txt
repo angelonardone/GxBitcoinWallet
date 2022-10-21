@@ -1,0 +1,10 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\wallet.showextendedkey.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\wallet.showextendedkey.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showextendedkey\obj\Release\net6.0\wallet.showextendedkey.csproj.AssemblyReference.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showextendedkey\obj\Release\net6.0\wallet.showextendedkey.GeneratedMSBuildEditorConfig.editorconfig
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showextendedkey\obj\Release\net6.0\wallet.showextendedkey.csproj.CoreCompileInputs.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showextendedkey\obj\Release\net6.0\wallet.showextendedkey.csproj.CopyComplete
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showextendedkey\obj\Release\net6.0\wallet.showextendedkey.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showextendedkey\obj\Release\net6.0\refint\wallet.showextendedkey.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showextendedkey\obj\Release\net6.0\wallet.showextendedkey.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showextendedkey\obj\Release\net6.0\ref\wallet.showextendedkey.dll

@@ -1,0 +1,10 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\recentlinks.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\recentlinks.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\recentlinks\obj\Release\net6.0\recentlinks.csproj.AssemblyReference.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\recentlinks\obj\Release\net6.0\recentlinks.GeneratedMSBuildEditorConfig.editorconfig
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\recentlinks\obj\Release\net6.0\recentlinks.csproj.CoreCompileInputs.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\recentlinks\obj\Release\net6.0\recentlinks.csproj.CopyComplete
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\recentlinks\obj\Release\net6.0\recentlinks.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\recentlinks\obj\Release\net6.0\refint\recentlinks.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\recentlinks\obj\Release\net6.0\recentlinks.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\recentlinks\obj\Release\net6.0\ref\recentlinks.dll

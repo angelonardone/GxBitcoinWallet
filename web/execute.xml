@@ -1,0 +1,58 @@
+<?xml-stylesheet type='text/xsl' href='prgs.xsl'?><Objects>
+  <Charset>UTF-8</Charset>
+  <Path>file:///C:/Program Files (x86)/GeneXus/GeneXus17/</Path>
+  <Object>
+    <ObjCls>13</ObjCls>
+    <ObjName>Wallet.Wallets</ObjName>
+    <ObjDesc>Wallet.Wallets</ObjDesc>
+    <ObjLink>wallet.wallets.aspx</ObjLink>
+  </Object>
+  <Object>
+    <ObjCls>13</ObjCls>
+    <ObjName>Test1</ObjName>
+    <ObjDesc>Test1</ObjDesc>
+    <ObjLink>test1.aspx</ObjLink>
+  </Object>
+  <Object>
+    <ObjCls>13</ObjCls>
+    <ObjName>Wallet.HtmlCreateWallet</ObjName>
+    <ObjDesc>Wallet.Html Create Wallet</ObjDesc>
+    <ObjLink>wallet.htmlcreatewallet.aspx</ObjLink>
+  </Object>
+  <Object>
+    <ObjCls>13</ObjCls>
+    <ObjName>Wallet.ResotreWallet</ObjName>
+    <ObjDesc>Wallet.Resotre Wallet</ObjDesc>
+    <ObjLink>wallet.resotrewallet.aspx</ObjLink>
+  </Object>
+  <Object>
+    <ObjCls>13</ObjCls>
+    <ObjName>Wallet.OpenWallet</ObjName>
+    <ObjDesc>Wallet.Open Wallet</ObjDesc>
+    <ObjLink>wallet.openwallet.aspx</ObjLink>
+  </Object>
+  <Object>
+    <ObjCls>13</ObjCls>
+    <ObjName>Wallet.ShowExtendedKey</ObjName>
+    <ObjDesc>Wallet.Show Extended Key</ObjDesc>
+    <ObjLink>wallet.showextendedkey.aspx</ObjLink>
+  </Object>
+  <Object>
+    <ObjCls>13</ObjCls>
+    <ObjName>Test2</ObjName>
+    <ObjDesc>Test2</ObjDesc>
+    <ObjLink>test2.aspx</ObjLink>
+  </Object>
+  <Object>
+    <ObjCls>13</ObjCls>
+    <ObjName>Test3</ObjName>
+    <ObjDesc>Test3</ObjDesc>
+    <ObjLink>test3.aspx</ObjLink>
+  </Object>
+  <Object>
+    <ObjCls>13</ObjCls>
+    <ObjName>Wallet.ShowKeyDetailOneAddress</ObjName>
+    <ObjDesc>Wallet.Show Key Detail One Address</ObjDesc>
+    <ObjLink>wallet.showkeydetailoneaddress.aspx</ObjLink>
+  </Object>
+</Objects>

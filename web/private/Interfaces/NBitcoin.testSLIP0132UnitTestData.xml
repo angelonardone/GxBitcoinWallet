@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CallableObject guid="a24158af-5515-4844-91cd-c71ebaf5ab29" name="NBitcoin.testSLIP0132UnitTestData" description="test SLIP0132 Unit Test Data" namespace="GeneXus.Programs">
+  <Signature name="parm">
+    <Parameter name="ReturnValue" accessor="out" collection="true">
+      <Field name="testSLIP0132UnitTestSDT" description="test SLIP0132 Unit Test SDT">
+        <Fields>
+          <Field name="TestCaseId" description="Test case identifier">
+            <Properties>
+              <Property>
+                <Name>Type</Name>
+                <Value>VarChar</Value>
+              </Property>
+              <Property>
+                <Name>Length</Name>
+                <Value>40</Value>
+              </Property>
+            </Properties>
+          </Field>
+          <Field name="test_SLIP0132_in" description="">
+            <Fields>
+              <Field name="Mnemonic" description="Mnemonic">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>250</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="NetworkType" description="Network Type">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>20</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="RootPath" description="Root Path">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>250</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="AddressType" description="Address Type">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Numeric</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>4</Value>
+                  </Property>
+                  <Property>
+                    <Name>Picture</Name>
+                    <Value>ZZZ9</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="DerivePathAddress" description="Derive Path Address">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>250</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="testMethod" description="test Method">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Numeric</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>1</Value>
+                  </Property>
+                  <Property>
+                    <Name>Picture</Name>
+                    <Value>9</Value>
+                  </Property>
+                </Properties>
+              </Field>
+            </Fields>
+          </Field>
+          <Field name="test_SLIP0132_out" description="">
+            <Fields>
+              <Field name="ExtPrivateKey" description="Ext Private Key">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>250</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="ExtPublicKey" description="Ext Public Key">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>250</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="DerivedAddress" description="Derived Address">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>250</Value>
+                  </Property>
+                </Properties>
+              </Field>
+            </Fields>
+          </Field>
+          <Field name="Expectedtest_SLIP0132_out" description="">
+            <Fields>
+              <Field name="ExtPrivateKey" description="Ext Private Key">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>250</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="ExtPublicKey" description="Ext Public Key">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>250</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="DerivedAddress" description="Derived Address">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>250</Value>
+                  </Property>
+                </Properties>
+              </Field>
+            </Fields>
+          </Field>
+          <Field name="Msgtest_SLIP0132_out" description="Message to show for assertion over field test_SLIP0132_out">
+            <Properties>
+              <Property>
+                <Name>Type</Name>
+                <Value>VarChar</Value>
+              </Property>
+              <Property>
+                <Name>Length</Name>
+                <Value>100</Value>
+              </Property>
+            </Properties>
+          </Field>
+          <Field name="error" description="">
+            <Properties>
+              <Property>
+                <Name>Type</Name>
+                <Value>Character</Value>
+              </Property>
+              <Property>
+                <Name>Length</Name>
+                <Value>200</Value>
+              </Property>
+            </Properties>
+          </Field>
+          <Field name="Expectederror" description="">
+            <Properties>
+              <Property>
+                <Name>Type</Name>
+                <Value>Character</Value>
+              </Property>
+              <Property>
+                <Name>Length</Name>
+                <Value>200</Value>
+              </Property>
+            </Properties>
+          </Field>
+          <Field name="Msgerror" description="Message to show for assertion over field error">
+            <Properties>
+              <Property>
+                <Name>Type</Name>
+                <Value>VarChar</Value>
+              </Property>
+              <Property>
+                <Name>Length</Name>
+                <Value>100</Value>
+              </Property>
+            </Properties>
+          </Field>
+        </Fields>
+      </Field>
+    </Parameter>
+  </Signature>
+</CallableObject>

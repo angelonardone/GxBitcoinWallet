@@ -1,0 +1,10 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\wallet.htmlcreatewallet.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\wallet.htmlcreatewallet.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.htmlcreatewallet\obj\Release\net6.0\wallet.htmlcreatewallet.csproj.AssemblyReference.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.htmlcreatewallet\obj\Release\net6.0\wallet.htmlcreatewallet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.htmlcreatewallet\obj\Release\net6.0\wallet.htmlcreatewallet.csproj.CoreCompileInputs.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.htmlcreatewallet\obj\Release\net6.0\wallet.htmlcreatewallet.csproj.CopyComplete
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.htmlcreatewallet\obj\Release\net6.0\wallet.htmlcreatewallet.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.htmlcreatewallet\obj\Release\net6.0\refint\wallet.htmlcreatewallet.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.htmlcreatewallet\obj\Release\net6.0\wallet.htmlcreatewallet.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.htmlcreatewallet\obj\Release\net6.0\ref\wallet.htmlcreatewallet.dll

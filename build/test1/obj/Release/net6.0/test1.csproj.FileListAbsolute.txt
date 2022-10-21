@@ -1,0 +1,10 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\test1.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\test1.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\test1\obj\Release\net6.0\test1.csproj.AssemblyReference.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\test1\obj\Release\net6.0\test1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\test1\obj\Release\net6.0\test1.csproj.CoreCompileInputs.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\test1\obj\Release\net6.0\test1.csproj.CopyComplete
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\test1\obj\Release\net6.0\test1.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\test1\obj\Release\net6.0\refint\test1.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\test1\obj\Release\net6.0\test1.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\test1\obj\Release\net6.0\ref\test1.dll

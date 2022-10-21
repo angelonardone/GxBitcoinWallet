@@ -1,0 +1,10 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\nbitcoin.deriveaddressfromextpubkeyunittest.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\nbitcoin.deriveaddressfromextpubkeyunittest.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.deriveaddressfromextpubkeyunittest\obj\Release\net6.0\nbitcoin.deriveaddressfromextpubkeyunittest.csproj.AssemblyReference.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.deriveaddressfromextpubkeyunittest\obj\Release\net6.0\nbitcoin.deriveaddressfromextpubkeyunittest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.deriveaddressfromextpubkeyunittest\obj\Release\net6.0\nbitcoin.deriveaddressfromextpubkeyunittest.csproj.CoreCompileInputs.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.deriveaddressfromextpubkeyunittest\obj\Release\net6.0\nbitcoin.deriveaddressfromextpubkeyunittest.csproj.CopyComplete
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.deriveaddressfromextpubkeyunittest\obj\Release\net6.0\nbitcoin.deriveaddressfromextpubkeyunittest.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.deriveaddressfromextpubkeyunittest\obj\Release\net6.0\refint\nbitcoin.deriveaddressfromextpubkeyunittest.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.deriveaddressfromextpubkeyunittest\obj\Release\net6.0\nbitcoin.deriveaddressfromextpubkeyunittest.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.deriveaddressfromextpubkeyunittest\obj\Release\net6.0\ref\nbitcoin.deriveaddressfromextpubkeyunittest.dll

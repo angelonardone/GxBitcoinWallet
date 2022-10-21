@@ -1,0 +1,10 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\promptmasterpage.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\promptmasterpage.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\promptmasterpage\obj\Release\net6.0\promptmasterpage.csproj.AssemblyReference.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\promptmasterpage\obj\Release\net6.0\promptmasterpage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\promptmasterpage\obj\Release\net6.0\promptmasterpage.csproj.CoreCompileInputs.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\promptmasterpage\obj\Release\net6.0\promptmasterpage.csproj.CopyComplete
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\promptmasterpage\obj\Release\net6.0\promptmasterpage.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\promptmasterpage\obj\Release\net6.0\refint\promptmasterpage.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\promptmasterpage\obj\Release\net6.0\promptmasterpage.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\promptmasterpage\obj\Release\net6.0\ref\promptmasterpage.dll
