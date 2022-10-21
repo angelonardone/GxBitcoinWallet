@@ -16,10 +16,10 @@ cd web
 
 then start the program
 
-dotnet bin/GxNetCoreStartup.dll "Distributed.Cryptography" "/Users/angelonardone/Documents/GxBitcoinWallet/GxBitcoinWallet/web/" 8082
+dotnet bin/GxNetCoreStartup.dll "GxBitcoinWallet" "/Users/angelonardone/Documents/GxBitcoinWallet/GxBitcoinWallet/web/" 8082
 
 on another window start the browser
 
-open http://localhost:8082/Distributed.Cryptography/wallet.wallets.aspx
+open http://localhost:8082/GxBitcoinWallet/wallet.wallets.aspx
 
 
