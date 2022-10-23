@@ -40,7 +40,7 @@ dotnet bin/GxNetCoreStartup.dll "GxBitcoinWallet" "/Users/angelonardone/Document
 ```
 
 
-#### on another window start the application on a local browser
+#### on another terminal start the application (on a local browser) by running the following command
 
 
 for Mac use:
@@ -51,4 +51,3 @@ for Windows use:
 
 for Linux use:
 `xdg-open http://localhost:8082/GxBitcoinWallet/wallet.wallets.asp`
-
