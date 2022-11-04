@@ -8,8 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "GxNetCoreStartup/1.0.0": {
         "dependencies": {
-          "GxClasses": "1.0.0",
-          "GxClasses.Web": "1.0.0",
+          "GeneXus.Classes.Core": "1.0.0",
+          "GeneXus.Classes.Web.Core": "1.0.0",
           "Microsoft.AspNetCore.DataProtection.StackExchangeRedis": "3.1.7",
           "Microsoft.AspNetCore.Rewrite": "2.2.0",
           "Microsoft.Data.SqlClient": "1.0.19269.1",
@@ -1445,7 +1445,7 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
-      "GxClasses/1.0.0": {
+      "GeneXus.Classes.Core/1.0.0": {
         "dependencies": {
           "Experimental.System.Messaging.Signed": "1.0.0",
           "GeneXus.Cryptography": "1.0.0",
@@ -1472,9 +1472,9 @@
           "GxClasses.dll": {}
         }
       },
-      "GxClasses.Web/1.0.0": {
+      "GeneXus.Classes.Web.Core/1.0.0": {
         "dependencies": {
-          "GxClasses": "1.0.0",
+          "GeneXus.Classes.Core": "1.0.0",
           "log4net": "2.0.11"
         },
         "runtime": {
@@ -2601,12 +2601,12 @@
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
-    "GxClasses/1.0.0": {
+    "GeneXus.Classes.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "GxClasses.Web/1.0.0": {
+    "GeneXus.Classes.Web.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

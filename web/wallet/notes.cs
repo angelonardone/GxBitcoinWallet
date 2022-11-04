@@ -128,31 +128,12 @@ namespace GeneXus.Programs.wallet {
                }
                else if ( StringUtil.StrCmp(gxfirstwebparm, "gxajaxNewRow_"+"Gridnotes") == 0 )
                {
-                  nRC_GXsfl_9 = (int)(NumberUtil.Val( GetPar( "nRC_GXsfl_9"), "."));
-                  nGXsfl_9_idx = (int)(NumberUtil.Val( GetPar( "nGXsfl_9_idx"), "."));
-                  sGXsfl_9_idx = GetPar( "sGXsfl_9_idx");
-                  sPrefix = GetPar( "sPrefix");
-                  setAjaxCallMode();
-                  if ( ! IsValidAjaxCall( true) )
-                  {
-                     GxWebError = 1;
-                     return  ;
-                  }
-                  gxnrGridnotes_newrow( ) ;
+                  gxnrGridnotes_newrow_invoke( ) ;
                   return  ;
                }
                else if ( StringUtil.StrCmp(gxfirstwebparm, "gxajaxGridRefresh_"+"Gridnotes") == 0 )
                {
-                  sPrefix = GetPar( "sPrefix");
-                  init_default_properties( ) ;
-                  setAjaxCallMode();
-                  if ( ! IsValidAjaxCall( true) )
-                  {
-                     GxWebError = 1;
-                     return  ;
-                  }
-                  gxgrGridnotes_refresh( sPrefix) ;
-                  AddString( context.getJSONResponse( )) ;
+                  gxgrGridnotes_refresh_invoke( ) ;
                   return  ;
                }
                else
@@ -180,6 +161,37 @@ namespace GeneXus.Programs.wallet {
                context.PushCurrentUrl();
             }
          }
+      }
+
+      protected void gxnrGridnotes_newrow_invoke( )
+      {
+         nRC_GXsfl_9 = (int)(NumberUtil.Val( GetPar( "nRC_GXsfl_9"), "."));
+         nGXsfl_9_idx = (int)(NumberUtil.Val( GetPar( "nGXsfl_9_idx"), "."));
+         sGXsfl_9_idx = GetPar( "sGXsfl_9_idx");
+         sPrefix = GetPar( "sPrefix");
+         setAjaxCallMode();
+         if ( ! IsValidAjaxCall( true) )
+         {
+            GxWebError = 1;
+            return  ;
+         }
+         gxnrGridnotes_newrow( ) ;
+         /* End function gxnrGridnotes_newrow_invoke */
+      }
+
+      protected void gxgrGridnotes_refresh_invoke( )
+      {
+         sPrefix = GetPar( "sPrefix");
+         init_default_properties( ) ;
+         setAjaxCallMode();
+         if ( ! IsValidAjaxCall( true) )
+         {
+            GxWebError = 1;
+            return  ;
+         }
+         gxgrGridnotes_refresh( sPrefix) ;
+         AddString( context.getJSONResponse( )) ;
+         /* End function gxgrGridnotes_refresh_invoke */
       }
 
       public override void webExecute( )
@@ -268,18 +280,18 @@ namespace GeneXus.Programs.wallet {
          }
          if ( ( ( context.GetBrowserType( ) == 1 ) || ( context.GetBrowserType( ) == 5 ) ) && ( StringUtil.StrCmp(context.GetBrowserVersion( ), "7.0") == 0 ) )
          {
-            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 1936540), false, true);
+            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 2048100), false, true);
          }
-         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 1936540), false, true);
-         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 1936540), false, true);
-         context.AddJavascriptSource("gxcfg.js", "?2022102112334939", false, true);
+         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("gxcfg.js", "?"+GetCacheInvalidationToken( ), false, true);
          if ( context.isSpaRequest( ) )
          {
             enableOutput();
          }
-         context.AddJavascriptSource("calendar.js", "?"+context.GetBuildNumber( 1936540), false, true);
-         context.AddJavascriptSource("calendar-setup.js", "?"+context.GetBuildNumber( 1936540), false, true);
-         context.AddJavascriptSource("calendar-en.js", "?"+context.GetBuildNumber( 1936540), false, true);
+         context.AddJavascriptSource("calendar.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("calendar-setup.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("calendar-en.js", "?"+context.GetBuildNumber( 2048100), false, true);
          if ( StringUtil.Len( sPrefix) == 0 )
          {
             context.CloseHtmlHeader();
@@ -470,79 +482,7 @@ namespace GeneXus.Programs.wallet {
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "left", "top", "", "", "div");
             /*  Grid Control  */
             GridnotesContainer.SetWrapped(nGXWrapped);
-            if ( GridnotesContainer.GetWrapped() == 1 )
-            {
-               context.WriteHtmlText( "<div id=\""+sPrefix+"GridnotesContainer"+"DivS\" data-gxgridid=\"9\">") ;
-               sStyleString = "";
-               if ( subGridnotes_Visible == 0 )
-               {
-                  sStyleString += "display:none;";
-               }
-               GxWebStd.gx_table_start( context, subGridnotes_Internalname, subGridnotes_Internalname, "", "Grid", 0, "", "", 1, 2, sStyleString, "", "", 0);
-               /* Subfile titles */
-               context.WriteHtmlText( "<tr") ;
-               context.WriteHtmlTextNl( ">") ;
-               if ( subGridnotes_Backcolorstyle == 0 )
-               {
-                  subGridnotes_Titlebackstyle = 0;
-                  if ( StringUtil.Len( subGridnotes_Class) > 0 )
-                  {
-                     subGridnotes_Linesclass = subGridnotes_Class+"Title";
-                  }
-               }
-               else
-               {
-                  subGridnotes_Titlebackstyle = 1;
-                  if ( subGridnotes_Backcolorstyle == 1 )
-                  {
-                     subGridnotes_Titlebackcolor = subGridnotes_Allbackcolor;
-                     if ( StringUtil.Len( subGridnotes_Class) > 0 )
-                     {
-                        subGridnotes_Linesclass = subGridnotes_Class+"UniformTitle";
-                     }
-                  }
-                  else
-                  {
-                     if ( StringUtil.Len( subGridnotes_Class) > 0 )
-                     {
-                        subGridnotes_Linesclass = subGridnotes_Class+"Title";
-                     }
-                  }
-               }
-               context.WriteHtmlText( "<th align=\""+"left"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
-               context.SendWebValue( "Description") ;
-               context.WriteHtmlTextNl( "</th>") ;
-               context.WriteHtmlText( "<th align=\""+"right"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
-               context.SendWebValue( "Created") ;
-               context.WriteHtmlTextNl( "</th>") ;
-               context.WriteHtmlTextNl( "</tr>") ;
-               GridnotesContainer.AddObjectProperty("GridName", "Gridnotes");
-            }
-            else
-            {
-               GridnotesContainer.AddObjectProperty("GridName", "Gridnotes");
-               GridnotesContainer.AddObjectProperty("Header", subGridnotes_Header);
-               GridnotesContainer.AddObjectProperty("Class", "Grid");
-               GridnotesContainer.AddObjectProperty("Cellpadding", StringUtil.LTrim( StringUtil.NToC( (decimal)(1), 4, 0, ".", "")));
-               GridnotesContainer.AddObjectProperty("Cellspacing", StringUtil.LTrim( StringUtil.NToC( (decimal)(2), 4, 0, ".", "")));
-               GridnotesContainer.AddObjectProperty("Backcolorstyle", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Backcolorstyle), 1, 0, ".", "")));
-               GridnotesContainer.AddObjectProperty("Visible", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Visible), 5, 0, ".", "")));
-               GridnotesContainer.AddObjectProperty("CmpContext", sPrefix);
-               GridnotesContainer.AddObjectProperty("InMasterPage", "false");
-               GridnotesColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
-               GridnotesColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavCtldescription_Enabled), 5, 0, ".", "")));
-               GridnotesContainer.AddColumnProperties(GridnotesColumn);
-               GridnotesColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
-               GridnotesColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavCtlcreated_Enabled), 5, 0, ".", "")));
-               GridnotesContainer.AddColumnProperties(GridnotesColumn);
-               GridnotesContainer.AddObjectProperty("Selectedindex", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Selectedindex), 4, 0, ".", "")));
-               GridnotesContainer.AddObjectProperty("Allowselection", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Allowselection), 1, 0, ".", "")));
-               GridnotesContainer.AddObjectProperty("Selectioncolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Selectioncolor), 9, 0, ".", "")));
-               GridnotesContainer.AddObjectProperty("Allowhover", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Allowhovering), 1, 0, ".", "")));
-               GridnotesContainer.AddObjectProperty("Hovercolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Hoveringcolor), 9, 0, ".", "")));
-               GridnotesContainer.AddObjectProperty("Allowcollapsing", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Allowcollapsing), 1, 0, ".", "")));
-               GridnotesContainer.AddObjectProperty("Collapsed", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Collapsed), 1, 0, ".", "")));
-            }
+            StartGridControl9( ) ;
          }
          if ( wbEnd == 9 )
          {
@@ -667,7 +607,7 @@ namespace GeneXus.Programs.wallet {
             {
                if ( context.ExposeMetadata( ) )
                {
-                  Form.Meta.addItem("generator", "GeneXus .NET 17_0_10-160000", 0) ;
+                  Form.Meta.addItem("generator", "GeneXus .NET 17_0_11-163677", 0) ;
                }
                Form.Meta.addItem("description", "Notes", 0) ;
             }
@@ -1518,7 +1458,7 @@ namespace GeneXus.Programs.wallet {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2022102112334969", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202211414151692", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1533,7 +1473,7 @@ namespace GeneXus.Programs.wallet {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("wallet/notes.js", "?2022102112334969", false, true);
+         context.AddJavascriptSource("wallet/notes.js", "?202211414151692", false, true);
          /* End function include_jscripts */
       }
 
@@ -1639,6 +1579,83 @@ namespace GeneXus.Programs.wallet {
          /* End function init_web_controls */
       }
 
+      protected void StartGridControl9( )
+      {
+         if ( GridnotesContainer.GetWrapped() == 1 )
+         {
+            context.WriteHtmlText( "<div id=\""+sPrefix+"GridnotesContainer"+"DivS\" data-gxgridid=\"9\">") ;
+            sStyleString = "";
+            if ( subGridnotes_Visible == 0 )
+            {
+               sStyleString += "display:none;";
+            }
+            GxWebStd.gx_table_start( context, subGridnotes_Internalname, subGridnotes_Internalname, "", "Grid", 0, "", "", 1, 2, sStyleString, "", "", 0);
+            /* Subfile titles */
+            context.WriteHtmlText( "<tr") ;
+            context.WriteHtmlTextNl( ">") ;
+            if ( subGridnotes_Backcolorstyle == 0 )
+            {
+               subGridnotes_Titlebackstyle = 0;
+               if ( StringUtil.Len( subGridnotes_Class) > 0 )
+               {
+                  subGridnotes_Linesclass = subGridnotes_Class+"Title";
+               }
+            }
+            else
+            {
+               subGridnotes_Titlebackstyle = 1;
+               if ( subGridnotes_Backcolorstyle == 1 )
+               {
+                  subGridnotes_Titlebackcolor = subGridnotes_Allbackcolor;
+                  if ( StringUtil.Len( subGridnotes_Class) > 0 )
+                  {
+                     subGridnotes_Linesclass = subGridnotes_Class+"UniformTitle";
+                  }
+               }
+               else
+               {
+                  if ( StringUtil.Len( subGridnotes_Class) > 0 )
+                  {
+                     subGridnotes_Linesclass = subGridnotes_Class+"Title";
+                  }
+               }
+            }
+            context.WriteHtmlText( "<th align=\""+"left"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
+            context.SendWebValue( "Description") ;
+            context.WriteHtmlTextNl( "</th>") ;
+            context.WriteHtmlText( "<th align=\""+"right"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
+            context.SendWebValue( "Created") ;
+            context.WriteHtmlTextNl( "</th>") ;
+            context.WriteHtmlTextNl( "</tr>") ;
+            GridnotesContainer.AddObjectProperty("GridName", "Gridnotes");
+         }
+         else
+         {
+            GridnotesContainer.AddObjectProperty("GridName", "Gridnotes");
+            GridnotesContainer.AddObjectProperty("Header", subGridnotes_Header);
+            GridnotesContainer.AddObjectProperty("Class", "Grid");
+            GridnotesContainer.AddObjectProperty("Cellpadding", StringUtil.LTrim( StringUtil.NToC( (decimal)(1), 4, 0, ".", "")));
+            GridnotesContainer.AddObjectProperty("Cellspacing", StringUtil.LTrim( StringUtil.NToC( (decimal)(2), 4, 0, ".", "")));
+            GridnotesContainer.AddObjectProperty("Backcolorstyle", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Backcolorstyle), 1, 0, ".", "")));
+            GridnotesContainer.AddObjectProperty("Visible", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Visible), 5, 0, ".", "")));
+            GridnotesContainer.AddObjectProperty("CmpContext", sPrefix);
+            GridnotesContainer.AddObjectProperty("InMasterPage", "false");
+            GridnotesColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
+            GridnotesColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavCtldescription_Enabled), 5, 0, ".", "")));
+            GridnotesContainer.AddColumnProperties(GridnotesColumn);
+            GridnotesColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
+            GridnotesColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavCtlcreated_Enabled), 5, 0, ".", "")));
+            GridnotesContainer.AddColumnProperties(GridnotesColumn);
+            GridnotesContainer.AddObjectProperty("Selectedindex", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Selectedindex), 4, 0, ".", "")));
+            GridnotesContainer.AddObjectProperty("Allowselection", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Allowselection), 1, 0, ".", "")));
+            GridnotesContainer.AddObjectProperty("Selectioncolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Selectioncolor), 9, 0, ".", "")));
+            GridnotesContainer.AddObjectProperty("Allowhover", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Allowhovering), 1, 0, ".", "")));
+            GridnotesContainer.AddObjectProperty("Hovercolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Hoveringcolor), 9, 0, ".", "")));
+            GridnotesContainer.AddObjectProperty("Allowcollapsing", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Allowcollapsing), 1, 0, ".", "")));
+            GridnotesContainer.AddObjectProperty("Collapsed", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridnotes_Collapsed), 1, 0, ".", "")));
+         }
+      }
+
       protected void init_default_properties( )
       {
          bttCreateanewnote_Internalname = sPrefix+"CREATEANEWNOTE";
@@ -1663,17 +1680,17 @@ namespace GeneXus.Programs.wallet {
             }
          }
          init_default_properties( ) ;
-         edtavCtlcreated_Jsonclick = "";
-         edtavCtldescription_Jsonclick = "";
-         WebComp_Compnewnote_Visible = 1;
-         AssignProp(sPrefix, false, sPrefix+"gxHTMLWrpW0014"+"", "Visible", StringUtil.LTrimStr( (decimal)(WebComp_Compnewnote_Visible), 5, 0), true);
          subGridnotes_Allowcollapsing = 0;
          subGridnotes_Allowselection = 0;
-         edtavCtlcreated_Enabled = 0;
-         edtavCtldescription_Enabled = 0;
          subGridnotes_Header = "";
+         edtavCtlcreated_Jsonclick = "";
+         edtavCtlcreated_Enabled = 0;
+         edtavCtldescription_Jsonclick = "";
+         edtavCtldescription_Enabled = 0;
          subGridnotes_Class = "Grid";
          subGridnotes_Backcolorstyle = 0;
+         WebComp_Compnewnote_Visible = 1;
+         AssignProp(sPrefix, false, sPrefix+"gxHTMLWrpW0014"+"", "Visible", StringUtil.LTrimStr( (decimal)(WebComp_Compnewnote_Visible), 5, 0), true);
          subGridnotes_Visible = 1;
          bttCreateanewnote_Visible = 1;
          edtavCtlcreated_Enabled = -1;
@@ -1738,8 +1755,6 @@ namespace GeneXus.Programs.wallet {
          bttCreateanewnote_Jsonclick = "";
          GridnotesContainer = new GXWebGrid( context);
          sStyleString = "";
-         subGridnotes_Linesclass = "";
-         GridnotesColumn = new GXWebColumn();
          WebComp_Compnewnote_Component = "";
          OldCompnewnote = "";
          Form = new GXWebForm();
@@ -1754,7 +1769,9 @@ namespace GeneXus.Programs.wallet {
          GridnotesRow = new GXWebRow();
          BackMsgLst = new msglist();
          LclMsgLst = new msglist();
+         subGridnotes_Linesclass = "";
          ROClassString = "";
+         GridnotesColumn = new GXWebColumn();
          WebComp_Compnewnote = new GeneXus.Http.GXNullWebComponent();
          /* GeneXus formulas. */
          context.Gx_err = 0;
@@ -1768,38 +1785,38 @@ namespace GeneXus.Programs.wallet {
       private short initialized ;
       private short wbEnd ;
       private short wbStart ;
-      private short subGridnotes_Backcolorstyle ;
-      private short subGridnotes_Titlebackstyle ;
-      private short subGridnotes_Allowselection ;
-      private short subGridnotes_Allowhovering ;
-      private short subGridnotes_Allowcollapsing ;
-      private short subGridnotes_Collapsed ;
       private short nDraw ;
       private short nDoneStart ;
       private short nCmpId ;
       private short nDonePA ;
       private short gxcookieaux ;
+      private short subGridnotes_Backcolorstyle ;
       private short GRIDNOTES_nEOF ;
       private short nGXWrapped ;
       private short subGridnotes_Backstyle ;
+      private short subGridnotes_Titlebackstyle ;
+      private short subGridnotes_Allowselection ;
+      private short subGridnotes_Allowhovering ;
+      private short subGridnotes_Allowcollapsing ;
+      private short subGridnotes_Collapsed ;
       private int nRC_GXsfl_9 ;
       private int nGXsfl_9_idx=1 ;
       private int edtavCtldescription_Enabled ;
       private int edtavCtlcreated_Enabled ;
       private int bttCreateanewnote_Visible ;
-      private int subGridnotes_Visible ;
-      private int subGridnotes_Titlebackcolor ;
-      private int subGridnotes_Allbackcolor ;
-      private int subGridnotes_Selectedindex ;
-      private int subGridnotes_Selectioncolor ;
-      private int subGridnotes_Hoveringcolor ;
       private int AV9GXV1 ;
+      private int subGridnotes_Visible ;
       private int WebComp_Compnewnote_Visible ;
       private int subGridnotes_Islastpage ;
       private int nGXsfl_9_fel_idx=1 ;
       private int nGXsfl_9_bak_idx=1 ;
       private int idxLst ;
       private int subGridnotes_Backcolor ;
+      private int subGridnotes_Allbackcolor ;
+      private int subGridnotes_Titlebackcolor ;
+      private int subGridnotes_Selectedindex ;
+      private int subGridnotes_Selectioncolor ;
+      private int subGridnotes_Hoveringcolor ;
       private long GRIDNOTES_nCurrentRecord ;
       private long GRIDNOTES_nFirstRecordOnPage ;
       private string gxfirstwebparm ;
@@ -1823,9 +1840,6 @@ namespace GeneXus.Programs.wallet {
       private string bttCreateanewnote_Jsonclick ;
       private string sStyleString ;
       private string subGridnotes_Internalname ;
-      private string subGridnotes_Class ;
-      private string subGridnotes_Linesclass ;
-      private string subGridnotes_Header ;
       private string WebComp_Compnewnote_Component ;
       private string OldCompnewnote ;
       private string sXEvt ;
@@ -1834,9 +1848,12 @@ namespace GeneXus.Programs.wallet {
       private string EvtRowId ;
       private string sEvtType ;
       private string sGXsfl_9_fel_idx="0001" ;
+      private string subGridnotes_Class ;
+      private string subGridnotes_Linesclass ;
       private string ROClassString ;
       private string edtavCtldescription_Jsonclick ;
       private string edtavCtlcreated_Jsonclick ;
+      private string subGridnotes_Header ;
       private bool entryPointCalled ;
       private bool toggleJsOutput ;
       private bool bGXsfl_9_Refreshing=false ;

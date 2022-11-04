@@ -41,6 +41,7 @@
  	<Compile Include="$(WebDirectory)\openapicommon\type_SdtApiResponse.cs" />
  	<Compile Include="$(WebDirectory)\wallet\type_SdtEncryptedFile.cs" />
  	<Compile Include="$(WebDirectory)\wallet\type_SdtNote.cs" />
+ 	<Compile Include="$(WebDirectory)\wallet\type_SdtSDTAddressHistory.cs" />
  	<Compile Include="$(WebDirectory)\wallet\type_SdtWallet.cs" />
  	<Compile Include="$(WebDirectory)\wallet\type_SdtWalletLine.cs" />
 

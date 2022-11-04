@@ -1,3 +1,9 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\Reor.deps.json
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\Reor.runtimeconfig.json
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\GxNetCoreStartup.deps.json
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\GxNetCoreStartup.runtimeconfig.json
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\GXDataInitialization.deps.json
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\GXDataInitialization.runtimeconfig.json
 C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\GxDeps.deps.json
 C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\GxDeps.dll
 C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\GxDeps.pdb

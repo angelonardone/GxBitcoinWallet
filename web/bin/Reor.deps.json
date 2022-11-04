@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Reor/1.0.0": {
         "dependencies": {
-          "GxClasses": "1.0.0"
+          "GeneXus.Classes.Core": "1.0.0"
         },
         "runtime": {
           "Reor.dll": {}
@@ -1243,7 +1243,7 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
-      "GxClasses/1.0.0": {
+      "GeneXus.Classes.Core/1.0.0": {
         "dependencies": {
           "Experimental.System.Messaging.Signed": "1.0.0",
           "GeneXus.Cryptography": "1.0.0",
@@ -2187,7 +2187,7 @@
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
-    "GxClasses/1.0.0": {
+    "GeneXus.Classes.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

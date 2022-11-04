@@ -1,7 +1,7 @@
 /*
 				   File: type_SdtKeyInfo
 			Description: KeyInfo
-				 Author: Nemo 🐠 for C# (.NET) version 17.0.10.160000
+				 Author: Nemo 🐠 for C# (.NET) version 17.0.11.163677
 		   Program type: Callable routine
 			  Main DBMS: 
 */

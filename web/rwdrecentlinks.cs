@@ -136,32 +136,12 @@ namespace GeneXus.Programs {
                }
                else if ( StringUtil.StrCmp(gxfirstwebparm, "gxajaxNewRow_"+"Links") == 0 )
                {
-                  nRC_GXsfl_8 = (int)(NumberUtil.Val( GetPar( "nRC_GXsfl_8"), "."));
-                  nGXsfl_8_idx = (int)(NumberUtil.Val( GetPar( "nGXsfl_8_idx"), "."));
-                  sGXsfl_8_idx = GetPar( "sGXsfl_8_idx");
-                  sPrefix = GetPar( "sPrefix");
-                  setAjaxCallMode();
-                  if ( ! IsValidAjaxCall( true) )
-                  {
-                     GxWebError = 1;
-                     return  ;
-                  }
-                  gxnrLinks_newrow( ) ;
+                  gxnrLinks_newrow_invoke( ) ;
                   return  ;
                }
                else if ( StringUtil.StrCmp(gxfirstwebparm, "gxajaxGridRefresh_"+"Links") == 0 )
                {
-                  AV6FormCaption = GetPar( "FormCaption");
-                  sPrefix = GetPar( "sPrefix");
-                  init_default_properties( ) ;
-                  setAjaxCallMode();
-                  if ( ! IsValidAjaxCall( true) )
-                  {
-                     GxWebError = 1;
-                     return  ;
-                  }
-                  gxgrLinks_refresh( AV6FormCaption, sPrefix) ;
-                  AddString( context.getJSONResponse( )) ;
+                  gxgrLinks_refresh_invoke( ) ;
                   return  ;
                }
                else
@@ -189,6 +169,38 @@ namespace GeneXus.Programs {
                context.PushCurrentUrl();
             }
          }
+      }
+
+      protected void gxnrLinks_newrow_invoke( )
+      {
+         nRC_GXsfl_8 = (int)(NumberUtil.Val( GetPar( "nRC_GXsfl_8"), "."));
+         nGXsfl_8_idx = (int)(NumberUtil.Val( GetPar( "nGXsfl_8_idx"), "."));
+         sGXsfl_8_idx = GetPar( "sGXsfl_8_idx");
+         sPrefix = GetPar( "sPrefix");
+         setAjaxCallMode();
+         if ( ! IsValidAjaxCall( true) )
+         {
+            GxWebError = 1;
+            return  ;
+         }
+         gxnrLinks_newrow( ) ;
+         /* End function gxnrLinks_newrow_invoke */
+      }
+
+      protected void gxgrLinks_refresh_invoke( )
+      {
+         AV6FormCaption = GetPar( "FormCaption");
+         sPrefix = GetPar( "sPrefix");
+         init_default_properties( ) ;
+         setAjaxCallMode();
+         if ( ! IsValidAjaxCall( true) )
+         {
+            GxWebError = 1;
+            return  ;
+         }
+         gxgrLinks_refresh( AV6FormCaption, sPrefix) ;
+         AddString( context.getJSONResponse( )) ;
+         /* End function gxgrLinks_refresh_invoke */
       }
 
       public override void webExecute( )
@@ -273,11 +285,11 @@ namespace GeneXus.Programs {
          }
          if ( ( ( context.GetBrowserType( ) == 1 ) || ( context.GetBrowserType( ) == 5 ) ) && ( StringUtil.StrCmp(context.GetBrowserVersion( ), "7.0") == 0 ) )
          {
-            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 1936540), false, true);
+            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 2048100), false, true);
          }
-         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 1936540), false, true);
-         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 1936540), false, true);
-         context.AddJavascriptSource("gxcfg.js", "?2022102112335210", false, true);
+         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("gxcfg.js", "?"+GetCacheInvalidationToken( ), false, true);
          if ( context.isSpaRequest( ) )
          {
             enableOutput();
@@ -453,41 +465,7 @@ namespace GeneXus.Programs {
             /*  Grid Control  */
             LinksContainer.SetIsFreestyle(true);
             LinksContainer.SetWrapped(nGXWrapped);
-            if ( LinksContainer.GetWrapped() == 1 )
-            {
-               context.WriteHtmlText( "<div id=\""+sPrefix+"LinksContainer"+"DivS\" data-gxgridid=\"8\">") ;
-               sStyleString = "";
-               GxWebStd.gx_table_start( context, subLinks_Internalname, subLinks_Internalname, "", "RecentLinksGrid", 0, "", "", 1, 2, sStyleString, "", "", 0);
-               LinksContainer.AddObjectProperty("GridName", "Links");
-            }
-            else
-            {
-               LinksContainer.AddObjectProperty("GridName", "Links");
-               LinksContainer.AddObjectProperty("Header", subLinks_Header);
-               LinksContainer.AddObjectProperty("Class", StringUtil.RTrim( "RecentLinksGrid"));
-               LinksContainer.AddObjectProperty("Class", "RecentLinksGrid");
-               LinksContainer.AddObjectProperty("Cellpadding", StringUtil.LTrim( StringUtil.NToC( (decimal)(1), 4, 0, ".", "")));
-               LinksContainer.AddObjectProperty("Cellspacing", StringUtil.LTrim( StringUtil.NToC( (decimal)(2), 4, 0, ".", "")));
-               LinksContainer.AddObjectProperty("Backcolorstyle", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Backcolorstyle), 1, 0, ".", "")));
-               LinksContainer.AddObjectProperty("CmpContext", sPrefix);
-               LinksContainer.AddObjectProperty("InMasterPage", "false");
-               LinksColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
-               LinksContainer.AddColumnProperties(LinksColumn);
-               LinksColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
-               LinksContainer.AddColumnProperties(LinksColumn);
-               LinksColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
-               LinksContainer.AddColumnProperties(LinksColumn);
-               LinksColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
-               LinksColumn.AddObjectProperty("Value", lblPlace_Caption);
-               LinksContainer.AddColumnProperties(LinksColumn);
-               LinksContainer.AddObjectProperty("Selectedindex", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Selectedindex), 4, 0, ".", "")));
-               LinksContainer.AddObjectProperty("Allowselection", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Allowselection), 1, 0, ".", "")));
-               LinksContainer.AddObjectProperty("Selectioncolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Selectioncolor), 9, 0, ".", "")));
-               LinksContainer.AddObjectProperty("Allowhover", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Allowhovering), 1, 0, ".", "")));
-               LinksContainer.AddObjectProperty("Hovercolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Hoveringcolor), 9, 0, ".", "")));
-               LinksContainer.AddObjectProperty("Allowcollapsing", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Allowcollapsing), 1, 0, ".", "")));
-               LinksContainer.AddObjectProperty("Collapsed", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Collapsed), 1, 0, ".", "")));
-            }
+            StartGridControl8( ) ;
          }
          if ( wbEnd == 8 )
          {
@@ -565,7 +543,7 @@ namespace GeneXus.Programs {
             {
                if ( context.ExposeMetadata( ) )
                {
-                  Form.Meta.addItem("generator", "GeneXus .NET 17_0_10-160000", 0) ;
+                  Form.Meta.addItem("generator", "GeneXus .NET 17_0_11-163677", 0) ;
                }
                Form.Meta.addItem("description", "Responsive Recent Links", 0) ;
             }
@@ -1227,7 +1205,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2022102112335228", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202211414151923", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1242,7 +1220,7 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("rwdrecentlinks.js", "?2022102112335228", false, true);
+         context.AddJavascriptSource("rwdrecentlinks.js", "?202211414151923", false, true);
          /* End function include_jscripts */
       }
 
@@ -1341,6 +1319,45 @@ namespace GeneXus.Programs {
          /* End function init_web_controls */
       }
 
+      protected void StartGridControl8( )
+      {
+         if ( LinksContainer.GetWrapped() == 1 )
+         {
+            context.WriteHtmlText( "<div id=\""+sPrefix+"LinksContainer"+"DivS\" data-gxgridid=\"8\">") ;
+            sStyleString = "";
+            GxWebStd.gx_table_start( context, subLinks_Internalname, subLinks_Internalname, "", "RecentLinksGrid", 0, "", "", 1, 2, sStyleString, "", "", 0);
+            LinksContainer.AddObjectProperty("GridName", "Links");
+         }
+         else
+         {
+            LinksContainer.AddObjectProperty("GridName", "Links");
+            LinksContainer.AddObjectProperty("Header", subLinks_Header);
+            LinksContainer.AddObjectProperty("Class", StringUtil.RTrim( "RecentLinksGrid"));
+            LinksContainer.AddObjectProperty("Class", "RecentLinksGrid");
+            LinksContainer.AddObjectProperty("Cellpadding", StringUtil.LTrim( StringUtil.NToC( (decimal)(1), 4, 0, ".", "")));
+            LinksContainer.AddObjectProperty("Cellspacing", StringUtil.LTrim( StringUtil.NToC( (decimal)(2), 4, 0, ".", "")));
+            LinksContainer.AddObjectProperty("Backcolorstyle", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Backcolorstyle), 1, 0, ".", "")));
+            LinksContainer.AddObjectProperty("CmpContext", sPrefix);
+            LinksContainer.AddObjectProperty("InMasterPage", "false");
+            LinksColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
+            LinksContainer.AddColumnProperties(LinksColumn);
+            LinksColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
+            LinksContainer.AddColumnProperties(LinksColumn);
+            LinksColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
+            LinksContainer.AddColumnProperties(LinksColumn);
+            LinksColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
+            LinksColumn.AddObjectProperty("Value", lblPlace_Caption);
+            LinksContainer.AddColumnProperties(LinksColumn);
+            LinksContainer.AddObjectProperty("Selectedindex", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Selectedindex), 4, 0, ".", "")));
+            LinksContainer.AddObjectProperty("Allowselection", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Allowselection), 1, 0, ".", "")));
+            LinksContainer.AddObjectProperty("Selectioncolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Selectioncolor), 9, 0, ".", "")));
+            LinksContainer.AddObjectProperty("Allowhover", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Allowhovering), 1, 0, ".", "")));
+            LinksContainer.AddObjectProperty("Hovercolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Hoveringcolor), 9, 0, ".", "")));
+            LinksContainer.AddObjectProperty("Allowcollapsing", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Allowcollapsing), 1, 0, ".", "")));
+            LinksContainer.AddObjectProperty("Collapsed", StringUtil.LTrim( StringUtil.NToC( (decimal)(subLinks_Collapsed), 1, 0, ".", "")));
+         }
+      }
+
       protected void init_default_properties( )
       {
          lblRecenttext_Internalname = sPrefix+"RECENTTEXT";
@@ -1365,11 +1382,11 @@ namespace GeneXus.Programs {
             }
          }
          init_default_properties( ) ;
+         subLinks_Allowcollapsing = 0;
+         lblPlace_Caption = "Place.";
          lblPlace_Link = "";
          lblPlace_Caption = "Place.";
          subLinks_Class = "RecentLinksGrid";
-         subLinks_Allowcollapsing = 0;
-         lblPlace_Caption = "Place.";
          subLinks_Backcolorstyle = 0;
          divMaintable_Class = "RecentLinksMainTable";
          if ( StringUtil.Len( sPrefix) == 0 )
@@ -1426,8 +1443,6 @@ namespace GeneXus.Programs {
          lblRecenttext_Jsonclick = "";
          LinksContainer = new GXWebGrid( context);
          sStyleString = "";
-         subLinks_Header = "";
-         LinksColumn = new GXWebColumn();
          Form = new GXWebForm();
          sXEvt = "";
          sEvt = "";
@@ -1446,6 +1461,8 @@ namespace GeneXus.Programs {
          sCtrlAV7FormPgmName = "";
          subLinks_Linesclass = "";
          lblPlace_Jsonclick = "";
+         subLinks_Header = "";
+         LinksColumn = new GXWebColumn();
          /* GeneXus formulas. */
          context.Gx_err = 0;
       }
@@ -1456,28 +1473,28 @@ namespace GeneXus.Programs {
       private short initialized ;
       private short wbEnd ;
       private short wbStart ;
-      private short subLinks_Backcolorstyle ;
-      private short subLinks_Allowselection ;
-      private short subLinks_Allowhovering ;
-      private short subLinks_Allowcollapsing ;
-      private short subLinks_Collapsed ;
       private short nDraw ;
       private short nDoneStart ;
       private short nDonePA ;
       private short gxcookieaux ;
+      private short subLinks_Backcolorstyle ;
       private short nGXWrapped ;
       private short subLinks_Backstyle ;
+      private short subLinks_Allowselection ;
+      private short subLinks_Allowhovering ;
+      private short subLinks_Allowcollapsing ;
+      private short subLinks_Collapsed ;
       private short LINKS_nEOF ;
       private int nRC_GXsfl_8 ;
       private int nGXsfl_8_idx=1 ;
-      private int subLinks_Selectedindex ;
-      private int subLinks_Selectioncolor ;
-      private int subLinks_Hoveringcolor ;
       private int subLinks_Islastpage ;
       private int AV9i ;
       private int idxLst ;
       private int subLinks_Backcolor ;
       private int subLinks_Allbackcolor ;
+      private int subLinks_Selectedindex ;
+      private int subLinks_Selectioncolor ;
+      private int subLinks_Hoveringcolor ;
       private long LINKS_nCurrentRecord ;
       private long LINKS_nFirstRecordOnPage ;
       private string AV6FormCaption ;
@@ -1499,13 +1516,12 @@ namespace GeneXus.Programs {
       private string lblRecenttext_Jsonclick ;
       private string sStyleString ;
       private string subLinks_Internalname ;
-      private string subLinks_Header ;
-      private string lblPlace_Caption ;
       private string sXEvt ;
       private string sEvt ;
       private string EvtGridId ;
       private string EvtRowId ;
       private string sEvtType ;
+      private string lblPlace_Caption ;
       private string lblPlace_Link ;
       private string sCtrlAV6FormCaption ;
       private string sCtrlAV7FormPgmName ;
@@ -1515,6 +1531,7 @@ namespace GeneXus.Programs {
       private string subLinks_Linesclass ;
       private string divLinkstable_Internalname ;
       private string lblPlace_Jsonclick ;
+      private string subLinks_Header ;
       private bool entryPointCalled ;
       private bool toggleJsOutput ;
       private bool wbLoad ;

@@ -68,7 +68,7 @@ Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "wallet.showkeydetailoneaddres
 EndProject
 Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "developermenu", "developermenu\developermenu.csproj", "{00000000-0000-0000-0000-000000000000}"
 EndProject
-Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "GeneXus.Programs.Common", "GeneXus.Programs.Common\GeneXus.Programs.Common.csproj", "{03fcdd56-2a45-4d36-aa86-34308da28190}"
+Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "GeneXus.Programs.Common", "GeneXus.Programs.Common\GeneXus.Programs.Common.csproj", "{18571f50-534e-4b11-944d-7bf24201279c}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -212,10 +212,10 @@ Global
 	{00000000-0000-0000-0000-000000000000}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	{00000000-0000-0000-0000-000000000000}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	{00000000-0000-0000-0000-000000000000}.Release|Any CPU.Build.0 = Release|Any CPU
-	{03fcdd56-2a45-4d36-aa86-34308da28190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-	{03fcdd56-2a45-4d36-aa86-34308da28190}.Debug|Any CPU.Build.0 = Debug|Any CPU
-	{03fcdd56-2a45-4d36-aa86-34308da28190}.Release|Any CPU.ActiveCfg = Release|Any CPU
-	{03fcdd56-2a45-4d36-aa86-34308da28190}.Release|Any CPU.Build.0 = Release|Any CPU
+	{18571f50-534e-4b11-944d-7bf24201279c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+	{18571f50-534e-4b11-944d-7bf24201279c}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	{18571f50-534e-4b11-944d-7bf24201279c}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	{18571f50-534e-4b11-944d-7bf24201279c}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -128,32 +128,12 @@ namespace GeneXus.Programs.wallet {
                }
                else if ( StringUtil.StrCmp(gxfirstwebparm, "gxajaxNewRow_"+"Gridaddress") == 0 )
                {
-                  nRC_GXsfl_11 = (int)(NumberUtil.Val( GetPar( "nRC_GXsfl_11"), "."));
-                  nGXsfl_11_idx = (int)(NumberUtil.Val( GetPar( "nGXsfl_11_idx"), "."));
-                  sGXsfl_11_idx = GetPar( "sGXsfl_11_idx");
-                  sPrefix = GetPar( "sPrefix");
-                  setAjaxCallMode();
-                  if ( ! IsValidAjaxCall( true) )
-                  {
-                     GxWebError = 1;
-                     return  ;
-                  }
-                  gxnrGridaddress_newrow( ) ;
+                  gxnrGridaddress_newrow_invoke( ) ;
                   return  ;
                }
                else if ( StringUtil.StrCmp(gxfirstwebparm, "gxajaxGridRefresh_"+"Gridaddress") == 0 )
                {
-                  ajax_req_read_hidden_sdt(GetNextPar( ), AV19walletAllLines);
-                  sPrefix = GetPar( "sPrefix");
-                  init_default_properties( ) ;
-                  setAjaxCallMode();
-                  if ( ! IsValidAjaxCall( true) )
-                  {
-                     GxWebError = 1;
-                     return  ;
-                  }
-                  gxgrGridaddress_refresh( AV19walletAllLines, sPrefix) ;
-                  AddString( context.getJSONResponse( )) ;
+                  gxgrGridaddress_refresh_invoke( ) ;
                   return  ;
                }
                else
@@ -181,6 +161,38 @@ namespace GeneXus.Programs.wallet {
                context.PushCurrentUrl();
             }
          }
+      }
+
+      protected void gxnrGridaddress_newrow_invoke( )
+      {
+         nRC_GXsfl_11 = (int)(NumberUtil.Val( GetPar( "nRC_GXsfl_11"), "."));
+         nGXsfl_11_idx = (int)(NumberUtil.Val( GetPar( "nGXsfl_11_idx"), "."));
+         sGXsfl_11_idx = GetPar( "sGXsfl_11_idx");
+         sPrefix = GetPar( "sPrefix");
+         setAjaxCallMode();
+         if ( ! IsValidAjaxCall( true) )
+         {
+            GxWebError = 1;
+            return  ;
+         }
+         gxnrGridaddress_newrow( ) ;
+         /* End function gxnrGridaddress_newrow_invoke */
+      }
+
+      protected void gxgrGridaddress_refresh_invoke( )
+      {
+         ajax_req_read_hidden_sdt(GetNextPar( ), AV19walletAllLines);
+         sPrefix = GetPar( "sPrefix");
+         init_default_properties( ) ;
+         setAjaxCallMode();
+         if ( ! IsValidAjaxCall( true) )
+         {
+            GxWebError = 1;
+            return  ;
+         }
+         gxgrGridaddress_refresh( AV19walletAllLines, sPrefix) ;
+         AddString( context.getJSONResponse( )) ;
+         /* End function gxgrGridaddress_refresh_invoke */
       }
 
       public override void webExecute( )
@@ -275,11 +287,11 @@ namespace GeneXus.Programs.wallet {
          }
          if ( ( ( context.GetBrowserType( ) == 1 ) || ( context.GetBrowserType( ) == 5 ) ) && ( StringUtil.StrCmp(context.GetBrowserVersion( ), "7.0") == 0 ) )
          {
-            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 1936540), false, true);
+            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 2048100), false, true);
          }
-         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 1936540), false, true);
-         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 1936540), false, true);
-         context.AddJavascriptSource("gxcfg.js", "?2022102112335140", false, true);
+         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("gxcfg.js", "?"+GetCacheInvalidationToken( ), false, true);
          if ( context.isSpaRequest( ) )
          {
             enableOutput();
@@ -480,89 +492,7 @@ namespace GeneXus.Programs.wallet {
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "left", "top", "", "", "div");
             /*  Grid Control  */
             GridaddressContainer.SetWrapped(nGXWrapped);
-            if ( GridaddressContainer.GetWrapped() == 1 )
-            {
-               context.WriteHtmlText( "<div id=\""+sPrefix+"GridaddressContainer"+"DivS\" data-gxgridid=\"11\">") ;
-               sStyleString = "";
-               GxWebStd.gx_table_start( context, subGridaddress_Internalname, subGridaddress_Internalname, "", "Grid", 0, "", "", 1, 2, sStyleString, "", "", 0);
-               /* Subfile titles */
-               context.WriteHtmlText( "<tr") ;
-               context.WriteHtmlTextNl( ">") ;
-               if ( subGridaddress_Backcolorstyle == 0 )
-               {
-                  subGridaddress_Titlebackstyle = 0;
-                  if ( StringUtil.Len( subGridaddress_Class) > 0 )
-                  {
-                     subGridaddress_Linesclass = subGridaddress_Class+"Title";
-                  }
-               }
-               else
-               {
-                  subGridaddress_Titlebackstyle = 1;
-                  if ( subGridaddress_Backcolorstyle == 1 )
-                  {
-                     subGridaddress_Titlebackcolor = subGridaddress_Allbackcolor;
-                     if ( StringUtil.Len( subGridaddress_Class) > 0 )
-                     {
-                        subGridaddress_Linesclass = subGridaddress_Class+"UniformTitle";
-                     }
-                  }
-                  else
-                  {
-                     if ( StringUtil.Len( subGridaddress_Class) > 0 )
-                     {
-                        subGridaddress_Linesclass = subGridaddress_Class+"Title";
-                     }
-                  }
-               }
-               context.WriteHtmlText( "<th align=\""+"left"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
-               context.SendWebValue( "Public Address") ;
-               context.WriteHtmlTextNl( "</th>") ;
-               context.WriteHtmlText( "<th align=\""+"right"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
-               context.SendWebValue( "Num. of transactions") ;
-               context.WriteHtmlTextNl( "</th>") ;
-               context.WriteHtmlText( "<th align=\""+"right"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
-               context.SendWebValue( "Ballance on address") ;
-               context.WriteHtmlTextNl( "</th>") ;
-               context.WriteHtmlText( "<th align=\""+"left"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
-               context.SendWebValue( "") ;
-               context.WriteHtmlTextNl( "</th>") ;
-               context.WriteHtmlTextNl( "</tr>") ;
-               GridaddressContainer.AddObjectProperty("GridName", "Gridaddress");
-            }
-            else
-            {
-               GridaddressContainer.AddObjectProperty("GridName", "Gridaddress");
-               GridaddressContainer.AddObjectProperty("Header", subGridaddress_Header);
-               GridaddressContainer.AddObjectProperty("Class", "Grid");
-               GridaddressContainer.AddObjectProperty("Cellpadding", StringUtil.LTrim( StringUtil.NToC( (decimal)(1), 4, 0, ".", "")));
-               GridaddressContainer.AddObjectProperty("Cellspacing", StringUtil.LTrim( StringUtil.NToC( (decimal)(2), 4, 0, ".", "")));
-               GridaddressContainer.AddObjectProperty("Backcolorstyle", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Backcolorstyle), 1, 0, ".", "")));
-               GridaddressContainer.AddObjectProperty("CmpContext", sPrefix);
-               GridaddressContainer.AddObjectProperty("InMasterPage", "false");
-               GridaddressColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
-               GridaddressColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavCtltextaddress_Enabled), 5, 0, ".", "")));
-               GridaddressContainer.AddColumnProperties(GridaddressColumn);
-               GridaddressColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
-               GridaddressColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavCtltransactionscount_Enabled), 5, 0, ".", "")));
-               GridaddressContainer.AddColumnProperties(GridaddressColumn);
-               GridaddressColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
-               GridaddressColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavCtltotalbalance_Enabled), 5, 0, ".", "")));
-               GridaddressContainer.AddColumnProperties(GridaddressColumn);
-               GridaddressColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
-               GridaddressColumn.AddObjectProperty("Value", StringUtil.RTrim( AV15textLink));
-               GridaddressColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavTextlink_Enabled), 5, 0, ".", "")));
-               GridaddressColumn.AddObjectProperty("Link", StringUtil.RTrim( edtavTextlink_Link));
-               GridaddressColumn.AddObjectProperty("Linktarget", StringUtil.RTrim( edtavTextlink_Linktarget));
-               GridaddressContainer.AddColumnProperties(GridaddressColumn);
-               GridaddressContainer.AddObjectProperty("Selectedindex", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Selectedindex), 4, 0, ".", "")));
-               GridaddressContainer.AddObjectProperty("Allowselection", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Allowselection), 1, 0, ".", "")));
-               GridaddressContainer.AddObjectProperty("Selectioncolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Selectioncolor), 9, 0, ".", "")));
-               GridaddressContainer.AddObjectProperty("Allowhover", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Allowhovering), 1, 0, ".", "")));
-               GridaddressContainer.AddObjectProperty("Hovercolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Hoveringcolor), 9, 0, ".", "")));
-               GridaddressContainer.AddObjectProperty("Allowcollapsing", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Allowcollapsing), 1, 0, ".", "")));
-               GridaddressContainer.AddObjectProperty("Collapsed", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Collapsed), 1, 0, ".", "")));
-            }
+            StartGridControl11( ) ;
          }
          if ( wbEnd == 11 )
          {
@@ -642,7 +572,7 @@ namespace GeneXus.Programs.wallet {
             {
                if ( context.ExposeMetadata( ) )
                {
-                  Form.Meta.addItem("generator", "GeneXus .NET 17_0_10-160000", 0) ;
+                  Form.Meta.addItem("generator", "GeneXus .NET 17_0_11-163677", 0) ;
                }
                Form.Meta.addItem("description", "Bip44", 0) ;
             }
@@ -1421,7 +1351,7 @@ namespace GeneXus.Programs.wallet {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2022102112335178", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202211414151760", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1436,7 +1366,7 @@ namespace GeneXus.Programs.wallet {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("wallet/bip44.js", "?2022102112335178", false, true);
+         context.AddJavascriptSource("wallet/bip44.js", "?202211414151760", false, true);
          /* End function include_jscripts */
       }
 
@@ -1563,6 +1493,93 @@ namespace GeneXus.Programs.wallet {
          /* End function init_web_controls */
       }
 
+      protected void StartGridControl11( )
+      {
+         if ( GridaddressContainer.GetWrapped() == 1 )
+         {
+            context.WriteHtmlText( "<div id=\""+sPrefix+"GridaddressContainer"+"DivS\" data-gxgridid=\"11\">") ;
+            sStyleString = "";
+            GxWebStd.gx_table_start( context, subGridaddress_Internalname, subGridaddress_Internalname, "", "Grid", 0, "", "", 1, 2, sStyleString, "", "", 0);
+            /* Subfile titles */
+            context.WriteHtmlText( "<tr") ;
+            context.WriteHtmlTextNl( ">") ;
+            if ( subGridaddress_Backcolorstyle == 0 )
+            {
+               subGridaddress_Titlebackstyle = 0;
+               if ( StringUtil.Len( subGridaddress_Class) > 0 )
+               {
+                  subGridaddress_Linesclass = subGridaddress_Class+"Title";
+               }
+            }
+            else
+            {
+               subGridaddress_Titlebackstyle = 1;
+               if ( subGridaddress_Backcolorstyle == 1 )
+               {
+                  subGridaddress_Titlebackcolor = subGridaddress_Allbackcolor;
+                  if ( StringUtil.Len( subGridaddress_Class) > 0 )
+                  {
+                     subGridaddress_Linesclass = subGridaddress_Class+"UniformTitle";
+                  }
+               }
+               else
+               {
+                  if ( StringUtil.Len( subGridaddress_Class) > 0 )
+                  {
+                     subGridaddress_Linesclass = subGridaddress_Class+"Title";
+                  }
+               }
+            }
+            context.WriteHtmlText( "<th align=\""+"left"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
+            context.SendWebValue( "Public Address") ;
+            context.WriteHtmlTextNl( "</th>") ;
+            context.WriteHtmlText( "<th align=\""+"right"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
+            context.SendWebValue( "Num. of transactions") ;
+            context.WriteHtmlTextNl( "</th>") ;
+            context.WriteHtmlText( "<th align=\""+"right"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
+            context.SendWebValue( "Ballance on address") ;
+            context.WriteHtmlTextNl( "</th>") ;
+            context.WriteHtmlText( "<th align=\""+"left"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
+            context.SendWebValue( "") ;
+            context.WriteHtmlTextNl( "</th>") ;
+            context.WriteHtmlTextNl( "</tr>") ;
+            GridaddressContainer.AddObjectProperty("GridName", "Gridaddress");
+         }
+         else
+         {
+            GridaddressContainer.AddObjectProperty("GridName", "Gridaddress");
+            GridaddressContainer.AddObjectProperty("Header", subGridaddress_Header);
+            GridaddressContainer.AddObjectProperty("Class", "Grid");
+            GridaddressContainer.AddObjectProperty("Cellpadding", StringUtil.LTrim( StringUtil.NToC( (decimal)(1), 4, 0, ".", "")));
+            GridaddressContainer.AddObjectProperty("Cellspacing", StringUtil.LTrim( StringUtil.NToC( (decimal)(2), 4, 0, ".", "")));
+            GridaddressContainer.AddObjectProperty("Backcolorstyle", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Backcolorstyle), 1, 0, ".", "")));
+            GridaddressContainer.AddObjectProperty("CmpContext", sPrefix);
+            GridaddressContainer.AddObjectProperty("InMasterPage", "false");
+            GridaddressColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
+            GridaddressColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavCtltextaddress_Enabled), 5, 0, ".", "")));
+            GridaddressContainer.AddColumnProperties(GridaddressColumn);
+            GridaddressColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
+            GridaddressColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavCtltransactionscount_Enabled), 5, 0, ".", "")));
+            GridaddressContainer.AddColumnProperties(GridaddressColumn);
+            GridaddressColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
+            GridaddressColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavCtltotalbalance_Enabled), 5, 0, ".", "")));
+            GridaddressContainer.AddColumnProperties(GridaddressColumn);
+            GridaddressColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
+            GridaddressColumn.AddObjectProperty("Value", StringUtil.RTrim( AV15textLink));
+            GridaddressColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavTextlink_Enabled), 5, 0, ".", "")));
+            GridaddressColumn.AddObjectProperty("Link", StringUtil.RTrim( edtavTextlink_Link));
+            GridaddressColumn.AddObjectProperty("Linktarget", StringUtil.RTrim( edtavTextlink_Linktarget));
+            GridaddressContainer.AddColumnProperties(GridaddressColumn);
+            GridaddressContainer.AddObjectProperty("Selectedindex", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Selectedindex), 4, 0, ".", "")));
+            GridaddressContainer.AddObjectProperty("Allowselection", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Allowselection), 1, 0, ".", "")));
+            GridaddressContainer.AddObjectProperty("Selectioncolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Selectioncolor), 9, 0, ".", "")));
+            GridaddressContainer.AddObjectProperty("Allowhover", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Allowhovering), 1, 0, ".", "")));
+            GridaddressContainer.AddObjectProperty("Hovercolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Hoveringcolor), 9, 0, ".", "")));
+            GridaddressContainer.AddObjectProperty("Allowcollapsing", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Allowcollapsing), 1, 0, ".", "")));
+            GridaddressContainer.AddObjectProperty("Collapsed", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridaddress_Collapsed), 1, 0, ".", "")));
+         }
+      }
+
       protected void init_default_properties( )
       {
          edtavTotalbalance_Internalname = sPrefix+"vTOTALBALANCE";
@@ -1589,20 +1606,20 @@ namespace GeneXus.Programs.wallet {
             }
          }
          init_default_properties( ) ;
-         edtavTextlink_Jsonclick = "";
-         edtavTextlink_Visible = -1;
-         edtavCtltotalbalance_Jsonclick = "";
-         edtavCtltransactionscount_Jsonclick = "";
-         edtavCtltextaddress_Jsonclick = "";
          subGridaddress_Allowcollapsing = 0;
          subGridaddress_Allowselection = 0;
+         subGridaddress_Header = "";
+         edtavTextlink_Jsonclick = "";
+         edtavTextlink_Visible = -1;
          edtavTextlink_Linktarget = "";
          edtavTextlink_Link = "";
          edtavTextlink_Enabled = 1;
+         edtavCtltotalbalance_Jsonclick = "";
          edtavCtltotalbalance_Enabled = 0;
+         edtavCtltransactionscount_Jsonclick = "";
          edtavCtltransactionscount_Enabled = 0;
+         edtavCtltextaddress_Jsonclick = "";
          edtavCtltextaddress_Enabled = 0;
-         subGridaddress_Header = "";
          subGridaddress_Class = "Grid";
          subGridaddress_Backcolorstyle = 0;
          edtavTotalbalance_Jsonclick = "";
@@ -1665,15 +1682,13 @@ namespace GeneXus.Programs.wallet {
          TempTags = "";
          GridaddressContainer = new GXWebGrid( context);
          sStyleString = "";
-         subGridaddress_Linesclass = "";
-         GridaddressColumn = new GXWebColumn();
-         AV15textLink = "";
          Form = new GXWebForm();
          sXEvt = "";
          sEvt = "";
          EvtGridId = "";
          EvtRowId = "";
          sEvtType = "";
+         AV15textLink = "";
          AV9extKeyInfoRoot = new GeneXus.Programs.nbitcoin.SdtExtKeyInfo(context);
          GXt_SdtExtKeyInfo1 = new GeneXus.Programs.nbitcoin.SdtExtKeyInfo(context);
          AV18wallet = new GeneXus.Programs.wallet.SdtWallet(context);
@@ -1690,7 +1705,9 @@ namespace GeneXus.Programs.wallet {
          GridaddressRow = new GXWebRow();
          BackMsgLst = new msglist();
          LclMsgLst = new msglist();
+         subGridaddress_Linesclass = "";
          ROClassString = "";
+         GridaddressColumn = new GXWebColumn();
          /* GeneXus formulas. */
          context.Gx_err = 0;
          edtavTotalbalance_Enabled = 0;
@@ -1706,19 +1723,19 @@ namespace GeneXus.Programs.wallet {
       private short initialized ;
       private short wbEnd ;
       private short wbStart ;
+      private short nDraw ;
+      private short nDoneStart ;
+      private short nDonePA ;
+      private short gxcookieaux ;
       private short subGridaddress_Backcolorstyle ;
+      private short AV14numChainPath ;
+      private short nGXWrapped ;
+      private short subGridaddress_Backstyle ;
       private short subGridaddress_Titlebackstyle ;
       private short subGridaddress_Allowselection ;
       private short subGridaddress_Allowhovering ;
       private short subGridaddress_Allowcollapsing ;
       private short subGridaddress_Collapsed ;
-      private short nDraw ;
-      private short nDoneStart ;
-      private short nDonePA ;
-      private short gxcookieaux ;
-      private short AV14numChainPath ;
-      private short nGXWrapped ;
-      private short subGridaddress_Backstyle ;
       private short GRIDADDRESS_nEOF ;
       private int nRC_GXsfl_11 ;
       private int nGXsfl_11_idx=1 ;
@@ -1727,18 +1744,18 @@ namespace GeneXus.Programs.wallet {
       private int edtavCtltransactionscount_Enabled ;
       private int edtavCtltotalbalance_Enabled ;
       private int edtavTextlink_Enabled ;
-      private int subGridaddress_Titlebackcolor ;
-      private int subGridaddress_Allbackcolor ;
-      private int subGridaddress_Selectedindex ;
-      private int subGridaddress_Selectioncolor ;
-      private int subGridaddress_Hoveringcolor ;
       private int AV24GXV1 ;
       private int subGridaddress_Islastpage ;
       private int nGXsfl_11_fel_idx=1 ;
       private int AV21currentItem ;
       private int idxLst ;
       private int subGridaddress_Backcolor ;
+      private int subGridaddress_Allbackcolor ;
       private int edtavTextlink_Visible ;
+      private int subGridaddress_Titlebackcolor ;
+      private int subGridaddress_Selectedindex ;
+      private int subGridaddress_Selectioncolor ;
+      private int subGridaddress_Hoveringcolor ;
       private long GRIDADDRESS_nCurrentRecord ;
       private long AV17transactionsCount ;
       private long GRIDADDRESS_nFirstRecordOnPage ;
@@ -1765,26 +1782,26 @@ namespace GeneXus.Programs.wallet {
       private string edtavTotalbalance_Jsonclick ;
       private string sStyleString ;
       private string subGridaddress_Internalname ;
-      private string subGridaddress_Class ;
-      private string subGridaddress_Linesclass ;
-      private string subGridaddress_Header ;
-      private string AV15textLink ;
-      private string edtavTextlink_Link ;
-      private string edtavTextlink_Linktarget ;
       private string sXEvt ;
       private string sEvt ;
       private string EvtGridId ;
       private string EvtRowId ;
       private string sEvtType ;
+      private string AV15textLink ;
       private string sGXsfl_11_fel_idx="0001" ;
       private string AV6error ;
       private string AV13mainAddress ;
       private string GXt_char3 ;
+      private string edtavTextlink_Link ;
+      private string edtavTextlink_Linktarget ;
+      private string subGridaddress_Class ;
+      private string subGridaddress_Linesclass ;
       private string ROClassString ;
       private string edtavCtltextaddress_Jsonclick ;
       private string edtavCtltransactionscount_Jsonclick ;
       private string edtavCtltotalbalance_Jsonclick ;
       private string edtavTextlink_Jsonclick ;
+      private string subGridaddress_Header ;
       private bool entryPointCalled ;
       private bool toggleJsOutput ;
       private bool bGXsfl_11_Refreshing=false ;

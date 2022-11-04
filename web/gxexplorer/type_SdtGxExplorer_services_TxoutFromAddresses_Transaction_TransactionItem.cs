@@ -1,7 +1,7 @@
 /*
 				   File: type_SdtGxExplorer_services_TxoutFromAddresses_Transaction_TransactionItem
 			Description: GxExplorer_services_TxoutFromAddresses_Transaction_TransactionItem
-				 Author: Nemo 🐠 for C# (.NET) version 17.0.10.160000
+				 Author: Nemo 🐠 for C# (.NET) version 17.0.11.163677
 		   Program type: Callable routine
 			  Main DBMS: 
 */

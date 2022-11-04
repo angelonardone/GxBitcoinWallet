@@ -2,6 +2,153 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Experimental.System.Messaging.Signed/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Experimental.System.Messaging.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Experimental.System.Messaging.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "GeneXus.Classes.Core/1.19.5": {
+        "type": "package",
+        "dependencies": {
+          "Experimental.System.Messaging.Signed": "1.0.0",
+          "GeneXus.Cryptography": "1.19.5",
+          "GeneXus.Cryptography.Common": "1.19.5",
+          "GeneXus.Encrypt": "1.19.5",
+          "GeneXus.Xsl.Core": "1.19.5",
+          "Microsoft.Data.SqlClient": "1.0.19269.1",
+          "Microsoft.IdentityModel.Tokens": "6.5.1",
+          "Microsoft.Win32.Registry": "4.7.0",
+          "MySqlConnector": "1.0.1",
+          "NUglify": "1.16.4",
+          "NetTopologySuite": "2.0.0",
+          "NetTopologySuite.Core": "1.15.3",
+          "Novell.Directory.Ldap.NETStandard": "3.3.1",
+          "Npgsql": "3.2.7",
+          "Sandwych.GeographicLib": "1.49.3",
+          "Stubble.Core": "1.8.4",
+          "System.DirectoryServices": "4.7.0",
+          "System.Drawing.Common": "4.7.0",
+          "System.IdentityModel.Tokens.Jwt": "6.5.1",
+          "log4net": "2.0.11"
+        },
+        "compile": {
+          "lib/net6.0/GxClasses.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/GxClasses.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "GeneXus.Classes.Web.Core/1.19.5": {
+        "type": "package",
+        "dependencies": {
+          "GeneXus.Classes.Core": "1.19.5",
+          "log4net": "2.0.11"
+        },
+        "compile": {
+          "lib/net6.0/GxClasses.Web.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/GxClasses.Web.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        }
+      },
+      "GeneXus.Cryptography/1.19.5": {
+        "type": "package",
+        "dependencies": {
+          "GeneXus.Cryptography.Common": "1.19.5"
+        },
+        "compile": {
+          "lib/net6.0/GxCryptography.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/GxCryptography.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        }
+      },
+      "GeneXus.Cryptography.Common/1.19.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/GxCryptographyCommon.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/GxCryptographyCommon.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        }
+      },
+      "GeneXus.Encrypt/1.19.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Tokens": "6.5.1"
+        },
+        "compile": {
+          "lib/net6.0/GxEncrypt.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/GxEncrypt.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        }
+      },
+      "GeneXus.PdfReportsCS.Core/1.19.5": {
+        "type": "package",
+        "dependencies": {
+          "GeneXus.Classes.Core": "1.19.5",
+          "Microsoft.Win32.Registry": "4.7.0",
+          "System.Drawing.Common": "4.7.0",
+          "System.Text.Encoding.CodePages": "4.7.0",
+          "iTextSharp-LGPL": "4.1.6",
+          "log4net": "2.0.11"
+        },
+        "compile": {
+          "lib/net6.0/GxPdfReportsCS.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/GxPdfReportsCS.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        }
+      },
+      "GeneXus.Xsl.Core/1.19.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/GxXsl.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/GxXsl.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        }
+      },
       "GeoAPI.Core/1.7.5": {
         "type": "package",
         "compile": {
@@ -22,6 +169,22 @@
         },
         "runtime": {
           "lib/iTextSharp.dll": {}
+        }
+      },
+      "log4net/2.0.11": {
+        "type": "package",
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/log4net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/log4net.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.CSharp/4.5.0": {
@@ -65,22 +228,6 @@
           }
         }
       },
-      "Microsoft.Extensions.DependencyModel/3.0.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Text.Json": "4.6.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.Extensions.Logging.Abstractions/3.1.7": {
         "type": "package",
         "compile": {
@@ -117,6 +264,53 @@
           }
         }
       },
+      "Microsoft.IdentityModel.JsonWebTokens/6.5.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Tokens": "6.5.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.IdentityModel.Logging/6.5.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.IdentityModel.Tokens/6.5.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.IdentityModel.Logging": "6.5.1",
+          "System.Security.Cryptography.Cng": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -148,19 +342,21 @@
           }
         }
       },
-      "Microsoft.Win32.Registry/4.5.0": {
+      "Microsoft.Win32.Registry/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.Security.AccessControl": "4.5.0",
-          "System.Security.Principal.Windows": "4.5.0"
+          "System.Security.AccessControl": "4.7.0",
+          "System.Security.Principal.Windows": "4.7.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {
+          "ref/netstandard2.0/Microsoft.Win32.Registry.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Win32.Registry.dll": {}
+          "lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "related": ".xml"
+          }
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
@@ -192,6 +388,19 @@
           "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
             "assetType": "runtime",
             "rid": "win"
+          }
+        }
+      },
+      "MySqlConnector/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/MySqlConnector.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/MySqlConnector.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -288,6 +497,35 @@
         },
         "runtime": {
           "lib/netstandard2.1/Novell.Directory.Ldap.NETStandard.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Npgsql/3.2.7": {
+        "type": "package",
+        "dependencies": {
+          "System.Threading.Tasks.Extensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NUglify/1.16.4": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/NUglify.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/NUglify.dll": {
             "related": ".xml"
           }
         }
@@ -510,6 +748,24 @@
           "lib/netstandard1.1/Sandwych.GeographicLib.dll": {}
         }
       },
+      "Stubble.Core/1.8.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "System.Collections.Immutable": "1.5.0",
+          "System.Threading.Tasks.Extensions": "4.5.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Stubble.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Stubble.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -574,6 +830,19 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.Collections.Concurrent.dll": {}
+        }
+      },
+      "System.Collections.Immutable/1.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Collections.NonGeneric/4.3.0": {
@@ -795,7 +1064,7 @@
           "Microsoft.Win32.SystemEvents": "4.7.0"
         },
         "compile": {
-          "ref/netcoreapp3.0/_._": {
+          "ref/netcoreapp3.0/System.Drawing.Common.dll": {
             "related": ".xml"
           }
         },
@@ -863,6 +1132,23 @@
           "runtimes/win/lib/netstandard1.3/System.Globalization.Extensions.dll": {
             "assetType": "runtime",
             "rid": "win"
+          }
+        }
+      },
+      "System.IdentityModel.Tokens.Jwt/6.5.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.JsonWebTokens": "6.5.1",
+          "Microsoft.IdentityModel.Tokens": "6.5.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -1372,19 +1658,6 @@
           }
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.0": {
-        "type": "package",
-        "compile": {
-          "ref/netstandard2.0/_._": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "System.Runtime.Extensions/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1576,30 +1849,18 @@
           }
         }
       },
-      "System.Security.Cryptography.Cng/4.3.0": {
+      "System.Security.Cryptography.Cng/4.5.0": {
         "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0",
-          "System.IO": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Runtime.Handles": "4.3.0",
-          "System.Runtime.InteropServices": "4.3.0",
-          "System.Security.Cryptography.Algorithms": "4.3.0",
-          "System.Security.Cryptography.Encoding": "4.3.0",
-          "System.Security.Cryptography.Primitives": "4.3.0",
-          "System.Text.Encoding": "4.3.0"
-        },
         "compile": {
-          "ref/netstandard1.6/_._": {}
+          "ref/netcoreapp2.1/System.Security.Cryptography.Cng.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/System.Security.Cryptography.Cng.dll": {}
         },
         "runtimeTargets": {
-          "runtimes/unix/lib/netstandard1.6/System.Security.Cryptography.Cng.dll": {
-            "assetType": "runtime",
-            "rid": "unix"
-          },
-          "runtimes/win/lib/netstandard1.6/System.Security.Cryptography.Cng.dll": {
+          "runtimes/win/lib/netcoreapp2.1/System.Security.Cryptography.Cng.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -1859,19 +2120,20 @@
           }
         }
       },
-      "System.Text.Encoding.CodePages/4.5.0": {
+      "System.Text.Encoding.CodePages/4.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "2.0.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.0"
+          "Microsoft.NETCore.Platforms": "3.1.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {
+          "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {}
+          "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {
+            "related": ".xml"
+          }
         },
         "runtimeTargets": {
           "runtimes/win/lib/netcoreapp2.0/System.Text.Encoding.CodePages.dll": {
@@ -1890,19 +2152,6 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Text.Encoding.Extensions.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "System.Text.Json/4.6.0": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.0/System.Text.Json.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/System.Text.Json.dll": {
             "related": ".xml"
           }
         }
@@ -1947,22 +2196,13 @@
           }
         }
       },
-      "System.Threading.Tasks.Extensions/4.3.0": {
+      "System.Threading.Tasks.Extensions/4.5.1": {
         "type": "package",
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Threading.Tasks": "4.3.0"
-        },
         "compile": {
-          "lib/netstandard1.0/_._": {
-            "related": ".xml"
-          }
+          "ref/netcoreapp2.1/_._": {}
         },
         "runtime": {
-          "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll": {
-            "related": ".xml"
-          }
+          "lib/netcoreapp2.1/_._": {}
         }
       },
       "System.Threading.Timer/4.3.0": {
@@ -2110,16 +2350,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/appmasterpage.dll": {}
@@ -2135,15 +2368,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]"
         },
         "compile": {
           "bin/placeholder/GeneXus.Programs.Common.dll": {}
@@ -2159,16 +2385,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/promptmasterpage.dll": {}
@@ -2184,16 +2403,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/recentlinks.dll": {}
@@ -2209,16 +2421,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/rwdmasterpage.dll": {}
@@ -2234,16 +2439,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/rwdpromptmasterpage.dll": {}
@@ -2259,16 +2457,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/rwdrecentlinks.dll": {}
@@ -2284,16 +2475,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/test1.dll": {}
@@ -2309,16 +2493,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/test2.dll": {}
@@ -2334,16 +2511,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/test3.dll": {}
@@ -2359,16 +2529,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/wallet.bip44.dll": {}
@@ -2384,16 +2547,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/wallet.editnote.dll": {}
@@ -2409,16 +2565,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/wallet.enterpassword.dll": {}
@@ -2434,16 +2583,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/wallet.files.dll": {}
@@ -2459,16 +2601,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/wallet.htmlcreatewallet.dll": {}
@@ -2484,16 +2619,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/wallet.newnote.dll": {}
@@ -2509,16 +2637,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/wallet.notes.dll": {}
@@ -2534,16 +2655,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/wallet.oneaddress.dll": {}
@@ -2559,16 +2673,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/wallet.openwallet.dll": {}
@@ -2584,16 +2691,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/wallet.resotrewallet.dll": {}
@@ -2609,16 +2709,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/wallet.showextendedkey.dll": {}
@@ -2634,16 +2727,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/wallet.showkeydetail.dll": {}
@@ -2659,16 +2745,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/wallet.showkeydetailoneaddress.dll": {}
@@ -2684,16 +2763,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "GeneXus.Programs.Common": "1.0.0",
-          "Microsoft.Data.SqlClient": "1.0.19269.1",
-          "Microsoft.Extensions.DependencyModel": "3.0.0",
-          "NetTopologySuite": "2.0.0",
-          "NetTopologySuite.Core": "1.15.3",
-          "Novell.Directory.Ldap.NETStandard": "3.3.1",
-          "Sandwych.GeographicLib": "1.49.3",
-          "System.Configuration.ConfigurationManager": "4.5.0",
-          "System.DirectoryServices": "4.7.0",
-          "iTextSharp-LGPL": "4.1.6"
+          "GeneXus.Classes.Web.Core": "[1.19.5]",
+          "GeneXus.PdfReportsCS.Core": "[1.19.5]",
+          "GeneXus.Programs.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/wallet.wallets.dll": {}
@@ -2708,6 +2780,113 @@
     }
   },
   "libraries": {
+    "Experimental.System.Messaging.Signed/1.0.0": {
+      "sha512": "ddBYmU3LTmU4KdCJc+JR8kvA7j/N6uX4oR7yX5/RZPTgcyqZF7zmnAHinCm6YXmST0a9KKwPv6sVrx0+YnJq7A==",
+      "type": "package",
+      "path": "experimental.system.messaging.signed/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "experimental.system.messaging.signed.1.0.0.nupkg.sha512",
+        "experimental.system.messaging.signed.nuspec",
+        "lib/netstandard2.0/Experimental.System.Messaging.dll",
+        "lib/netstandard2.0/Experimental.System.Messaging.xml"
+      ]
+    },
+    "GeneXus.Classes.Core/1.19.5": {
+      "sha512": "U2jKlLV1gC4k2wBTIoo6dleJUBikA/YlLOLUW4W+25eoKQ010bKQl0DitZ0xdx9XYwycRlRGGZobAwtDiNNYQA==",
+      "type": "package",
+      "path": "genexus.classes.core/1.19.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "genexus.classes.core.1.19.5.nupkg.sha512",
+        "genexus.classes.core.nuspec",
+        "lib/net6.0/GxClasses.dll",
+        "lib/net6.0/GxClasses.runtimeconfig.json"
+      ]
+    },
+    "GeneXus.Classes.Web.Core/1.19.5": {
+      "sha512": "ujH2MbmOkFManiSAVrxN9W1kgeLKPdKtm2ehscoN8tEdkbISt8upnu+B2j1Ynl73XInl4T08gJ7sTwTbi6mkcg==",
+      "type": "package",
+      "path": "genexus.classes.web.core/1.19.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "genexus.classes.web.core.1.19.5.nupkg.sha512",
+        "genexus.classes.web.core.nuspec",
+        "lib/net6.0/GxClasses.Web.dll",
+        "lib/net6.0/GxClasses.Web.runtimeconfig.json"
+      ]
+    },
+    "GeneXus.Cryptography/1.19.5": {
+      "sha512": "+PBYui6n/ovTbqZ6O8VHvnyfTvncrr4vATFmx7UmYpDc1yreKp/yv4hmGHBd3BllOAyKvprGOydvLqLQTsoLeg==",
+      "type": "package",
+      "path": "genexus.cryptography/1.19.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "genexus.cryptography.1.19.5.nupkg.sha512",
+        "genexus.cryptography.nuspec",
+        "lib/net462/GxCryptography.dll",
+        "lib/net6.0/GxCryptography.dll",
+        "lib/net6.0/GxCryptography.runtimeconfig.json"
+      ]
+    },
+    "GeneXus.Cryptography.Common/1.19.5": {
+      "sha512": "28fv2i4ZKcUkFzUPHsYJP72zhhRo5fdmX4gqC+WKpVqvv8tPBXyNK02PZ0tUdWkWcVcoYJylsJB+UpIe4D4OPQ==",
+      "type": "package",
+      "path": "genexus.cryptography.common/1.19.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "genexus.cryptography.common.1.19.5.nupkg.sha512",
+        "genexus.cryptography.common.nuspec",
+        "lib/net462/GxCryptographyCommon.dll",
+        "lib/net6.0/GxCryptographyCommon.dll",
+        "lib/net6.0/GxCryptographyCommon.runtimeconfig.json"
+      ]
+    },
+    "GeneXus.Encrypt/1.19.5": {
+      "sha512": "Sgk40MX/oevPW7NQ6z+aMTiRbcuUeCy5Pb8aq3r7MXnekmTSVDG8aOya2DhL4yNrF1dwleV/K0u4p4leSA5O9Q==",
+      "type": "package",
+      "path": "genexus.encrypt/1.19.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "genexus.encrypt.1.19.5.nupkg.sha512",
+        "genexus.encrypt.nuspec",
+        "lib/net462/GxEncrypt.dll",
+        "lib/net6.0/GxEncrypt.dll",
+        "lib/net6.0/GxEncrypt.runtimeconfig.json"
+      ]
+    },
+    "GeneXus.PdfReportsCS.Core/1.19.5": {
+      "sha512": "ZZskT0RNsmwtosRi4HYBadkmUsjCIVKm3oIb46wLTrxhemAQWrTM2iggMWNTVpohkl8BxYXx7PfJ0Vz/Eo6HzA==",
+      "type": "package",
+      "path": "genexus.pdfreportscs.core/1.19.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "genexus.pdfreportscs.core.1.19.5.nupkg.sha512",
+        "genexus.pdfreportscs.core.nuspec",
+        "lib/net6.0/GxPdfReportsCS.dll",
+        "lib/net6.0/GxPdfReportsCS.runtimeconfig.json"
+      ]
+    },
+    "GeneXus.Xsl.Core/1.19.5": {
+      "sha512": "8A305nd6G7F5f0Bu2tSx3uijpUm/TiyZqnPyFkZKjGZKRgl1emc8HhOfoe5w2eGnWQY1HkNtNsdQRqQK7+PaKQ==",
+      "type": "package",
+      "path": "genexus.xsl.core/1.19.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "genexus.xsl.core.1.19.5.nupkg.sha512",
+        "genexus.xsl.core.nuspec",
+        "lib/net6.0/GxXsl.dll",
+        "lib/net6.0/GxXsl.runtimeconfig.json"
+      ]
+    },
     "GeoAPI.Core/1.7.5": {
       "sha512": "Dy/YkgZ1szgx+xbVWqMi+4++Fm6v3szbVdei1LKPRZ3meSvgNSMZxqhar5IAeaTj5LcUHLtLGdfyUtkjnYbg3A==",
       "type": "package",
@@ -2817,6 +2996,34 @@
         "itextsharp-lgpl.4.1.6.nupkg.sha512",
         "itextsharp-lgpl.nuspec",
         "lib/iTextSharp.dll"
+      ]
+    },
+    "log4net/2.0.11": {
+      "sha512": "4MEfp6dSN/Cl4XHRqBo8eOkhlH9AOt/ydmPRaj/FHuKHTNoPuKjbaT97aACmePpkW5QHQ+YudhYYvVStabOZmQ==",
+      "type": "package",
+      "path": "log4net/2.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/log4net.dll",
+        "lib/net20/log4net.xml",
+        "lib/net35-client/log4net.dll",
+        "lib/net35-client/log4net.xml",
+        "lib/net35/log4net.dll",
+        "lib/net35/log4net.xml",
+        "lib/net40-client/log4net.dll",
+        "lib/net40-client/log4net.xml",
+        "lib/net40/log4net.dll",
+        "lib/net40/log4net.xml",
+        "lib/net45/log4net.dll",
+        "lib/net45/log4net.xml",
+        "lib/netstandard1.3/log4net.dll",
+        "lib/netstandard1.3/log4net.xml",
+        "lib/netstandard2.0/log4net.dll",
+        "lib/netstandard2.0/log4net.xml",
+        "log4net.2.0.11.nupkg.sha512",
+        "log4net.nuspec",
+        "package-icon.png"
       ]
     },
     "Microsoft.CSharp/4.5.0": {
@@ -2930,27 +3137,6 @@
         "runtimes/win/lib/netstandard2.0/Microsoft.Data.SqlClient.pdb"
       ]
     },
-    "Microsoft.Extensions.DependencyModel/3.0.0": {
-      "sha512": "Iaectmzg9Dc4ZbKX/FurrRjgO/I8rTumL5UU+Uube6vZuGetcnXoIgTA94RthFWePhdMVm8MMhVFJZdbzMsdyQ==",
-      "type": "package",
-      "path": "microsoft.extensions.dependencymodel/3.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net451/Microsoft.Extensions.DependencyModel.dll",
-        "lib/net451/Microsoft.Extensions.DependencyModel.xml",
-        "lib/netstandard1.3/Microsoft.Extensions.DependencyModel.dll",
-        "lib/netstandard1.3/Microsoft.Extensions.DependencyModel.xml",
-        "lib/netstandard1.6/Microsoft.Extensions.DependencyModel.dll",
-        "lib/netstandard1.6/Microsoft.Extensions.DependencyModel.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.xml",
-        "microsoft.extensions.dependencymodel.3.0.0.nupkg.sha512",
-        "microsoft.extensions.dependencymodel.nuspec"
-      ]
-    },
     "Microsoft.Extensions.Logging.Abstractions/3.1.7": {
       "sha512": "oD7LQbMuaqq/yAz8PKX0hl4+H/vDFTQHo8rxbKB36P1/bG8FG7JUVKBoHkSt1MaJUtgyiHrH1AlAhaucKUKyEg==",
       "type": "package",
@@ -3003,6 +3189,57 @@
         "ref/uap10.0/Microsoft.Identity.Client.xml",
         "ref/xamarinmac20/Microsoft.Identity.Client.dll",
         "ref/xamarinmac20/Microsoft.Identity.Client.xml"
+      ]
+    },
+    "Microsoft.IdentityModel.JsonWebTokens/6.5.1": {
+      "sha512": "zOnP8Hv6JcA+E2qeHGVo6KM7lV7J9kj2a/+VasTTqZ1mkLhnxTLpX7oZ3n8HJ7hZXuG2KY3P/EaCt6eApM30kQ==",
+      "type": "package",
+      "path": "microsoft.identitymodel.jsonwebtokens/6.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.IdentityModel.JsonWebTokens.dll",
+        "lib/net45/Microsoft.IdentityModel.JsonWebTokens.xml",
+        "lib/net461/Microsoft.IdentityModel.JsonWebTokens.dll",
+        "lib/net461/Microsoft.IdentityModel.JsonWebTokens.xml",
+        "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll",
+        "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.xml",
+        "microsoft.identitymodel.jsonwebtokens.6.5.1.nupkg.sha512",
+        "microsoft.identitymodel.jsonwebtokens.nuspec"
+      ]
+    },
+    "Microsoft.IdentityModel.Logging/6.5.1": {
+      "sha512": "iujlW4mgBKaib0gB3wbJLCCRhaNmxt504O5aGMdIH0JLIjCw+LbX+q3SFf3u0C29rYErvQQ9xeAtGywjvSGLxg==",
+      "type": "package",
+      "path": "microsoft.identitymodel.logging/6.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.IdentityModel.Logging.dll",
+        "lib/net45/Microsoft.IdentityModel.Logging.xml",
+        "lib/net461/Microsoft.IdentityModel.Logging.dll",
+        "lib/net461/Microsoft.IdentityModel.Logging.xml",
+        "lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll",
+        "lib/netstandard2.0/Microsoft.IdentityModel.Logging.xml",
+        "microsoft.identitymodel.logging.6.5.1.nupkg.sha512",
+        "microsoft.identitymodel.logging.nuspec"
+      ]
+    },
+    "Microsoft.IdentityModel.Tokens/6.5.1": {
+      "sha512": "+kKU5tbizQmXee6iYJwqxROInlohMYhKYbLa37BUnU/YBhCvPapi2iywE4bVgno2NOF78p7VBERd/s+gYM/9dA==",
+      "type": "package",
+      "path": "microsoft.identitymodel.tokens/6.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.IdentityModel.Tokens.dll",
+        "lib/net45/Microsoft.IdentityModel.Tokens.xml",
+        "lib/net461/Microsoft.IdentityModel.Tokens.dll",
+        "lib/net461/Microsoft.IdentityModel.Tokens.xml",
+        "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll",
+        "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.xml",
+        "microsoft.identitymodel.tokens.6.5.1.nupkg.sha512",
+        "microsoft.identitymodel.tokens.nuspec"
       ]
     },
     "Microsoft.NETCore.Platforms/3.1.0": {
@@ -3075,10 +3312,10 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "Microsoft.Win32.Registry/4.5.0": {
-      "sha512": "+FWlwd//+Tt56316p00hVePBCouXyEzT86Jb3+AuRotTND0IYn0OO3obs1gnQEs/txEnt+rF2JBGLItTG+Be6A==",
+    "Microsoft.Win32.Registry/4.7.0": {
+      "sha512": "KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==",
       "type": "package",
-      "path": "microsoft.win32.registry/4.5.0",
+      "path": "microsoft.win32.registry/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3086,13 +3323,17 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net46/Microsoft.Win32.Registry.dll",
         "lib/net461/Microsoft.Win32.Registry.dll",
+        "lib/net461/Microsoft.Win32.Registry.xml",
         "lib/netstandard1.3/Microsoft.Win32.Registry.dll",
         "lib/netstandard2.0/Microsoft.Win32.Registry.dll",
-        "microsoft.win32.registry.4.5.0.nupkg.sha512",
+        "lib/netstandard2.0/Microsoft.Win32.Registry.xml",
+        "microsoft.win32.registry.4.7.0.nupkg.sha512",
         "microsoft.win32.registry.nuspec",
         "ref/net46/Microsoft.Win32.Registry.dll",
         "ref/net461/Microsoft.Win32.Registry.dll",
         "ref/net461/Microsoft.Win32.Registry.xml",
+        "ref/net472/Microsoft.Win32.Registry.dll",
+        "ref/net472/Microsoft.Win32.Registry.xml",
         "ref/netstandard1.3/Microsoft.Win32.Registry.dll",
         "ref/netstandard1.3/Microsoft.Win32.Registry.xml",
         "ref/netstandard1.3/de/Microsoft.Win32.Registry.xml",
@@ -3107,10 +3348,13 @@
         "ref/netstandard2.0/Microsoft.Win32.Registry.dll",
         "ref/netstandard2.0/Microsoft.Win32.Registry.xml",
         "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
+        "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
         "runtimes/win/lib/net46/Microsoft.Win32.Registry.dll",
         "runtimes/win/lib/net461/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/net461/Microsoft.Win32.Registry.xml",
         "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Registry.dll",
         "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -3142,6 +3386,36 @@
         "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "MySqlConnector/1.0.1": {
+      "sha512": "bnQk6joP7z0k1aIk13BjrZXIakN+UobXjO8EMh/Y+L6vZ6ul9cJ8RXkD9tia86ksgFs9GqmvPgX7ILx7mOpwNQ==",
+      "type": "package",
+      "path": "mysqlconnector/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/MySqlConnector.dll",
+        "lib/net45/MySqlConnector.xml",
+        "lib/net461/MySqlConnector.dll",
+        "lib/net461/MySqlConnector.xml",
+        "lib/net471/MySqlConnector.dll",
+        "lib/net471/MySqlConnector.xml",
+        "lib/net5.0/MySqlConnector.dll",
+        "lib/net5.0/MySqlConnector.xml",
+        "lib/netcoreapp2.1/MySqlConnector.dll",
+        "lib/netcoreapp2.1/MySqlConnector.xml",
+        "lib/netcoreapp3.0/MySqlConnector.dll",
+        "lib/netcoreapp3.0/MySqlConnector.xml",
+        "lib/netstandard1.3/MySqlConnector.dll",
+        "lib/netstandard1.3/MySqlConnector.xml",
+        "lib/netstandard2.0/MySqlConnector.dll",
+        "lib/netstandard2.0/MySqlConnector.xml",
+        "lib/netstandard2.1/MySqlConnector.dll",
+        "lib/netstandard2.1/MySqlConnector.xml",
+        "logo.png",
+        "mysqlconnector.1.0.1.nupkg.sha512",
+        "mysqlconnector.nuspec"
       ]
     },
     "NETStandard.Library/1.6.1": {
@@ -3215,6 +3489,47 @@
         "lib/netstandard2.1/Novell.Directory.Ldap.NETStandard.xml",
         "novell.directory.ldap.netstandard.3.3.1.nupkg.sha512",
         "novell.directory.ldap.netstandard.nuspec"
+      ]
+    },
+    "Npgsql/3.2.7": {
+      "sha512": "CxSXzWn/MNbHX8L1xfQSzrZfJEA2Yt5cvT27Az5abmvbqtUY1ab6xAkmBj5FfLyKCIYEnmSrxn1IY1+Jy13oFA==",
+      "type": "package",
+      "path": "npgsql/3.2.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Npgsql.dll",
+        "lib/net45/Npgsql.xml",
+        "lib/net451/Npgsql.dll",
+        "lib/net451/Npgsql.xml",
+        "lib/netstandard1.3/Npgsql.dll",
+        "lib/netstandard1.3/Npgsql.xml",
+        "lib/netstandard2.0/Npgsql.dll",
+        "lib/netstandard2.0/Npgsql.xml",
+        "npgsql.3.2.7.nupkg.sha512",
+        "npgsql.nuspec"
+      ]
+    },
+    "NUglify/1.16.4": {
+      "sha512": "73U9OIz1pBxw1wWQk6j3N7FWrT/UN0L4EEuZDaWdG+bZEGuWrs5s2pnz0wxYYxephDtHRpIOIcZ2ZcjHDKFfEQ==",
+      "type": "package",
+      "path": "nuglify/1.16.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/NUglify.dll",
+        "lib/net35/NUglify.xml",
+        "lib/net40/NUglify.dll",
+        "lib/net40/NUglify.xml",
+        "lib/net5.0/NUglify.dll",
+        "lib/net5.0/NUglify.xml",
+        "lib/netstandard1.3/NUglify.dll",
+        "lib/netstandard1.3/NUglify.xml",
+        "lib/netstandard2.0/NUglify.dll",
+        "lib/netstandard2.0/NUglify.xml",
+        "nuglify.1.16.4.nupkg.sha512",
+        "nuglify.nuspec",
+        "nuglify.png"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -3517,6 +3832,23 @@
         "sandwych.geographiclib.nuspec"
       ]
     },
+    "Stubble.Core/1.8.4": {
+      "sha512": "yYGQiYNRWULZyFtELXhp2XX/loduCKjZxT82z2iblnurrr2LbMjwRDTBGMx0+yDTxFvmUC7+1zRGmPR1ra/3qg==",
+      "type": "package",
+      "path": "stubble.core/1.8.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Stubble.Core.dll",
+        "lib/net45/Stubble.Core.pdb",
+        "lib/net45/Stubble.Core.xml",
+        "lib/netstandard2.0/Stubble.Core.dll",
+        "lib/netstandard2.0/Stubble.Core.pdb",
+        "lib/netstandard2.0/Stubble.Core.xml",
+        "stubble.core.1.8.4.nupkg.sha512",
+        "stubble.core.nuspec"
+      ]
+    },
     "System.AppContext/4.3.0": {
       "sha512": "fKC+rmaLfeIzUhagxY17Q9siv/sPrjjKcfNg1Ic8IlQkZLipo8ljcaZQu4VtI4Jqbzjc2VTjzGLF6WmsRXAEgA==",
       "type": "package",
@@ -3721,6 +4053,29 @@
         "ref/xamarinwatchos10/_._",
         "system.collections.concurrent.4.3.0.nupkg.sha512",
         "system.collections.concurrent.nuspec"
+      ]
+    },
+    "System.Collections.Immutable/1.5.0": {
+      "sha512": "EXKiDFsChZW0RjrZ4FYHu9aW6+P4MCgEDCklsVseRfhoO0F+dXeMSsMRAlVXIo06kGJ/zv+2w1a2uc2+kxxSaQ==",
+      "type": "package",
+      "path": "system.collections.immutable/1.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netstandard1.0/System.Collections.Immutable.dll",
+        "lib/netstandard1.0/System.Collections.Immutable.xml",
+        "lib/netstandard1.3/System.Collections.Immutable.dll",
+        "lib/netstandard1.3/System.Collections.Immutable.xml",
+        "lib/netstandard2.0/System.Collections.Immutable.dll",
+        "lib/netstandard2.0/System.Collections.Immutable.xml",
+        "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.xml",
+        "system.collections.immutable.1.5.0.nupkg.sha512",
+        "system.collections.immutable.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Collections.NonGeneric/4.3.0": {
@@ -4455,6 +4810,23 @@
         "runtimes/win/lib/netstandard1.3/System.Globalization.Extensions.dll",
         "system.globalization.extensions.4.3.0.nupkg.sha512",
         "system.globalization.extensions.nuspec"
+      ]
+    },
+    "System.IdentityModel.Tokens.Jwt/6.5.1": {
+      "sha512": "2t8+04Ozz4vX10X1h+lqV8X7PkLUSRTr+kRY4QNpAeTUngqGqv180A1JDK2piGEKCvNbm6xGGkajL9STgI0JJA==",
+      "type": "package",
+      "path": "system.identitymodel.tokens.jwt/6.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net45/System.IdentityModel.Tokens.Jwt.xml",
+        "lib/net461/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net461/System.IdentityModel.Tokens.Jwt.xml",
+        "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.xml",
+        "system.identitymodel.tokens.jwt.6.5.1.nupkg.sha512",
+        "system.identitymodel.tokens.jwt.nuspec"
       ]
     },
     "System.IO/4.3.0": {
@@ -5830,33 +6202,6 @@
         "version.txt"
       ]
     },
-    "System.Runtime.CompilerServices.Unsafe/4.5.0": {
-      "sha512": "YrzNWduCDHhUaSRBxHxL11UkM2fD6y8hITHis4/LbQZ6vj3vdRjoH3IoPWWC9uDXK2wHIqn+b5gv1Np/VKyM1g==",
-      "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/4.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/uap10.0.16300/_._",
-        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/uap10.0.16300/_._",
-        "system.runtime.compilerservices.unsafe.4.5.0.nupkg.sha512",
-        "system.runtime.compilerservices.unsafe.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "System.Runtime.Extensions/4.3.0": {
       "sha512": "guW0uK0fn5fcJJ1tJVXYd7/1h5F+pea1r7FLSOz/f8vPEqbR2ZAknuRDvTQ8PzAilDveOxNjSfr0CHfIQfFk8g==",
       "type": "package",
@@ -6409,32 +6754,67 @@
         "system.security.cryptography.algorithms.nuspec"
       ]
     },
-    "System.Security.Cryptography.Cng/4.3.0": {
-      "sha512": "03idZOqFlsKRL4W+LuCpJ6dBYDUWReug6lZjBa3uJWnk5sPCUXckocevTaUA8iT/MFSrY/2HXkOt753xQ/cf8g==",
+    "System.Security.Cryptography.Cng/4.5.0": {
+      "sha512": "WG3r7EyjUe9CMPFSs6bty5doUqT+q9pbI80hlNzo2SkPkZ4VTuZkGWjpp77JB8+uaL4DFPRdBsAY+DX3dBK92A==",
       "type": "package",
-      "path": "system.security.cryptography.cng/4.3.0",
+      "path": "system.security.cryptography.cng/4.5.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
         "lib/net46/System.Security.Cryptography.Cng.dll",
         "lib/net461/System.Security.Cryptography.Cng.dll",
-        "lib/net463/System.Security.Cryptography.Cng.dll",
+        "lib/net462/System.Security.Cryptography.Cng.dll",
+        "lib/net47/System.Security.Cryptography.Cng.dll",
+        "lib/netcoreapp2.1/System.Security.Cryptography.Cng.dll",
+        "lib/netstandard1.3/System.Security.Cryptography.Cng.dll",
+        "lib/netstandard1.4/System.Security.Cryptography.Cng.dll",
+        "lib/netstandard1.6/System.Security.Cryptography.Cng.dll",
+        "lib/netstandard2.0/System.Security.Cryptography.Cng.dll",
+        "lib/uap10.0.16299/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
         "ref/net46/System.Security.Cryptography.Cng.dll",
         "ref/net461/System.Security.Cryptography.Cng.dll",
-        "ref/net463/System.Security.Cryptography.Cng.dll",
+        "ref/net461/System.Security.Cryptography.Cng.xml",
+        "ref/net462/System.Security.Cryptography.Cng.dll",
+        "ref/net462/System.Security.Cryptography.Cng.xml",
+        "ref/net47/System.Security.Cryptography.Cng.dll",
+        "ref/net47/System.Security.Cryptography.Cng.xml",
+        "ref/netcoreapp2.0/System.Security.Cryptography.Cng.dll",
+        "ref/netcoreapp2.0/System.Security.Cryptography.Cng.xml",
+        "ref/netcoreapp2.1/System.Security.Cryptography.Cng.dll",
+        "ref/netcoreapp2.1/System.Security.Cryptography.Cng.xml",
         "ref/netstandard1.3/System.Security.Cryptography.Cng.dll",
         "ref/netstandard1.4/System.Security.Cryptography.Cng.dll",
         "ref/netstandard1.6/System.Security.Cryptography.Cng.dll",
-        "runtimes/unix/lib/netstandard1.6/System.Security.Cryptography.Cng.dll",
+        "ref/netstandard2.0/System.Security.Cryptography.Cng.dll",
+        "ref/netstandard2.0/System.Security.Cryptography.Cng.xml",
+        "ref/uap10.0.16299/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
         "runtimes/win/lib/net46/System.Security.Cryptography.Cng.dll",
         "runtimes/win/lib/net461/System.Security.Cryptography.Cng.dll",
-        "runtimes/win/lib/net463/System.Security.Cryptography.Cng.dll",
+        "runtimes/win/lib/net462/System.Security.Cryptography.Cng.dll",
+        "runtimes/win/lib/net47/System.Security.Cryptography.Cng.dll",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.Cryptography.Cng.dll",
+        "runtimes/win/lib/netcoreapp2.1/System.Security.Cryptography.Cng.dll",
         "runtimes/win/lib/netstandard1.4/System.Security.Cryptography.Cng.dll",
         "runtimes/win/lib/netstandard1.6/System.Security.Cryptography.Cng.dll",
-        "system.security.cryptography.cng.4.3.0.nupkg.sha512",
-        "system.security.cryptography.cng.nuspec"
+        "runtimes/win/lib/uap10.0.16299/_._",
+        "system.security.cryptography.cng.4.5.0.nupkg.sha512",
+        "system.security.cryptography.cng.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Security.Cryptography.Csp/4.3.0": {
@@ -6842,10 +7222,10 @@
         "system.text.encoding.nuspec"
       ]
     },
-    "System.Text.Encoding.CodePages/4.5.0": {
-      "sha512": "S0wEUiKcLvRlkFUXca8uio1UQ5bYQzYgOmOKtCqaBQC3GR9AJjh43otcM32IGsAyvadFTaAMw9Irm6dS4Evfng==",
+    "System.Text.Encoding.CodePages/4.7.0": {
+      "sha512": "aeu4FlaUTemuT1qOd1MyU4T516QR4Fy+9yDbwWMPHOHy7U8FD6SgTzdZFO7gHcfAPHtECqInbwklVvUK4RHcNg==",
       "type": "package",
-      "path": "system.text.encoding.codepages/4.5.0",
+      "path": "system.text.encoding.codepages/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6855,36 +7235,28 @@
         "lib/MonoTouch10/_._",
         "lib/net46/System.Text.Encoding.CodePages.dll",
         "lib/net461/System.Text.Encoding.CodePages.dll",
+        "lib/net461/System.Text.Encoding.CodePages.xml",
         "lib/netstandard1.3/System.Text.Encoding.CodePages.dll",
         "lib/netstandard2.0/System.Text.Encoding.CodePages.dll",
+        "lib/netstandard2.0/System.Text.Encoding.CodePages.xml",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
         "lib/xamarintvos10/_._",
         "lib/xamarinwatchos10/_._",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
-        "ref/netstandard1.3/System.Text.Encoding.CodePages.dll",
-        "ref/netstandard1.3/System.Text.Encoding.CodePages.xml",
-        "ref/netstandard1.3/de/System.Text.Encoding.CodePages.xml",
-        "ref/netstandard1.3/es/System.Text.Encoding.CodePages.xml",
-        "ref/netstandard1.3/fr/System.Text.Encoding.CodePages.xml",
-        "ref/netstandard1.3/it/System.Text.Encoding.CodePages.xml",
-        "ref/netstandard1.3/ja/System.Text.Encoding.CodePages.xml",
-        "ref/netstandard1.3/ko/System.Text.Encoding.CodePages.xml",
-        "ref/netstandard1.3/ru/System.Text.Encoding.CodePages.xml",
-        "ref/netstandard1.3/zh-hans/System.Text.Encoding.CodePages.xml",
-        "ref/netstandard1.3/zh-hant/System.Text.Encoding.CodePages.xml",
-        "ref/netstandard2.0/System.Text.Encoding.CodePages.dll",
-        "ref/netstandard2.0/System.Text.Encoding.CodePages.xml",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
         "runtimes/win/lib/net461/System.Text.Encoding.CodePages.dll",
+        "runtimes/win/lib/net461/System.Text.Encoding.CodePages.xml",
         "runtimes/win/lib/netcoreapp2.0/System.Text.Encoding.CodePages.dll",
+        "runtimes/win/lib/netcoreapp2.0/System.Text.Encoding.CodePages.xml",
         "runtimes/win/lib/netstandard1.3/System.Text.Encoding.CodePages.dll",
         "runtimes/win/lib/netstandard2.0/System.Text.Encoding.CodePages.dll",
-        "system.text.encoding.codepages.4.5.0.nupkg.sha512",
+        "runtimes/win/lib/netstandard2.0/System.Text.Encoding.CodePages.xml",
+        "system.text.encoding.codepages.4.7.0.nupkg.sha512",
         "system.text.encoding.codepages.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -6956,27 +7328,6 @@
         "ref/xamarinwatchos10/_._",
         "system.text.encoding.extensions.4.3.0.nupkg.sha512",
         "system.text.encoding.extensions.nuspec"
-      ]
-    },
-    "System.Text.Json/4.6.0": {
-      "sha512": "4F8Xe+JIkVoDJ8hDAZ7HqLkjctN/6WItJIzQaifBwClC7wmoLSda/Sv2i6i1kycqDb3hWF4JCVbpAweyOKHEUA==",
-      "type": "package",
-      "path": "system.text.json/4.6.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/System.Text.Json.dll",
-        "lib/net461/System.Text.Json.xml",
-        "lib/netcoreapp3.0/System.Text.Json.dll",
-        "lib/netcoreapp3.0/System.Text.Json.xml",
-        "lib/netstandard2.0/System.Text.Json.dll",
-        "lib/netstandard2.0/System.Text.Json.xml",
-        "system.text.json.4.6.0.nupkg.sha512",
-        "system.text.json.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
       ]
     },
     "System.Text.RegularExpressions/4.3.0": {
@@ -7202,21 +7553,43 @@
         "system.threading.tasks.nuspec"
       ]
     },
-    "System.Threading.Tasks.Extensions/4.3.0": {
-      "sha512": "npvJkVKl5rKXrtl1Kkm6OhOUaYGEiF9wFbppFRWSMoApKzt2PiPHT2Bb8a5sAWxprvdOAtvaARS9QYMznEUtug==",
+    "System.Threading.Tasks.Extensions/4.5.1": {
+      "sha512": "WSKUTtLhPR8gllzIWO2x6l4lmAIfbyMAiTlyXAis4QBDonXK4b4S6F8zGARX4/P8wH3DH+sLdhamCiHn+fTU1A==",
       "type": "package",
-      "path": "system.threading.tasks.extensions/4.3.0",
+      "path": "system.threading.tasks.extensions/4.5.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/netcoreapp2.1/_._",
         "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll",
         "lib/netstandard1.0/System.Threading.Tasks.Extensions.xml",
+        "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll",
+        "lib/netstandard2.0/System.Threading.Tasks.Extensions.xml",
         "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll",
         "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.xml",
-        "system.threading.tasks.extensions.4.3.0.nupkg.sha512",
-        "system.threading.tasks.extensions.nuspec"
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/netcoreapp2.1/_._",
+        "ref/netstandard1.0/System.Threading.Tasks.Extensions.dll",
+        "ref/netstandard1.0/System.Threading.Tasks.Extensions.xml",
+        "ref/netstandard2.0/System.Threading.Tasks.Extensions.dll",
+        "ref/netstandard2.0/System.Threading.Tasks.Extensions.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.threading.tasks.extensions.4.5.1.nupkg.sha512",
+        "system.threading.tasks.extensions.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Threading.Timer/4.3.0": {
@@ -7670,17 +8043,10 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "GeneXus.Classes.Web.Core >= 1.19.5 <= 1.19.5",
+      "GeneXus.PdfReportsCS.Core >= 1.19.5 <= 1.19.5",
       "GeneXus.Programs.Common >= 1.0.0",
-      "Microsoft.Data.SqlClient >= 1.0.19269.1",
-      "Microsoft.Extensions.DependencyModel >= 3.0.0",
-      "NetTopologySuite >= 2.0.0",
-      "NetTopologySuite.Core >= 1.15.3",
-      "Novell.Directory.Ldap.NETStandard >= 3.3.1",
-      "Sandwych.GeographicLib >= 1.49.3",
-      "System.Configuration.ConfigurationManager >= 4.5.0",
-      "System.DirectoryServices >= 4.7.0",
       "appmasterpage >= 1.0.0",
-      "iTextSharp-LGPL >= 4.1.6",
       "promptmasterpage >= 1.0.0",
       "recentlinks >= 1.0.0",
       "rwdmasterpage >= 1.0.0",
@@ -7722,6 +8088,7 @@
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+        "C:\\Models\\GxBitcoinWallet\\NetCoreModel\\GxBitcoinWallet\\NuGet.Config",
         "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -7732,7 +8099,8 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/genexuslabs/13fb82d9-57a8-49ef-95bb-0ec8324e470c/_packaging/dotnet-prereleases/nuget/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
@@ -7827,41 +8195,13 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
-          "Microsoft.Data.SqlClient": {
+          "GeneXus.Classes.Web.Core": {
             "target": "Package",
-            "version": "[1.0.19269.1, )"
+            "version": "[1.19.5, 1.19.5]"
           },
-          "Microsoft.Extensions.DependencyModel": {
+          "GeneXus.PdfReportsCS.Core": {
             "target": "Package",
-            "version": "[3.0.0, )"
-          },
-          "NetTopologySuite": {
-            "target": "Package",
-            "version": "[2.0.0, )"
-          },
-          "NetTopologySuite.Core": {
-            "target": "Package",
-            "version": "[1.15.3, )"
-          },
-          "Novell.Directory.Ldap.NETStandard": {
-            "target": "Package",
-            "version": "[3.3.1, )"
-          },
-          "Sandwych.GeographicLib": {
-            "target": "Package",
-            "version": "[1.49.3, )"
-          },
-          "System.Configuration.ConfigurationManager": {
-            "target": "Package",
-            "version": "[4.5.0, )"
-          },
-          "System.DirectoryServices": {
-            "target": "Package",
-            "version": "[4.7.0, )"
-          },
-          "iTextSharp-LGPL": {
-            "target": "Package",
-            "version": "[4.1.6, )"
+            "version": "[1.19.5, 1.19.5]"
           }
         },
         "imports": [

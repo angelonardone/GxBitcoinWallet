@@ -128,33 +128,12 @@ namespace GeneXus.Programs.wallet {
                }
                else if ( StringUtil.StrCmp(gxfirstwebparm, "gxajaxNewRow_"+"Gridfiles") == 0 )
                {
-                  nRC_GXsfl_12 = (int)(NumberUtil.Val( GetPar( "nRC_GXsfl_12"), "."));
-                  nGXsfl_12_idx = (int)(NumberUtil.Val( GetPar( "nGXsfl_12_idx"), "."));
-                  sGXsfl_12_idx = GetPar( "sGXsfl_12_idx");
-                  sPrefix = GetPar( "sPrefix");
-                  setAjaxCallMode();
-                  if ( ! IsValidAjaxCall( true) )
-                  {
-                     GxWebError = 1;
-                     return  ;
-                  }
-                  gxnrGridfiles_newrow( ) ;
+                  gxnrGridfiles_newrow_invoke( ) ;
                   return  ;
                }
                else if ( StringUtil.StrCmp(gxfirstwebparm, "gxajaxGridRefresh_"+"Gridfiles") == 0 )
                {
-                  ajax_req_read_hidden_sdt(GetNextPar( ), AV23wallet);
-                  ajax_req_read_hidden_sdt(GetNextPar( ), AV13extKeyInfo);
-                  sPrefix = GetPar( "sPrefix");
-                  init_default_properties( ) ;
-                  setAjaxCallMode();
-                  if ( ! IsValidAjaxCall( true) )
-                  {
-                     GxWebError = 1;
-                     return  ;
-                  }
-                  gxgrGridfiles_refresh( AV23wallet, AV13extKeyInfo, sPrefix) ;
-                  AddString( context.getJSONResponse( )) ;
+                  gxgrGridfiles_refresh_invoke( ) ;
                   return  ;
                }
                else
@@ -182,6 +161,39 @@ namespace GeneXus.Programs.wallet {
                context.PushCurrentUrl();
             }
          }
+      }
+
+      protected void gxnrGridfiles_newrow_invoke( )
+      {
+         nRC_GXsfl_12 = (int)(NumberUtil.Val( GetPar( "nRC_GXsfl_12"), "."));
+         nGXsfl_12_idx = (int)(NumberUtil.Val( GetPar( "nGXsfl_12_idx"), "."));
+         sGXsfl_12_idx = GetPar( "sGXsfl_12_idx");
+         sPrefix = GetPar( "sPrefix");
+         setAjaxCallMode();
+         if ( ! IsValidAjaxCall( true) )
+         {
+            GxWebError = 1;
+            return  ;
+         }
+         gxnrGridfiles_newrow( ) ;
+         /* End function gxnrGridfiles_newrow_invoke */
+      }
+
+      protected void gxgrGridfiles_refresh_invoke( )
+      {
+         ajax_req_read_hidden_sdt(GetNextPar( ), AV23wallet);
+         ajax_req_read_hidden_sdt(GetNextPar( ), AV13extKeyInfo);
+         sPrefix = GetPar( "sPrefix");
+         init_default_properties( ) ;
+         setAjaxCallMode();
+         if ( ! IsValidAjaxCall( true) )
+         {
+            GxWebError = 1;
+            return  ;
+         }
+         gxgrGridfiles_refresh( AV23wallet, AV13extKeyInfo, sPrefix) ;
+         AddString( context.getJSONResponse( )) ;
+         /* End function gxgrGridfiles_refresh_invoke */
       }
 
       public override void webExecute( )
@@ -270,18 +282,18 @@ namespace GeneXus.Programs.wallet {
          }
          if ( ( ( context.GetBrowserType( ) == 1 ) || ( context.GetBrowserType( ) == 5 ) ) && ( StringUtil.StrCmp(context.GetBrowserVersion( ), "7.0") == 0 ) )
          {
-            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 1936540), false, true);
+            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 2048100), false, true);
          }
-         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 1936540), false, true);
-         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 1936540), false, true);
-         context.AddJavascriptSource("gxcfg.js", "?202210211233500", false, true);
+         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("gxcfg.js", "?"+GetCacheInvalidationToken( ), false, true);
          if ( context.isSpaRequest( ) )
          {
             enableOutput();
          }
-         context.AddJavascriptSource("calendar.js", "?"+context.GetBuildNumber( 1936540), false, true);
-         context.AddJavascriptSource("calendar-setup.js", "?"+context.GetBuildNumber( 1936540), false, true);
-         context.AddJavascriptSource("calendar-en.js", "?"+context.GetBuildNumber( 1936540), false, true);
+         context.AddJavascriptSource("calendar.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("calendar-setup.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("calendar-en.js", "?"+context.GetBuildNumber( 2048100), false, true);
          context.AddJavascriptSource("FileUpload/fileupload.min.js", "", false, true);
          if ( StringUtil.Len( sPrefix) == 0 )
          {
@@ -540,74 +552,7 @@ namespace GeneXus.Programs.wallet {
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "left", "top", "", "", "div");
             /*  Grid Control  */
             GridfilesContainer.SetWrapped(nGXWrapped);
-            if ( GridfilesContainer.GetWrapped() == 1 )
-            {
-               context.WriteHtmlText( "<div id=\""+sPrefix+"GridfilesContainer"+"DivS\" data-gxgridid=\"12\">") ;
-               sStyleString = "";
-               GxWebStd.gx_table_start( context, subGridfiles_Internalname, subGridfiles_Internalname, "", "Grid", 0, "", "", 1, 2, sStyleString, "", "", 0);
-               /* Subfile titles */
-               context.WriteHtmlText( "<tr") ;
-               context.WriteHtmlTextNl( ">") ;
-               if ( subGridfiles_Backcolorstyle == 0 )
-               {
-                  subGridfiles_Titlebackstyle = 0;
-                  if ( StringUtil.Len( subGridfiles_Class) > 0 )
-                  {
-                     subGridfiles_Linesclass = subGridfiles_Class+"Title";
-                  }
-               }
-               else
-               {
-                  subGridfiles_Titlebackstyle = 1;
-                  if ( subGridfiles_Backcolorstyle == 1 )
-                  {
-                     subGridfiles_Titlebackcolor = subGridfiles_Allbackcolor;
-                     if ( StringUtil.Len( subGridfiles_Class) > 0 )
-                     {
-                        subGridfiles_Linesclass = subGridfiles_Class+"UniformTitle";
-                     }
-                  }
-                  else
-                  {
-                     if ( StringUtil.Len( subGridfiles_Class) > 0 )
-                     {
-                        subGridfiles_Linesclass = subGridfiles_Class+"Title";
-                     }
-                  }
-               }
-               context.WriteHtmlText( "<th align=\""+"left"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
-               context.SendWebValue( "File Name") ;
-               context.WriteHtmlTextNl( "</th>") ;
-               context.WriteHtmlText( "<th align=\""+"right"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
-               context.SendWebValue( "Created / Modified") ;
-               context.WriteHtmlTextNl( "</th>") ;
-               context.WriteHtmlTextNl( "</tr>") ;
-               GridfilesContainer.AddObjectProperty("GridName", "Gridfiles");
-            }
-            else
-            {
-               GridfilesContainer.AddObjectProperty("GridName", "Gridfiles");
-               GridfilesContainer.AddObjectProperty("Header", subGridfiles_Header);
-               GridfilesContainer.AddObjectProperty("Class", "Grid");
-               GridfilesContainer.AddObjectProperty("Cellpadding", StringUtil.LTrim( StringUtil.NToC( (decimal)(1), 4, 0, ".", "")));
-               GridfilesContainer.AddObjectProperty("Cellspacing", StringUtil.LTrim( StringUtil.NToC( (decimal)(2), 4, 0, ".", "")));
-               GridfilesContainer.AddObjectProperty("Backcolorstyle", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Backcolorstyle), 1, 0, ".", "")));
-               GridfilesContainer.AddObjectProperty("CmpContext", sPrefix);
-               GridfilesContainer.AddObjectProperty("InMasterPage", "false");
-               GridfilesColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
-               GridfilesColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavCtlfilename_Enabled), 5, 0, ".", "")));
-               GridfilesContainer.AddColumnProperties(GridfilesColumn);
-               GridfilesColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
-               GridfilesColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavCtlcreate_Enabled), 5, 0, ".", "")));
-               GridfilesContainer.AddColumnProperties(GridfilesColumn);
-               GridfilesContainer.AddObjectProperty("Selectedindex", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Selectedindex), 4, 0, ".", "")));
-               GridfilesContainer.AddObjectProperty("Allowselection", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Allowselection), 1, 0, ".", "")));
-               GridfilesContainer.AddObjectProperty("Selectioncolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Selectioncolor), 9, 0, ".", "")));
-               GridfilesContainer.AddObjectProperty("Allowhover", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Allowhovering), 1, 0, ".", "")));
-               GridfilesContainer.AddObjectProperty("Hovercolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Hoveringcolor), 9, 0, ".", "")));
-               GridfilesContainer.AddObjectProperty("Allowcollapsing", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Allowcollapsing), 1, 0, ".", "")));
-               GridfilesContainer.AddObjectProperty("Collapsed", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Collapsed), 1, 0, ".", "")));
-            }
+            StartGridControl12( ) ;
          }
          if ( wbEnd == 12 )
          {
@@ -687,7 +632,7 @@ namespace GeneXus.Programs.wallet {
             {
                if ( context.ExposeMetadata( ) )
                {
-                  Form.Meta.addItem("generator", "GeneXus .NET 17_0_10-160000", 0) ;
+                  Form.Meta.addItem("generator", "GeneXus .NET 17_0_11-163677", 0) ;
                }
                Form.Meta.addItem("description", "Files", 0) ;
             }
@@ -1545,7 +1490,7 @@ namespace GeneXus.Programs.wallet {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2022102112335046", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202211414151231", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1560,7 +1505,7 @@ namespace GeneXus.Programs.wallet {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("wallet/files.js", "?2022102112335047", false, true);
+         context.AddJavascriptSource("wallet/files.js", "?202211414151231", false, true);
          context.AddJavascriptSource("web-extension/gx-web-extensions.js", "", false, true);
          context.AddJavascriptSource("web-extension/gx-web-extensions.js", "", false, true);
          context.AddJavascriptSource("FileUpload/fileupload.min.js", "", false, true);
@@ -1669,6 +1614,78 @@ namespace GeneXus.Programs.wallet {
          /* End function init_web_controls */
       }
 
+      protected void StartGridControl12( )
+      {
+         if ( GridfilesContainer.GetWrapped() == 1 )
+         {
+            context.WriteHtmlText( "<div id=\""+sPrefix+"GridfilesContainer"+"DivS\" data-gxgridid=\"12\">") ;
+            sStyleString = "";
+            GxWebStd.gx_table_start( context, subGridfiles_Internalname, subGridfiles_Internalname, "", "Grid", 0, "", "", 1, 2, sStyleString, "", "", 0);
+            /* Subfile titles */
+            context.WriteHtmlText( "<tr") ;
+            context.WriteHtmlTextNl( ">") ;
+            if ( subGridfiles_Backcolorstyle == 0 )
+            {
+               subGridfiles_Titlebackstyle = 0;
+               if ( StringUtil.Len( subGridfiles_Class) > 0 )
+               {
+                  subGridfiles_Linesclass = subGridfiles_Class+"Title";
+               }
+            }
+            else
+            {
+               subGridfiles_Titlebackstyle = 1;
+               if ( subGridfiles_Backcolorstyle == 1 )
+               {
+                  subGridfiles_Titlebackcolor = subGridfiles_Allbackcolor;
+                  if ( StringUtil.Len( subGridfiles_Class) > 0 )
+                  {
+                     subGridfiles_Linesclass = subGridfiles_Class+"UniformTitle";
+                  }
+               }
+               else
+               {
+                  if ( StringUtil.Len( subGridfiles_Class) > 0 )
+                  {
+                     subGridfiles_Linesclass = subGridfiles_Class+"Title";
+                  }
+               }
+            }
+            context.WriteHtmlText( "<th align=\""+"left"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
+            context.SendWebValue( "File Name") ;
+            context.WriteHtmlTextNl( "</th>") ;
+            context.WriteHtmlText( "<th align=\""+"right"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+""+""+"\" "+">") ;
+            context.SendWebValue( "Created / Modified") ;
+            context.WriteHtmlTextNl( "</th>") ;
+            context.WriteHtmlTextNl( "</tr>") ;
+            GridfilesContainer.AddObjectProperty("GridName", "Gridfiles");
+         }
+         else
+         {
+            GridfilesContainer.AddObjectProperty("GridName", "Gridfiles");
+            GridfilesContainer.AddObjectProperty("Header", subGridfiles_Header);
+            GridfilesContainer.AddObjectProperty("Class", "Grid");
+            GridfilesContainer.AddObjectProperty("Cellpadding", StringUtil.LTrim( StringUtil.NToC( (decimal)(1), 4, 0, ".", "")));
+            GridfilesContainer.AddObjectProperty("Cellspacing", StringUtil.LTrim( StringUtil.NToC( (decimal)(2), 4, 0, ".", "")));
+            GridfilesContainer.AddObjectProperty("Backcolorstyle", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Backcolorstyle), 1, 0, ".", "")));
+            GridfilesContainer.AddObjectProperty("CmpContext", sPrefix);
+            GridfilesContainer.AddObjectProperty("InMasterPage", "false");
+            GridfilesColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
+            GridfilesColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavCtlfilename_Enabled), 5, 0, ".", "")));
+            GridfilesContainer.AddColumnProperties(GridfilesColumn);
+            GridfilesColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
+            GridfilesColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavCtlcreate_Enabled), 5, 0, ".", "")));
+            GridfilesContainer.AddColumnProperties(GridfilesColumn);
+            GridfilesContainer.AddObjectProperty("Selectedindex", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Selectedindex), 4, 0, ".", "")));
+            GridfilesContainer.AddObjectProperty("Allowselection", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Allowselection), 1, 0, ".", "")));
+            GridfilesContainer.AddObjectProperty("Selectioncolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Selectioncolor), 9, 0, ".", "")));
+            GridfilesContainer.AddObjectProperty("Allowhover", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Allowhovering), 1, 0, ".", "")));
+            GridfilesContainer.AddObjectProperty("Hovercolor", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Hoveringcolor), 9, 0, ".", "")));
+            GridfilesContainer.AddObjectProperty("Allowcollapsing", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Allowcollapsing), 1, 0, ".", "")));
+            GridfilesContainer.AddObjectProperty("Collapsed", StringUtil.LTrim( StringUtil.NToC( (decimal)(subGridfiles_Collapsed), 1, 0, ".", "")));
+         }
+      }
+
       protected void init_default_properties( )
       {
          Fileupload_Internalname = sPrefix+"FILEUPLOAD";
@@ -1694,13 +1711,13 @@ namespace GeneXus.Programs.wallet {
             }
          }
          init_default_properties( ) ;
-         edtavCtlcreate_Jsonclick = "";
-         edtavCtlfilename_Jsonclick = "";
          subGridfiles_Allowcollapsing = 0;
          subGridfiles_Allowselection = 0;
-         edtavCtlcreate_Enabled = 0;
-         edtavCtlfilename_Enabled = 0;
          subGridfiles_Header = "";
+         edtavCtlcreate_Jsonclick = "";
+         edtavCtlcreate_Enabled = 0;
+         edtavCtlfilename_Jsonclick = "";
+         edtavCtlfilename_Enabled = 0;
          subGridfiles_Class = "Grid";
          subGridfiles_Backcolorstyle = 0;
          lblTbdirectory_Caption = "TbDirectory";
@@ -1780,8 +1797,6 @@ namespace GeneXus.Programs.wallet {
          lblTbdirectory_Jsonclick = "";
          GridfilesContainer = new GXWebGrid( context);
          sStyleString = "";
-         subGridfiles_Linesclass = "";
-         GridfilesColumn = new GXWebColumn();
          Form = new GXWebForm();
          sXEvt = "";
          sEvt = "";
@@ -1808,7 +1823,9 @@ namespace GeneXus.Programs.wallet {
          GridfilesRow = new GXWebRow();
          BackMsgLst = new msglist();
          LclMsgLst = new msglist();
+         subGridfiles_Linesclass = "";
          ROClassString = "";
+         GridfilesColumn = new GXWebColumn();
          /* GeneXus formulas. */
          context.Gx_err = 0;
          edtavCtlfilename_Enabled = 0;
@@ -1821,29 +1838,24 @@ namespace GeneXus.Programs.wallet {
       private short initialized ;
       private short wbEnd ;
       private short wbStart ;
+      private short nDraw ;
+      private short nDoneStart ;
+      private short nDonePA ;
+      private short gxcookieaux ;
       private short subGridfiles_Backcolorstyle ;
+      private short GRIDFILES_nEOF ;
+      private short nGXWrapped ;
+      private short subGridfiles_Backstyle ;
       private short subGridfiles_Titlebackstyle ;
       private short subGridfiles_Allowselection ;
       private short subGridfiles_Allowhovering ;
       private short subGridfiles_Allowcollapsing ;
       private short subGridfiles_Collapsed ;
-      private short nDraw ;
-      private short nDoneStart ;
-      private short nDonePA ;
-      private short gxcookieaux ;
-      private short GRIDFILES_nEOF ;
-      private short nGXWrapped ;
-      private short subGridfiles_Backstyle ;
       private int nRC_GXsfl_12 ;
       private int nGXsfl_12_idx=1 ;
       private int edtavCtlfilename_Enabled ;
       private int edtavCtlcreate_Enabled ;
       private int Fileupload_Maxnumberoffiles ;
-      private int subGridfiles_Titlebackcolor ;
-      private int subGridfiles_Allbackcolor ;
-      private int subGridfiles_Selectedindex ;
-      private int subGridfiles_Selectioncolor ;
-      private int subGridfiles_Hoveringcolor ;
       private int AV28GXV1 ;
       private int subGridfiles_Islastpage ;
       private int nGXsfl_12_fel_idx=1 ;
@@ -1851,6 +1863,11 @@ namespace GeneXus.Programs.wallet {
       private int nGXsfl_12_bak_idx=1 ;
       private int idxLst ;
       private int subGridfiles_Backcolor ;
+      private int subGridfiles_Allbackcolor ;
+      private int subGridfiles_Titlebackcolor ;
+      private int subGridfiles_Selectedindex ;
+      private int subGridfiles_Selectioncolor ;
+      private int subGridfiles_Hoveringcolor ;
       private long GRIDFILES_nCurrentRecord ;
       private long GRIDFILES_nFirstRecordOnPage ;
       private string gxfirstwebparm ;
@@ -1874,9 +1891,6 @@ namespace GeneXus.Programs.wallet {
       private string lblTbdirectory_Jsonclick ;
       private string sStyleString ;
       private string subGridfiles_Internalname ;
-      private string subGridfiles_Class ;
-      private string subGridfiles_Linesclass ;
-      private string subGridfiles_Header ;
       private string sXEvt ;
       private string sEvt ;
       private string EvtGridId ;
@@ -1892,9 +1906,12 @@ namespace GeneXus.Programs.wallet {
       private string AV24DecSource ;
       private string AV25DecDestination ;
       private string GXt_char6 ;
+      private string subGridfiles_Class ;
+      private string subGridfiles_Linesclass ;
       private string ROClassString ;
       private string edtavCtlfilename_Jsonclick ;
       private string edtavCtlcreate_Jsonclick ;
+      private string subGridfiles_Header ;
       private bool entryPointCalled ;
       private bool toggleJsOutput ;
       private bool bGXsfl_12_Refreshing=false ;

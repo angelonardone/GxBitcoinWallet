@@ -17,6 +17,7 @@
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+          "C:\\Models\\GxBitcoinWallet\\NetCoreModel\\GxBitcoinWallet\\NuGet.Config",
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -27,7 +28,8 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/genexuslabs/13fb82d9-57a8-49ef-95bb-0ec8324e470c/_packaging/dotnet-prereleases/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -49,41 +51,13 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.Data.SqlClient": {
+            "GeneXus.Classes.Web.Core": {
               "target": "Package",
-              "version": "[1.0.19269.1, )"
+              "version": "[1.19.5, 1.19.5]"
             },
-            "Microsoft.Extensions.DependencyModel": {
+            "GeneXus.PdfReportsCS.Core": {
               "target": "Package",
-              "version": "[3.0.0, )"
-            },
-            "NetTopologySuite": {
-              "target": "Package",
-              "version": "[2.0.0, )"
-            },
-            "NetTopologySuite.Core": {
-              "target": "Package",
-              "version": "[1.15.3, )"
-            },
-            "Novell.Directory.Ldap.NETStandard": {
-              "target": "Package",
-              "version": "[3.3.1, )"
-            },
-            "Sandwych.GeographicLib": {
-              "target": "Package",
-              "version": "[1.49.3, )"
-            },
-            "System.Configuration.ConfigurationManager": {
-              "target": "Package",
-              "version": "[4.5.0, )"
-            },
-            "System.DirectoryServices": {
-              "target": "Package",
-              "version": "[4.7.0, )"
-            },
-            "iTextSharp-LGPL": {
-              "target": "Package",
-              "version": "[4.1.6, )"
+              "version": "[1.19.5, 1.19.5]"
             }
           },
           "imports": [
@@ -122,6 +96,7 @@
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+          "C:\\Models\\GxBitcoinWallet\\NetCoreModel\\GxBitcoinWallet\\NuGet.Config",
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -132,7 +107,8 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/genexuslabs/13fb82d9-57a8-49ef-95bb-0ec8324e470c/_packaging/dotnet-prereleases/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -158,41 +134,13 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.Data.SqlClient": {
+            "GeneXus.Classes.Web.Core": {
               "target": "Package",
-              "version": "[1.0.19269.1, )"
+              "version": "[1.19.5, 1.19.5]"
             },
-            "Microsoft.Extensions.DependencyModel": {
+            "GeneXus.PdfReportsCS.Core": {
               "target": "Package",
-              "version": "[3.0.0, )"
-            },
-            "NetTopologySuite": {
-              "target": "Package",
-              "version": "[2.0.0, )"
-            },
-            "NetTopologySuite.Core": {
-              "target": "Package",
-              "version": "[1.15.3, )"
-            },
-            "Novell.Directory.Ldap.NETStandard": {
-              "target": "Package",
-              "version": "[3.3.1, )"
-            },
-            "Sandwych.GeographicLib": {
-              "target": "Package",
-              "version": "[1.49.3, )"
-            },
-            "System.Configuration.ConfigurationManager": {
-              "target": "Package",
-              "version": "[4.5.0, )"
-            },
-            "System.DirectoryServices": {
-              "target": "Package",
-              "version": "[4.7.0, )"
-            },
-            "iTextSharp-LGPL": {
-              "target": "Package",
-              "version": "[4.1.6, )"
+              "version": "[1.19.5, 1.19.5]"
             }
           },
           "imports": [
