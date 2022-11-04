@@ -44,10 +44,10 @@ dotnet bin/GxNetCoreStartup.dll "GxBitcoinWallet" "/Users/angelonardone/Document
 
 
 for Mac use:
-`open http://localhost:8082/GxBitcoinWallet/wallet.wallets.asp`
+`open http://localhost:8082/GxBitcoinWallet/wallet.wallets.aspx`
 
 for Windows use:
-`start http://localhost:8082/GxBitcoinWallet/wallet.wallets.asp`
+`start http://localhost:8082/GxBitcoinWallet/wallet.wallets.aspx`
 
 for Linux use:
-`xdg-open http://localhost:8082/GxBitcoinWallet/wallet.wallets.asp`
+`xdg-open http://localhost:8082/GxBitcoinWallet/wallet.wallets.aspx`
