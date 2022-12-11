@@ -25,7 +25,7 @@ then build
 
 ```
 
-dotnet build -nologo -c Release /v:q /m /p:GxExternalReference="NBitcoin.dll;QBitNinja.Client.dll" ./build/LastBuild.sln
+dotnet build -nologo -c Release /v:q /m /p:GxExternalReference=NBitcoin.dll ./build/LastBuild.sln
 
 ```
 then move to the web directory
