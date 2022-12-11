@@ -20,6 +20,8 @@ Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "nbitcoin.createexpubtkeyunitt
 EndProject
 Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "nbitcoin.deriveaddressfromextpubkeyunittest", "nbitcoin.deriveaddressfromextpubkeyunittest\nbitcoin.deriveaddressfromextpubkeyunittest.csproj", "{f7e64227-9228-4230-a4a7-d87a87c75b19}"
 EndProject
+Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "nbitcoin.isaddressvalidunittest", "nbitcoin.isaddressvalidunittest\nbitcoin.isaddressvalidunittest.csproj", "{338d50b1-c9e2-4134-96d6-9f4b7b76e80e}"
+EndProject
 Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "appmasterpage", "appmasterpage\appmasterpage.csproj", "{0d98c411-d9b1-4077-beb3-8a6b3751d736}"
 EndProject
 Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "recentlinks", "recentlinks\recentlinks.csproj", "{e54a8580-861c-4151-8d54-6e1fc936e334}"
@@ -36,7 +38,7 @@ Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "wallet.wallets", "wallet.wall
 EndProject
 Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "wallet.oneaddress", "wallet.oneaddress\wallet.oneaddress.csproj", "{130b39cd-a918-4b26-8431-abe1e530fa22}"
 EndProject
-Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "wallet.bip44", "wallet.bip44\wallet.bip44.csproj", "{222bc442-5b83-417d-b281-4a7e973db610}"
+Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "wallet.multyaddress", "wallet.multyaddress\wallet.multyaddress.csproj", "{222bc442-5b83-417d-b281-4a7e973db610}"
 EndProject
 Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "wallet.showkeydetail", "wallet.showkeydetail\wallet.showkeydetail.csproj", "{55c0e8af-ec86-4988-8ed0-f47e53e97744}"
 EndProject
@@ -66,10 +68,15 @@ Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "test3", "test3\test3.csproj",
 EndProject
 Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "wallet.showkeydetailoneaddress", "wallet.showkeydetailoneaddress\wallet.showkeydetailoneaddress.csproj", "{b251295e-386d-4649-b55b-4109c6cdeae5}"
 EndProject
+Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "wallet.sendcoins", "wallet.sendcoins\wallet.sendcoins.csproj", "{525edbf9-6244-4754-b973-4a73132a51a6}"
+EndProject
 Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "developermenu", "developermenu\developermenu.csproj", "{00000000-0000-0000-0000-000000000000}"
 EndProject
-Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "GeneXus.Programs.Common", "GeneXus.Programs.Common\GeneXus.Programs.Common.csproj", "{18571f50-534e-4b11-944d-7bf24201279c}"
+Project("9A19103F-16F7-4668-BE54-9A1E7A4F7556") = "GeneXus.Programs.Common", "GeneXus.Programs.Common\GeneXus.Programs.Common.csproj", "{8de43be5-9fd2-43c2-9ea0-988c99b97492}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Startup", "Startup\Startup.csproj", "{2664924C-1867-4A34-BE52-9A3D6D58264B}"
+EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -116,6 +123,10 @@ Global
 	{f7e64227-9228-4230-a4a7-d87a87c75b19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	{f7e64227-9228-4230-a4a7-d87a87c75b19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	{f7e64227-9228-4230-a4a7-d87a87c75b19}.Release|Any CPU.Build.0 = Release|Any CPU
+	{338d50b1-c9e2-4134-96d6-9f4b7b76e80e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+	{338d50b1-c9e2-4134-96d6-9f4b7b76e80e}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	{338d50b1-c9e2-4134-96d6-9f4b7b76e80e}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	{338d50b1-c9e2-4134-96d6-9f4b7b76e80e}.Release|Any CPU.Build.0 = Release|Any CPU
 	{0d98c411-d9b1-4077-beb3-8a6b3751d736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 	{0d98c411-d9b1-4077-beb3-8a6b3751d736}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	{0d98c411-d9b1-4077-beb3-8a6b3751d736}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -208,16 +219,23 @@ Global
 	{b251295e-386d-4649-b55b-4109c6cdeae5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	{b251295e-386d-4649-b55b-4109c6cdeae5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	{b251295e-386d-4649-b55b-4109c6cdeae5}.Release|Any CPU.Build.0 = Release|Any CPU
+	{525edbf9-6244-4754-b973-4a73132a51a6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+	{525edbf9-6244-4754-b973-4a73132a51a6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	{525edbf9-6244-4754-b973-4a73132a51a6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	{525edbf9-6244-4754-b973-4a73132a51a6}.Release|Any CPU.Build.0 = Release|Any CPU
 	{00000000-0000-0000-0000-000000000000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 	{00000000-0000-0000-0000-000000000000}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	{00000000-0000-0000-0000-000000000000}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	{00000000-0000-0000-0000-000000000000}.Release|Any CPU.Build.0 = Release|Any CPU
-	{18571f50-534e-4b11-944d-7bf24201279c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-	{18571f50-534e-4b11-944d-7bf24201279c}.Debug|Any CPU.Build.0 = Debug|Any CPU
-	{18571f50-534e-4b11-944d-7bf24201279c}.Release|Any CPU.ActiveCfg = Release|Any CPU
-	{18571f50-534e-4b11-944d-7bf24201279c}.Release|Any CPU.Build.0 = Release|Any CPU
+	{8de43be5-9fd2-43c2-9ea0-988c99b97492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+	{8de43be5-9fd2-43c2-9ea0-988c99b97492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	{8de43be5-9fd2-43c2-9ea0-988c99b97492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	{8de43be5-9fd2-43c2-9ea0-988c99b97492}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AA717A2-3755-40B0-B76A-DFADDE43B89C}
 	EndGlobalSection
 EndGlobal

@@ -25,7 +25,6 @@
 		<Compile Include = "$(WebDirectory)\test1.cs" />
 		<Compile Include = "$(WebDirectory)\nbitcoin\eccdecrypt.cs" />
 		<Compile Include = "$(WebDirectory)\nbitcoin\createextkey.cs" />
-		<Compile Include = "$(WebDirectory)\nbitcoin\qbitninja\retnumtransonaddress.cs" />
 		<Compile Include = "$(WebDirectory)\wallet\aesencryptfile.cs" />
 		<Compile Include = "$(WebDirectory)\nbitcoin\verifycreatedaddressfrompasscode.cs" />
 		<Compile Include = "$(WebDirectory)\nbitcoin\createpassphrasecode.cs" />

@@ -1,0 +1,10 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\wallet.newnote.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\wallet.newnote.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.newnote\obj\Release\net6.0\win10-x64\wallet.newnote.csproj.AssemblyReference.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.newnote\obj\Release\net6.0\win10-x64\wallet.newnote.GeneratedMSBuildEditorConfig.editorconfig
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.newnote\obj\Release\net6.0\win10-x64\wallet.newnote.csproj.CoreCompileInputs.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.newnote\obj\Release\net6.0\win10-x64\wallet.newnote.csproj.CopyComplete
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.newnote\obj\Release\net6.0\win10-x64\wallet.newnote.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.newnote\obj\Release\net6.0\win10-x64\refint\wallet.newnote.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.newnote\obj\Release\net6.0\win10-x64\wallet.newnote.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.newnote\obj\Release\net6.0\win10-x64\ref\wallet.newnote.dll

@@ -1,0 +1,10 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\wallet.sendcoins.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\wallet.sendcoins.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.sendcoins\obj\Release\net6.0\win10-x64\wallet.sendcoins.csproj.AssemblyReference.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.sendcoins\obj\Release\net6.0\win10-x64\wallet.sendcoins.GeneratedMSBuildEditorConfig.editorconfig
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.sendcoins\obj\Release\net6.0\win10-x64\wallet.sendcoins.csproj.CoreCompileInputs.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.sendcoins\obj\Release\net6.0\win10-x64\wallet.sendcoins.csproj.CopyComplete
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.sendcoins\obj\Release\net6.0\win10-x64\wallet.sendcoins.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.sendcoins\obj\Release\net6.0\win10-x64\refint\wallet.sendcoins.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.sendcoins\obj\Release\net6.0\win10-x64\wallet.sendcoins.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.sendcoins\obj\Release\net6.0\win10-x64\ref\wallet.sendcoins.dll

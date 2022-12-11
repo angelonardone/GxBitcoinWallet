@@ -20,19 +20,36 @@
 		<Reference Include="GeneXus.dll" > 
 			<HintPath>$(WebBinDirectory)\GeneXus.dll</HintPath>
 		</Reference>
+		<Reference Include="WebExtensionToolkit.dll" > 
+			<HintPath>$(WebBinDirectory)\WebExtensionToolkit.dll</HintPath>
+		</Reference>
 		<Reference Include="GeneXus.dll" > 
 			<HintPath>$(WebBinDirectory)\GeneXus.dll</HintPath>
 		</Reference>
 
 	</ItemGroup>
 	<ItemGroup>
-		<Compile Include = "$(WebDirectory)\gxexplorer\apibaseurl.cs" />
-		<Compile Include = "$(WebDirectory)\gxexplorer\gxexplorerservicestansactionsfromaddressestransactionspost.cs" />
-		<Compile Include = "$(WebDirectory)\wallet\getwallet.cs" />
-		<Compile Include = "$(WebDirectory)\openapicommon\processserver.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\updatetransactionsfromservice.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\searchkeyinallkeys.cs" />
 		<Compile Include = "$(WebDirectory)\wallet\getkey.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\savetransactionfile.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\getwallet.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\isosunix.cs" />
+		<Compile Include = "$(WebDirectory)\apibaseurllocalhost.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\eccenctrypt.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\eccdecrypt.cs" />
 		<Compile Include = "$(WebDirectory)\wallet\oneaddress.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\getextkey.cs" />
+		<Compile Include = "$(WebDirectory)\gxexplorerservicesrestgettransactionspost.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\readtransactionfile.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\getallkeys.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\sethistorywithbalance.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\searchtransactiononsdt.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\setallkeys.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\setretrunaddress.cs" />
+		<Compile Include = "$(WebDirectory)\openapicommon\processserver.cs" />
 		<Compile Include = "$(WebDirectory)\openapicommon\callapi.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\loadhistoryfromtransactions.cs" />
 
 	</ItemGroup>
 	<ItemGroup Condition="'$(PostgresqlSupport)'=='true'">

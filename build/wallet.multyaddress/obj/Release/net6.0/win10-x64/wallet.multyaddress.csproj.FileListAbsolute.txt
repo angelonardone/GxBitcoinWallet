@@ -1,0 +1,10 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\wallet.multyaddress.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\wallet.multyaddress.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.multyaddress\obj\Release\net6.0\win10-x64\wallet.multyaddress.csproj.AssemblyReference.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.multyaddress\obj\Release\net6.0\win10-x64\wallet.multyaddress.GeneratedMSBuildEditorConfig.editorconfig
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.multyaddress\obj\Release\net6.0\win10-x64\wallet.multyaddress.csproj.CoreCompileInputs.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.multyaddress\obj\Release\net6.0\win10-x64\wallet.multyaddress.csproj.CopyComplete
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.multyaddress\obj\Release\net6.0\win10-x64\wallet.multyaddress.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.multyaddress\obj\Release\net6.0\win10-x64\refint\wallet.multyaddress.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.multyaddress\obj\Release\net6.0\win10-x64\wallet.multyaddress.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.multyaddress\obj\Release\net6.0\win10-x64\ref\wallet.multyaddress.dll

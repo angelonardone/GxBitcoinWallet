@@ -116,29 +116,32 @@ namespace GeneXus.Programs.nbitcoin {
                GXt_char1 = AV11error;
                new GeneXus.Programs.nbitcoin.createexpubtkey(context ).execute(  AV13extendedPublicKey,  AV15networkType,  AV19base_char+StringUtil.Trim( StringUtil.Str( (decimal)(AV18start), 10, 0)), out  AV14extPubKeyInfo, out  GXt_char1) ;
                AV11error = GXt_char1;
-               if ( StringUtil.StrCmp(AV12extendedKeyType, "x") == 0 )
+               if ( String.IsNullOrEmpty(StringUtil.RTrim( AV11error)) )
                {
-                  AV17one_address = AV14extPubKeyInfo.gxTpr_Addresslegacy;
-               }
-               else if ( StringUtil.StrCmp(AV12extendedKeyType, "y") == 0 )
-               {
-                  AV17one_address = AV14extPubKeyInfo.gxTpr_Addresssegwitp2sh;
-               }
-               else if ( StringUtil.StrCmp(AV12extendedKeyType, "z") == 0 )
-               {
-                  AV17one_address = AV14extPubKeyInfo.gxTpr_Addresssegwit;
+                  if ( StringUtil.StrCmp(AV12extendedKeyType, "x") == 0 )
+                  {
+                     AV17one_address = AV14extPubKeyInfo.gxTpr_Addresslegacy;
+                  }
+                  else if ( StringUtil.StrCmp(AV12extendedKeyType, "y") == 0 )
+                  {
+                     AV17one_address = AV14extPubKeyInfo.gxTpr_Addresssegwitp2sh;
+                  }
+                  else if ( StringUtil.StrCmp(AV12extendedKeyType, "z") == 0 )
+                  {
+                     AV17one_address = AV14extPubKeyInfo.gxTpr_Addresssegwit;
+                  }
+                  else
+                  {
+                     AV11error = "Extended type not found";
+                  }
+                  AV20sdt_addressess.gxTpr_Address.Add(AV17one_address, 0);
                }
                else
                {
-                  AV11error = "Extended type not found";
+                  if (true) break;
                }
-               AV20sdt_addressess.gxTpr_Address.Add(AV17one_address, 0);
                AV18start = (long)(AV18start+1);
             }
-         }
-         else
-         {
-            GX_msglist.addItem(AV11error);
          }
          this.cleanup();
       }

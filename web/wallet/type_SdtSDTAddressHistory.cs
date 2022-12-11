@@ -36,9 +36,11 @@ namespace GeneXus.Programs.wallet
 
 			gxTv_SdtSDTAddressHistory_Receivedtransactionid = "";
 
-			gxTv_SdtSDTAddressHistory_Sentdatetime = (DateTime)(DateTime.MinValue);
+			gxTv_SdtSDTAddressHistory_Receivedprivatekey = "";
 
-			gxTv_SdtSDTAddressHistory_Sentaddress = "";
+			gxTv_SdtSDTAddressHistory_Receivedtransactionhex = "";
+
+			gxTv_SdtSDTAddressHistory_Sentdatetime = (DateTime)(DateTime.MinValue);
 
 			gxTv_SdtSDTAddressHistory_Senttransactionid = "";
 
@@ -104,6 +106,12 @@ namespace GeneXus.Programs.wallet
 			AddObjectProperty("RecivedN", gxTpr_Recivedn, false);
 
 
+			AddObjectProperty("ReceivedPrivateKey", gxTpr_Receivedprivatekey, false);
+
+
+			AddObjectProperty("ReceivedTransactionHex", gxTpr_Receivedtransactionhex, false);
+
+
 			datetime_STZ = gxTpr_Sentdatetime;
 			sDateCnv = "";
 			sNumToPad = StringUtil.Trim(StringUtil.Str((decimal)(DateTimeUtil.Year(datetime_STZ)), 10, 0));
@@ -127,16 +135,7 @@ namespace GeneXus.Programs.wallet
 
 
 
-			AddObjectProperty("SentAddress", gxTpr_Sentaddress, false);
-
-
 			AddObjectProperty("SentTransactionId", gxTpr_Senttransactionid, false);
-
-
-			AddObjectProperty("SentAmount", StringUtil.LTrim( StringUtil.Str( (decimal)gxTpr_Sentamount, 16, 8)), false);
-
-
-			AddObjectProperty("SentCostOfTransaction", StringUtil.LTrim( StringUtil.Str( (decimal)gxTpr_Sentcostoftransaction, 16, 8)), false);
 
 
 			AddObjectProperty("Balance", StringUtil.LTrim( StringUtil.Str( (decimal)gxTpr_Balance, 16, 8)), false);
@@ -247,6 +246,38 @@ namespace GeneXus.Programs.wallet
 
 
 
+
+		[SoapElement(ElementName="ReceivedPrivateKey")]
+		[XmlElement(ElementName="ReceivedPrivateKey")]
+		public string gxTpr_Receivedprivatekey
+		{
+			get {
+				return gxTv_SdtSDTAddressHistory_Receivedprivatekey; 
+			}
+			set {
+				gxTv_SdtSDTAddressHistory_Receivedprivatekey = value;
+				SetDirty("Receivedprivatekey");
+			}
+		}
+
+
+
+
+		[SoapElement(ElementName="ReceivedTransactionHex")]
+		[XmlElement(ElementName="ReceivedTransactionHex")]
+		public string gxTpr_Receivedtransactionhex
+		{
+			get {
+				return gxTv_SdtSDTAddressHistory_Receivedtransactionhex; 
+			}
+			set {
+				gxTv_SdtSDTAddressHistory_Receivedtransactionhex = value;
+				SetDirty("Receivedtransactionhex");
+			}
+		}
+
+
+
 		[SoapElement(ElementName="SentDateTime")]
 		[XmlElement(ElementName="SentDateTime" , IsNullable=true)]
 		public string gxTpr_Sentdatetime_Nullable
@@ -275,22 +306,6 @@ namespace GeneXus.Programs.wallet
 
 
 
-		[SoapElement(ElementName="SentAddress")]
-		[XmlElement(ElementName="SentAddress")]
-		public string gxTpr_Sentaddress
-		{
-			get {
-				return gxTv_SdtSDTAddressHistory_Sentaddress; 
-			}
-			set {
-				gxTv_SdtSDTAddressHistory_Sentaddress = value;
-				SetDirty("Sentaddress");
-			}
-		}
-
-
-
-
 		[SoapElement(ElementName="SentTransactionId")]
 		[XmlElement(ElementName="SentTransactionId")]
 		public string gxTpr_Senttransactionid
@@ -301,56 +316,6 @@ namespace GeneXus.Programs.wallet
 			set {
 				gxTv_SdtSDTAddressHistory_Senttransactionid = value;
 				SetDirty("Senttransactionid");
-			}
-		}
-
-
-
-		[SoapElement(ElementName="SentAmount")]
-		[XmlElement(ElementName="SentAmount")]
-		public string gxTpr_Sentamount_double
-		{
-			get {
-				return Convert.ToString(gxTv_SdtSDTAddressHistory_Sentamount, System.Globalization.CultureInfo.InvariantCulture);
-			}
-			set {
-				gxTv_SdtSDTAddressHistory_Sentamount = (decimal)(Convert.ToDecimal(value, System.Globalization.CultureInfo.InvariantCulture));
-			}
-		}
-		[XmlIgnore]
-		public decimal gxTpr_Sentamount
-		{
-			get {
-				return gxTv_SdtSDTAddressHistory_Sentamount; 
-			}
-			set {
-				gxTv_SdtSDTAddressHistory_Sentamount = value;
-				SetDirty("Sentamount");
-			}
-		}
-
-
-
-		[SoapElement(ElementName="SentCostOfTransaction")]
-		[XmlElement(ElementName="SentCostOfTransaction")]
-		public string gxTpr_Sentcostoftransaction_double
-		{
-			get {
-				return Convert.ToString(gxTv_SdtSDTAddressHistory_Sentcostoftransaction, System.Globalization.CultureInfo.InvariantCulture);
-			}
-			set {
-				gxTv_SdtSDTAddressHistory_Sentcostoftransaction = (decimal)(Convert.ToDecimal(value, System.Globalization.CultureInfo.InvariantCulture));
-			}
-		}
-		[XmlIgnore]
-		public decimal gxTpr_Sentcostoftransaction
-		{
-			get {
-				return gxTv_SdtSDTAddressHistory_Sentcostoftransaction; 
-			}
-			set {
-				gxTv_SdtSDTAddressHistory_Sentcostoftransaction = value;
-				SetDirty("Sentcostoftransaction");
 			}
 		}
 
@@ -399,11 +364,10 @@ namespace GeneXus.Programs.wallet
 
 			gxTv_SdtSDTAddressHistory_Receivedtransactionid = "";
 
+			gxTv_SdtSDTAddressHistory_Receivedprivatekey = "";
+			gxTv_SdtSDTAddressHistory_Receivedtransactionhex = "";
 			gxTv_SdtSDTAddressHistory_Sentdatetime = (DateTime)(DateTime.MinValue);
-			gxTv_SdtSDTAddressHistory_Sentaddress = "";
 			gxTv_SdtSDTAddressHistory_Senttransactionid = "";
-
-
 
 			datetime_STZ = (DateTime)(DateTime.MinValue);
 			sDateCnv = "";
@@ -436,19 +400,16 @@ namespace GeneXus.Programs.wallet
 		protected long gxTv_SdtSDTAddressHistory_Recivedn;
 		 
 
+		protected string gxTv_SdtSDTAddressHistory_Receivedprivatekey;
+		 
+
+		protected string gxTv_SdtSDTAddressHistory_Receivedtransactionhex;
+		 
+
 		protected DateTime gxTv_SdtSDTAddressHistory_Sentdatetime;
 		 
 
-		protected string gxTv_SdtSDTAddressHistory_Sentaddress;
-		 
-
 		protected string gxTv_SdtSDTAddressHistory_Senttransactionid;
-		 
-
-		protected decimal gxTv_SdtSDTAddressHistory_Sentamount;
-		 
-
-		protected decimal gxTv_SdtSDTAddressHistory_Sentcostoftransaction;
 		 
 
 		protected decimal gxTv_SdtSDTAddressHistory_Balance;
@@ -531,7 +492,31 @@ namespace GeneXus.Programs.wallet
 			}
 		}
 
-		[DataMember(Name="SentDateTime", Order=5)]
+		[DataMember(Name="ReceivedPrivateKey", Order=5)]
+		public  string gxTpr_Receivedprivatekey
+		{
+			get { 
+				return StringUtil.RTrim( sdt.gxTpr_Receivedprivatekey);
+
+			}
+			set { 
+				 sdt.gxTpr_Receivedprivatekey = value;
+			}
+		}
+
+		[DataMember(Name="ReceivedTransactionHex", Order=6)]
+		public  string gxTpr_Receivedtransactionhex
+		{
+			get { 
+				return sdt.gxTpr_Receivedtransactionhex;
+
+			}
+			set { 
+				 sdt.gxTpr_Receivedtransactionhex = value;
+			}
+		}
+
+		[DataMember(Name="SentDateTime", Order=7)]
 		public  string gxTpr_Sentdatetime
 		{
 			get { 
@@ -543,19 +528,7 @@ namespace GeneXus.Programs.wallet
 			}
 		}
 
-		[DataMember(Name="SentAddress", Order=6)]
-		public  string gxTpr_Sentaddress
-		{
-			get { 
-				return StringUtil.RTrim( sdt.gxTpr_Sentaddress);
-
-			}
-			set { 
-				 sdt.gxTpr_Sentaddress = value;
-			}
-		}
-
-		[DataMember(Name="SentTransactionId", Order=7)]
+		[DataMember(Name="SentTransactionId", Order=8)]
 		public  string gxTpr_Senttransactionid
 		{
 			get { 
@@ -567,31 +540,7 @@ namespace GeneXus.Programs.wallet
 			}
 		}
 
-		[DataMember(Name="SentAmount", Order=8)]
-		public  string gxTpr_Sentamount
-		{
-			get { 
-				return StringUtil.LTrim( StringUtil.Str(  sdt.gxTpr_Sentamount, 16, 8));
-
-			}
-			set { 
-				sdt.gxTpr_Sentamount =  NumberUtil.Val( value, ".");
-			}
-		}
-
-		[DataMember(Name="SentCostOfTransaction", Order=9)]
-		public  string gxTpr_Sentcostoftransaction
-		{
-			get { 
-				return StringUtil.LTrim( StringUtil.Str(  sdt.gxTpr_Sentcostoftransaction, 16, 8));
-
-			}
-			set { 
-				sdt.gxTpr_Sentcostoftransaction =  NumberUtil.Val( value, ".");
-			}
-		}
-
-		[DataMember(Name="Balance", Order=10)]
+		[DataMember(Name="Balance", Order=9)]
 		public  string gxTpr_Balance
 		{
 			get { 

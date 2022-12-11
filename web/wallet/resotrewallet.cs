@@ -202,10 +202,10 @@ namespace GeneXus.Programs.wallet {
          }
          if ( ( ( context.GetBrowserType( ) == 1 ) || ( context.GetBrowserType( ) == 5 ) ) && ( StringUtil.StrCmp(context.GetBrowserVersion( ), "7.0") == 0 ) )
          {
-            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 2048100), false, true);
+            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 1948100), false, true);
          }
-         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 2048100), false, true);
-         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 1948100), false, true);
+         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 1948100), false, true);
          context.AddJavascriptSource("gxcfg.js", "?"+GetCacheInvalidationToken( ), false, true);
          if ( context.isSpaRequest( ) )
          {
@@ -902,6 +902,32 @@ namespace GeneXus.Programs.wallet {
                            if (returnInSub) return;
                         }
                      }
+                     else if ( StringUtil.StrCmp(AV18walletType, "BIP49") == 0 )
+                     {
+                        if ( String.IsNullOrEmpty(StringUtil.RTrim( AV11MnemonicText)) )
+                        {
+                           GX_msglist.addItem("The Mnemoic text cannot be empty");
+                        }
+                        else
+                        {
+                           /* Execute user subroutine: 'IMPORT BIP49' */
+                           S122 ();
+                           if (returnInSub) return;
+                        }
+                     }
+                     else if ( StringUtil.StrCmp(AV18walletType, "BIP84") == 0 )
+                     {
+                        if ( String.IsNullOrEmpty(StringUtil.RTrim( AV11MnemonicText)) )
+                        {
+                           GX_msglist.addItem("The Mnemoic text cannot be empty");
+                        }
+                        else
+                        {
+                           /* Execute user subroutine: 'IMPORT BIP84' */
+                           S132 ();
+                           if (returnInSub) return;
+                        }
+                     }
                      else if ( StringUtil.StrCmp(AV18walletType, "ImportedWIF") == 0 )
                      {
                         if ( String.IsNullOrEmpty(StringUtil.RTrim( AV19WIFText)) )
@@ -911,7 +937,7 @@ namespace GeneXus.Programs.wallet {
                         else
                         {
                            /* Execute user subroutine: 'IMPORT WIF' */
-                           S122 ();
+                           S142 ();
                            if (returnInSub) return;
                         }
                      }
@@ -924,7 +950,7 @@ namespace GeneXus.Programs.wallet {
                         else
                         {
                            /* Execute user subroutine: 'IMPORT BRAIN' */
-                           S132 ();
+                           S152 ();
                            if (returnInSub) return;
                         }
                      }
@@ -942,7 +968,7 @@ namespace GeneXus.Programs.wallet {
          context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV9keyCreate", AV9keyCreate);
       }
 
-      protected void S122( )
+      protected void S142( )
       {
          /* 'IMPORT WIF' Routine */
          returnInSub = false;
@@ -974,7 +1000,7 @@ namespace GeneXus.Programs.wallet {
          GX_msglist.addItem("Unknow Network Type");
       }
 
-      protected void S132( )
+      protected void S152( )
       {
          /* 'IMPORT BRAIN' Routine */
          returnInSub = false;
@@ -1055,6 +1081,106 @@ namespace GeneXus.Programs.wallet {
          }
       }
 
+      protected void S122( )
+      {
+         /* 'IMPORT BIP49' Routine */
+         returnInSub = false;
+         AV7extKeyCreate.gxTpr_Networktype = AV12networkType;
+         AV7extKeyCreate.gxTpr_Createextkeytype = 30;
+         AV7extKeyCreate.gxTpr_Mnemoniclanguage = 10;
+         AV7extKeyCreate.gxTpr_Createtext = AV11MnemonicText;
+         if ( StringUtil.StrCmp(AV12networkType, "Main") == 0 )
+         {
+            AV7extKeyCreate.gxTpr_Keypath = "m/49'/0'/0'";
+         }
+         else
+         {
+            AV7extKeyCreate.gxTpr_Keypath = "m/49'/1'/0'";
+         }
+         GXt_char1 = AV6error;
+         new GeneXus.Programs.nbitcoin.createextkey(context ).execute(  AV7extKeyCreate,  AV15passworWithMnamonic, out  AV8extKeyInfo, out  GXt_char1) ;
+         AV6error = GXt_char1;
+         AV7extKeyCreate.gxTpr_Keypath = "";
+         AV7extKeyCreate.gxTpr_Networktype = AV12networkType;
+         AV7extKeyCreate.gxTpr_Createextkeytype = 70;
+         AV7extKeyCreate.gxTpr_Extendedprivatekey = AV8extKeyInfo.gxTpr_Extended.gxTpr_Privatekey;
+         GXt_char1 = AV6error;
+         new GeneXus.Programs.nbitcoin.createextkey(context ).execute(  AV7extKeyCreate,  AV13newPass, out  AV8extKeyInfo, out  GXt_char1) ;
+         AV6error = GXt_char1;
+         if ( String.IsNullOrEmpty(StringUtil.RTrim( AV6error)) )
+         {
+            AV16wallet.gxTpr_Wallettype = "BIP49";
+            AV16wallet.gxTpr_Networktype = AV12networkType;
+            AV16wallet.gxTpr_Encryptedsecret = AV8extKeyInfo.gxTpr_Encryptedwif;
+            GXt_char1 = AV6error;
+            new GeneXus.Programs.nbitcoin.eccenctrypt(context ).execute(  AV8extKeyInfo.gxTpr_Publickey,  AV8extKeyInfo.gxTpr_Extended.gxTpr_Privatekey, out  AV20cypherText, out  GXt_char1) ;
+            AV6error = GXt_char1;
+            AV16wallet.gxTpr_Extencryptedsecret = AV20cypherText;
+            AV16wallet.gxTpr_Walletname = AV17walletName;
+            new GeneXus.Programs.wallet.createwallet(context ).execute(  AV16wallet) ;
+            context.setWebReturnParms(new Object[] {});
+            context.setWebReturnParmsMetadata(new Object[] {});
+            context.wjLocDisableFrm = 1;
+            context.nUserReturn = 1;
+            returnInSub = true;
+            if (true) return;
+         }
+         else
+         {
+            GX_msglist.addItem(AV6error);
+         }
+      }
+
+      protected void S132( )
+      {
+         /* 'IMPORT BIP84' Routine */
+         returnInSub = false;
+         AV7extKeyCreate.gxTpr_Networktype = AV12networkType;
+         AV7extKeyCreate.gxTpr_Createextkeytype = 30;
+         AV7extKeyCreate.gxTpr_Mnemoniclanguage = 10;
+         AV7extKeyCreate.gxTpr_Createtext = AV11MnemonicText;
+         if ( StringUtil.StrCmp(AV12networkType, "Main") == 0 )
+         {
+            AV7extKeyCreate.gxTpr_Keypath = "m/84'/0'/0'";
+         }
+         else
+         {
+            AV7extKeyCreate.gxTpr_Keypath = "m/84'/1'/0'";
+         }
+         GXt_char1 = AV6error;
+         new GeneXus.Programs.nbitcoin.createextkey(context ).execute(  AV7extKeyCreate,  AV15passworWithMnamonic, out  AV8extKeyInfo, out  GXt_char1) ;
+         AV6error = GXt_char1;
+         AV7extKeyCreate.gxTpr_Keypath = "";
+         AV7extKeyCreate.gxTpr_Networktype = AV12networkType;
+         AV7extKeyCreate.gxTpr_Createextkeytype = 70;
+         AV7extKeyCreate.gxTpr_Extendedprivatekey = AV8extKeyInfo.gxTpr_Extended.gxTpr_Privatekey;
+         GXt_char1 = AV6error;
+         new GeneXus.Programs.nbitcoin.createextkey(context ).execute(  AV7extKeyCreate,  AV13newPass, out  AV8extKeyInfo, out  GXt_char1) ;
+         AV6error = GXt_char1;
+         if ( String.IsNullOrEmpty(StringUtil.RTrim( AV6error)) )
+         {
+            AV16wallet.gxTpr_Wallettype = "BIP84";
+            AV16wallet.gxTpr_Networktype = AV12networkType;
+            AV16wallet.gxTpr_Encryptedsecret = AV8extKeyInfo.gxTpr_Encryptedwif;
+            GXt_char1 = AV6error;
+            new GeneXus.Programs.nbitcoin.eccenctrypt(context ).execute(  AV8extKeyInfo.gxTpr_Publickey,  AV8extKeyInfo.gxTpr_Extended.gxTpr_Privatekey, out  AV20cypherText, out  GXt_char1) ;
+            AV6error = GXt_char1;
+            AV16wallet.gxTpr_Extencryptedsecret = AV20cypherText;
+            AV16wallet.gxTpr_Walletname = AV17walletName;
+            new GeneXus.Programs.wallet.createwallet(context ).execute(  AV16wallet) ;
+            context.setWebReturnParms(new Object[] {});
+            context.setWebReturnParmsMetadata(new Object[] {});
+            context.wjLocDisableFrm = 1;
+            context.nUserReturn = 1;
+            returnInSub = true;
+            if (true) return;
+         }
+         else
+         {
+            GX_msglist.addItem(AV6error);
+         }
+      }
+
       protected void nextLoad( )
       {
       }
@@ -1104,7 +1230,7 @@ namespace GeneXus.Programs.wallet {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202211414152466", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2022121113184898", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1120,7 +1246,7 @@ namespace GeneXus.Programs.wallet {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("wallet/resotrewallet.js", "?202211414152466", false, true);
+         context.AddJavascriptSource("wallet/resotrewallet.js", "?2022121113184898", false, true);
          /* End function include_jscripts */
       }
 
@@ -1211,8 +1337,8 @@ namespace GeneXus.Programs.wallet {
       public void Validv_Wallettype( )
       {
          AV18walletType = cmbavWallettype.CurrentValue;
-         edtavMnemonictext_Visible = ((StringUtil.StrCmp(AV18walletType, "BIP44")==0) ? 1 : 0);
-         edtavPassworwithmnamonic_Visible = ((StringUtil.StrCmp(AV18walletType, "BIP44")==0) ? 1 : 0);
+         edtavMnemonictext_Visible = ((StringUtil.StrCmp(AV18walletType, "BIP44")==0)||(StringUtil.StrCmp(AV18walletType, "BIP49")==0)||(StringUtil.StrCmp(AV18walletType, "BIP84")==0) ? 1 : 0);
+         edtavPassworwithmnamonic_Visible = ((StringUtil.StrCmp(AV18walletType, "BIP44")==0)||(StringUtil.StrCmp(AV18walletType, "BIP49")==0)||(StringUtil.StrCmp(AV18walletType, "BIP84")==0) ? 1 : 0);
          edtavWiftext_Visible = ((StringUtil.StrCmp(AV18walletType, "ImportedWIF")==0) ? 1 : 0);
          edtavBraintext_Visible = ((StringUtil.StrCmp(AV18walletType, "BrainWallet")==0) ? 1 : 0);
          edtavNewpass_Visible = (!(StringUtil.StrCmp(AV18walletType, "SelectWalletType")==0) ? 1 : 0);
@@ -1300,8 +1426,8 @@ namespace GeneXus.Programs.wallet {
          AV6error = "";
          AV10keyInfo = new GeneXus.Programs.nbitcoin.SdtKeyInfo(context);
          AV8extKeyInfo = new GeneXus.Programs.nbitcoin.SdtExtKeyInfo(context);
-         GXt_char1 = "";
          AV20cypherText = "";
+         GXt_char1 = "";
          BackMsgLst = new msglist();
          LclMsgLst = new msglist();
          /* GeneXus formulas. */

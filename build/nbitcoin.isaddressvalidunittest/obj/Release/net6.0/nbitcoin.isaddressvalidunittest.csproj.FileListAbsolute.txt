@@ -1,0 +1,10 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\nbitcoin.isaddressvalidunittest.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\nbitcoin.isaddressvalidunittest.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.isaddressvalidunittest\obj\Release\net6.0\nbitcoin.isaddressvalidunittest.csproj.AssemblyReference.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.isaddressvalidunittest\obj\Release\net6.0\nbitcoin.isaddressvalidunittest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.isaddressvalidunittest\obj\Release\net6.0\nbitcoin.isaddressvalidunittest.csproj.CoreCompileInputs.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.isaddressvalidunittest\obj\Release\net6.0\nbitcoin.isaddressvalidunittest.csproj.CopyComplete
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.isaddressvalidunittest\obj\Release\net6.0\nbitcoin.isaddressvalidunittest.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.isaddressvalidunittest\obj\Release\net6.0\refint\nbitcoin.isaddressvalidunittest.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.isaddressvalidunittest\obj\Release\net6.0\nbitcoin.isaddressvalidunittest.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.isaddressvalidunittest\obj\Release\net6.0\ref\nbitcoin.isaddressvalidunittest.dll

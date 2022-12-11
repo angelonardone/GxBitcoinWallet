@@ -200,10 +200,10 @@ namespace GeneXus.Programs {
          }
          if ( ( ( context.GetBrowserType( ) == 1 ) || ( context.GetBrowserType( ) == 5 ) ) && ( StringUtil.StrCmp(context.GetBrowserVersion( ), "7.0") == 0 ) )
          {
-            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 2048100), false, true);
+            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 1948100), false, true);
          }
-         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 2048100), false, true);
-         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 1948100), false, true);
+         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 1948100), false, true);
          context.AddJavascriptSource("gxcfg.js", "?"+GetCacheInvalidationToken( ), false, true);
          if ( context.isSpaRequest( ) )
          {
@@ -262,11 +262,19 @@ namespace GeneXus.Programs {
          }
          if ( context.isAjaxRequest( ) )
          {
-            context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "vBODY", AV19body);
+            context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "vTRANSAXTIONS_POSTINPUT", AV31transaxtions_postInput);
          }
          else
          {
-            context.httpAjaxContext.ajax_rsp_assign_hidden_sdt("vBODY", AV19body);
+            context.httpAjaxContext.ajax_rsp_assign_hidden_sdt("vTRANSAXTIONS_POSTINPUT", AV31transaxtions_postInput);
+         }
+         if ( context.isAjaxRequest( ) )
+         {
+            context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "vRAWTRANSACTION_POSTINPUT", AV32rawTransaction_postInput);
+         }
+         else
+         {
+            context.httpAjaxContext.ajax_rsp_assign_hidden_sdt("vRAWTRANSACTION_POSTINPUT", AV32rawTransaction_postInput);
          }
       }
 
@@ -413,6 +421,36 @@ namespace GeneXus.Programs {
             GxWebStd.gx_button_ctrl( context, bttGettransaccionsfromaddressesongxexplorer_Internalname, "", "Get transaccions from addresses on gxExplorer", bttGettransaccionsfromaddressesongxexplorer_Jsonclick, 5, "Get transaccions from addresses on gxExplorer", "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"E\\'GET TRANSACCIONS FROM ADDRESSES ON GXEXPLORER\\'."+"'", TempTags, "", context.GetButtonType( ), "HLP_Test2.htm");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "left", "top", "", "", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "left", "top", "", "", "div");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 23,'',false,'',0)\"";
+            ClassString = "Button";
+            StyleString = "";
+            GxWebStd.gx_button_ctrl( context, bttGetrawtransactionfromgxexplorer_Internalname, "", "get RawTransaction from gxExplorer", bttGetrawtransactionfromgxexplorer_Jsonclick, 5, "get RawTransaction from gxExplorer", "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"E\\'GET RAWTRANSACTION FROM GXEXPLORER\\'."+"'", TempTags, "", context.GetButtonType( ), "HLP_Test2.htm");
+            GxWebStd.gx_div_end( context, "left", "top", "div");
+            GxWebStd.gx_div_end( context, "left", "top", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "left", "top", "", "", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "left", "top", "", "", "div");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 26,'',false,'',0)\"";
+            ClassString = "Button";
+            StyleString = "";
+            GxWebStd.gx_button_ctrl( context, bttGetfeeestimatefromexplorer_Internalname, "", "get Fee estimate from explorer", bttGetfeeestimatefromexplorer_Jsonclick, 5, "get Fee estimate from explorer", "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"E\\'GET FEE ESTIMATE FROM EXPLORER\\'."+"'", TempTags, "", context.GetButtonType( ), "HLP_Test2.htm");
+            GxWebStd.gx_div_end( context, "left", "top", "div");
+            GxWebStd.gx_div_end( context, "left", "top", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "left", "top", "", "", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "left", "top", "", "", "div");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 29,'',false,'',0)\"";
+            ClassString = "Button";
+            StyleString = "";
+            GxWebStd.gx_button_ctrl( context, bttPostrawtransaction_Internalname, "", "Post Raw Transaction", bttPostrawtransaction_Jsonclick, 5, "Post Raw Transaction", "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"E\\'POST RAW TRANSACTION\\'."+"'", TempTags, "", context.GetButtonType( ), "HLP_Test2.htm");
+            GxWebStd.gx_div_end( context, "left", "top", "div");
+            GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
          }
@@ -503,12 +541,33 @@ namespace GeneXus.Programs {
                               /* Execute user event: 'Get transaccions from addresses on gxExplorer' */
                               E140L2 ();
                            }
+                           else if ( StringUtil.StrCmp(sEvt, "'GET RAWTRANSACTION FROM GXEXPLORER'") == 0 )
+                           {
+                              context.wbHandled = 1;
+                              dynload_actions( ) ;
+                              /* Execute user event: 'get RawTransaction from gxExplorer' */
+                              E150L2 ();
+                           }
+                           else if ( StringUtil.StrCmp(sEvt, "'GET FEE ESTIMATE FROM EXPLORER'") == 0 )
+                           {
+                              context.wbHandled = 1;
+                              dynload_actions( ) ;
+                              /* Execute user event: 'get Fee estimate from explorer' */
+                              E160L2 ();
+                           }
+                           else if ( StringUtil.StrCmp(sEvt, "'POST RAW TRANSACTION'") == 0 )
+                           {
+                              context.wbHandled = 1;
+                              dynload_actions( ) ;
+                              /* Execute user event: 'Post Raw Transaction' */
+                              E170L2 ();
+                           }
                            else if ( StringUtil.StrCmp(sEvt, "LOAD") == 0 )
                            {
                               context.wbHandled = 1;
                               dynload_actions( ) ;
                               /* Execute user event: Load */
-                              E150L2 ();
+                              E180L2 ();
                            }
                            else if ( StringUtil.StrCmp(sEvt, "ENTER") == 0 )
                            {
@@ -636,7 +695,7 @@ namespace GeneXus.Programs {
          if ( ! context.WillRedirect( ) && ( context.nUserReturn != 1 ) )
          {
             /* Execute user event: Load */
-            E150L2 ();
+            E180L2 ();
             WB0L0( ) ;
          }
       }
@@ -717,38 +776,101 @@ namespace GeneXus.Programs {
       {
          /* 'Get transaccions from addresses on gxExplorer' Routine */
          returnInSub = false;
-         AV15deserializedExtPubKey = "vpub5UzmHJe4YPMzYL3MXiy4dvv5YPAGRU9iii8EHrfwLw2nfdMG9wVUfKi4pFeeuHbDhQqvdAh1gUZt9e6UbNfM8VrNaja2XsEd3MZfHRqDSSV";
+         AV15deserializedExtPubKey = "tpubDCXzCF6rKnEJWKWpQ1m5xS1K2hRc5cWJwHXnsgoq8DSdwfD5N1awJ2NtNGimFMj3NkFdHcx8qfuRZiq63w2XePbRaXxXqDrH1vvGasz7mb2";
          GXt_char2 = AV5error;
          new GeneXus.Programs.nbitcoin.deriveaddressfromextpubkey(context ).execute(  AV15deserializedExtPubKey,  0,  0,  100, out  AV16sdt_addressess1, out  GXt_char2) ;
          AV5error = GXt_char2;
          GXt_char2 = AV5error;
          new GeneXus.Programs.nbitcoin.deriveaddressfromextpubkey(context ).execute(  AV15deserializedExtPubKey,  1,  0,  100, out  AV17sdt_addressess2, out  GXt_char2) ;
          AV5error = GXt_char2;
-         AV26GXV1 = 1;
-         while ( AV26GXV1 <= AV16sdt_addressess1.gxTpr_Address.Count )
+         AV35GXV1 = 1;
+         while ( AV35GXV1 <= AV16sdt_addressess1.gxTpr_Address.Count )
          {
-            AV18one_address = AV16sdt_addressess1.gxTpr_Address.GetString(AV26GXV1);
-            AV19body.gxTpr_Sdt_addressess.gxTpr_Address.Add(AV18one_address, 0);
-            AV26GXV1 = (int)(AV26GXV1+1);
+            AV18one_address = AV16sdt_addressess1.gxTpr_Address.GetString(AV35GXV1);
+            AV31transaxtions_postInput.gxTpr_Sdt_addressess.gxTpr_Address.Add(AV18one_address, 0);
+            AV35GXV1 = (int)(AV35GXV1+1);
          }
-         AV27GXV2 = 1;
-         while ( AV27GXV2 <= AV17sdt_addressess2.gxTpr_Address.Count )
+         AV36GXV2 = 1;
+         while ( AV36GXV2 <= AV17sdt_addressess2.gxTpr_Address.Count )
          {
-            AV18one_address = AV17sdt_addressess2.gxTpr_Address.GetString(AV27GXV2);
-            AV19body.gxTpr_Sdt_addressess.gxTpr_Address.Add(AV18one_address, 0);
-            AV27GXV2 = (int)(AV27GXV2+1);
+            AV18one_address = AV17sdt_addressess2.gxTpr_Address.GetString(AV36GXV2);
+            AV31transaxtions_postInput.gxTpr_Sdt_addressess.gxTpr_Address.Add(AV18one_address, 0);
+            AV36GXV2 = (int)(AV36GXV2+1);
          }
-         new GeneXus.Programs.gxexplorer.gxexplorerservicestansactionsfromaddressestransactionspost(context ).execute(  AV23ServerUrlTemplatingVar,  AV19body, out  GxExplorer_services_TxoutFromAddressesOUT, out  AV21HttpMessage, out  AV22IsSuccess) ;
+         new gxexplorerservicesrestgettransactionspost(context ).execute(  AV23ServerUrlTemplatingVar,  AV31transaxtions_postInput, out  GxExplorer_services_TxoutFromAddressesOUT, out  AV21HttpMessage, out  AV22IsSuccess) ;
          GX_msglist.addItem(GxExplorer_services_TxoutFromAddressesOUT.ToJSonString(false, true));
          /*  Sending Event outputs  */
-         context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV19body", AV19body);
+         context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV31transaxtions_postInput", AV31transaxtions_postInput);
+      }
+
+      protected void E150L2( )
+      {
+         /* 'get RawTransaction from gxExplorer' Routine */
+         returnInSub = false;
+         new gxexplorerservicesrestrawtransactionget(context ).execute(  AV23ServerUrlTemplatingVar,  "7d93db683fc64774437931a884c9da3f3a646f5897baff0cc2cf0ccd8e2d063b", out  GxExplorer_services_resultGetRawTransactionOUT, out  AV21HttpMessage, out  AV22IsSuccess) ;
+         GX_msglist.addItem(GxExplorer_services_resultGetRawTransactionOUT.ToJSonString(false, true));
+         new gxexplorerservicesrestrawtransactionget(context ).execute(  AV23ServerUrlTemplatingVar,  "4aec3e5de591b3181090891104bcbd1f60926a537c4a4a7e68894faf6ae3a33b", out  GxExplorer_services_resultGetRawTransactionOUT, out  AV21HttpMessage, out  AV22IsSuccess) ;
+         GX_msglist.addItem(GxExplorer_services_resultGetRawTransactionOUT.ToJSonString(false, true));
+         new gxexplorerservicesrestrawtransactionget(context ).execute(  AV23ServerUrlTemplatingVar,  "5b7754c8befee95247a9c89d826e054b547aeab3ed1395868568cfe30040228b", out  GxExplorer_services_resultGetRawTransactionOUT, out  AV21HttpMessage, out  AV22IsSuccess) ;
+         GX_msglist.addItem(GxExplorer_services_resultGetRawTransactionOUT.ToJSonString(false, true));
+      }
+
+      protected void E160L2( )
+      {
+         /* 'get Fee estimate from explorer' Routine */
+         returnInSub = false;
+         GXt_char2 = AV5error;
+         new GeneXus.Programs.wallet.getestimatesmartfee(context ).execute(  350,  1,  "conservative", out  AV28estimatedFee, out  AV27returnNumBlocks, out  GXt_char2) ;
+         AV5error = GXt_char2;
+         if ( String.IsNullOrEmpty(StringUtil.RTrim( AV5error)) )
+         {
+            GX_msglist.addItem("estimatedFee="+StringUtil.Str( AV28estimatedFee, 16, 8)+" in # of Blocks = "+StringUtil.Str( (decimal)(AV27returnNumBlocks), 4, 0));
+         }
+         else
+         {
+            GX_msglist.addItem(AV5error);
+         }
+         GXt_char2 = AV5error;
+         new GeneXus.Programs.wallet.getestimatesmartfee(context ).execute(  350,  6,  "conservative", out  AV28estimatedFee, out  AV27returnNumBlocks, out  GXt_char2) ;
+         AV5error = GXt_char2;
+         if ( String.IsNullOrEmpty(StringUtil.RTrim( AV5error)) )
+         {
+            GX_msglist.addItem("estimatedFee="+StringUtil.Str( AV28estimatedFee, 16, 8)+" in # of Blocks = "+StringUtil.Str( (decimal)(AV27returnNumBlocks), 4, 0));
+         }
+         else
+         {
+            GX_msglist.addItem(AV5error);
+         }
+         GXt_char2 = AV5error;
+         new GeneXus.Programs.wallet.getestimatesmartfee(context ).execute(  350,  60,  "economical", out  AV28estimatedFee, out  AV27returnNumBlocks, out  GXt_char2) ;
+         AV5error = GXt_char2;
+         if ( String.IsNullOrEmpty(StringUtil.RTrim( AV5error)) )
+         {
+            GX_msglist.addItem("estimatedFee="+StringUtil.Str( AV28estimatedFee, 16, 8)+" in # of Blocks = "+StringUtil.Str( (decimal)(AV27returnNumBlocks), 4, 0));
+         }
+         else
+         {
+            GX_msglist.addItem(AV5error);
+         }
+      }
+
+      protected void E170L2( )
+      {
+         /* 'Post Raw Transaction' Routine */
+         returnInSub = false;
+         AV32rawTransaction_postInput.gxTpr_Hextransaction = "0100000002e5cd1d0ec6f0d70978208e90371adf0d61dfb57a05650b4be98ec687c44c631d000000006a47304402206af8d96d1782973a14e9a9d6fc3ae6f07efe4056571873176130fe9dbb6a8cbe022055ce6d919ffabd3998ac9e81f814e1e3515280046de6bb2051d1422c9762126d012102f876b2e1a0fd613050749e0d5ce852d98d558b5127cd8fc30f649cf2f926ed99ffffffff977bd413d2aa63692166b9402e2c13741ef55c05ee871ffa660f6f5cedb9ff06000000006a47304402200f37c86a5280fe84a0cbd8764eb74b974c201c8a50bae39d264bba8000b814210220576a26ad247a4b7c697442bf016f48827c61566d28260b7d1d4c1d9bb7346187012102f876b2e1a0fd613050749e0d5ce852d98d558b5127cd8fc30f649cf2f926ed99ffffffff02983a0000000000001976a91453607faff50447fb44d256fcfdf07a0df0af924a88aca00f0000000000001976a914cc285fe2cb56b58c892cb4dc9241fec58ef2f13088ac00000000";
+         new gxexplorerservicesrestrawtransactionpost(context ).execute(  AV23ServerUrlTemplatingVar,  AV32rawTransaction_postInput, out  AV30RawTransaction__postOutputOUT, out  AV21HttpMessage, out  AV22IsSuccess) ;
+         GX_msglist.addItem(AV30RawTransaction__postOutputOUT.ToJSonString(false, true));
+         GX_msglist.addItem(AV30RawTransaction__postOutputOUT.gxTpr_Error);
+         /*  Sending Event outputs  */
+         context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV32rawTransaction_postInput", AV32rawTransaction_postInput);
       }
 
       protected void nextLoad( )
       {
       }
 
-      protected void E150L2( )
+      protected void E180L2( )
       {
          /* Load Routine */
          returnInSub = false;
@@ -793,7 +915,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202211414152594", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2022121113185140", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -809,7 +931,8 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("test2.js", "?202211414152594", false, true);
+         context.AddJavascriptSource("gxdec.js", "?"+context.GetBuildNumber( 1948100), false, true);
+         context.AddJavascriptSource("test2.js", "?2022121113185142", false, true);
          /* End function include_jscripts */
       }
 
@@ -825,6 +948,9 @@ namespace GeneXus.Programs {
          edtavExtended_key_Internalname = "vEXTENDED_KEY";
          bttParseserilizedextendedkey_Internalname = "PARSESERILIZEDEXTENDEDKEY";
          bttGettransaccionsfromaddressesongxexplorer_Internalname = "GETTRANSACCIONSFROMADDRESSESONGXEXPLORER";
+         bttGetrawtransactionfromgxexplorer_Internalname = "GETRAWTRANSACTIONFROMGXEXPLORER";
+         bttGetfeeestimatefromexplorer_Internalname = "GETFEEESTIMATEFROMEXPLORER";
+         bttPostrawtransaction_Internalname = "POSTRAWTRANSACTION";
          divMaintable_Internalname = "MAINTABLE";
          Form.Internalname = "FORM";
       }
@@ -864,8 +990,14 @@ namespace GeneXus.Programs {
          setEventMetadata("'SCAN TXOUT SET'",",oparms:[{av:'AV11sdt_rpc',fld:'vSDT_RPC',pic:''}]}");
          setEventMetadata("'PARSE SERILIZED EXTENDED KEY'","{handler:'E130L2',iparms:[{av:'AV6extended_key',fld:'vEXTENDED_KEY',pic:''}]");
          setEventMetadata("'PARSE SERILIZED EXTENDED KEY'",",oparms:[]}");
-         setEventMetadata("'GET TRANSACCIONS FROM ADDRESSES ON GXEXPLORER'","{handler:'E140L2',iparms:[{av:'AV19body',fld:'vBODY',pic:''}]");
-         setEventMetadata("'GET TRANSACCIONS FROM ADDRESSES ON GXEXPLORER'",",oparms:[{av:'AV19body',fld:'vBODY',pic:''}]}");
+         setEventMetadata("'GET TRANSACCIONS FROM ADDRESSES ON GXEXPLORER'","{handler:'E140L2',iparms:[{av:'AV31transaxtions_postInput',fld:'vTRANSAXTIONS_POSTINPUT',pic:''}]");
+         setEventMetadata("'GET TRANSACCIONS FROM ADDRESSES ON GXEXPLORER'",",oparms:[{av:'AV31transaxtions_postInput',fld:'vTRANSAXTIONS_POSTINPUT',pic:''}]}");
+         setEventMetadata("'GET RAWTRANSACTION FROM GXEXPLORER'","{handler:'E150L2',iparms:[]");
+         setEventMetadata("'GET RAWTRANSACTION FROM GXEXPLORER'",",oparms:[]}");
+         setEventMetadata("'GET FEE ESTIMATE FROM EXPLORER'","{handler:'E160L2',iparms:[]");
+         setEventMetadata("'GET FEE ESTIMATE FROM EXPLORER'",",oparms:[]}");
+         setEventMetadata("'POST RAW TRANSACTION'","{handler:'E170L2',iparms:[{av:'AV32rawTransaction_postInput',fld:'vRAWTRANSACTION_POSTINPUT',pic:''}]");
+         setEventMetadata("'POST RAW TRANSACTION'",",oparms:[{av:'AV32rawTransaction_postInput',fld:'vRAWTRANSACTION_POSTINPUT',pic:''}]}");
          return  ;
       }
 
@@ -892,7 +1024,8 @@ namespace GeneXus.Programs {
          bodyStyle = "";
          GXKey = "";
          AV11sdt_rpc = new GeneXus.Programs.nbitcoin.SdtSDT_rpc(context);
-         AV19body = new GeneXus.Programs.gxexplorer.SdtTransactions__postInput(context);
+         AV31transaxtions_postInput = new SdtGetTransactions__postInput(context);
+         AV32rawTransaction_postInput = new SdtRawTransaction__postInput(context);
          GX_FocusControl = "";
          Form = new GXWebForm();
          sPrefix = "";
@@ -904,6 +1037,9 @@ namespace GeneXus.Programs {
          AV6extended_key = "";
          bttParseserilizedextendedkey_Jsonclick = "";
          bttGettransaccionsfromaddressesongxexplorer_Jsonclick = "";
+         bttGetrawtransactionfromgxexplorer_Jsonclick = "";
+         bttGetfeeestimatefromexplorer_Jsonclick = "";
+         bttPostrawtransaction_Jsonclick = "";
          sEvt = "";
          EvtGridId = "";
          EvtRowId = "";
@@ -915,12 +1051,14 @@ namespace GeneXus.Programs {
          AV7extendedKeyType = "";
          AV15deserializedExtPubKey = "";
          AV16sdt_addressess1 = new GeneXus.Programs.nbitcoin.SdtSDT_Addressess(context);
-         GXt_char2 = "";
          AV17sdt_addressess2 = new GeneXus.Programs.nbitcoin.SdtSDT_Addressess(context);
          AV18one_address = "";
          AV23ServerUrlTemplatingVar = new GXProperties();
-         GxExplorer_services_TxoutFromAddressesOUT = new GeneXus.Programs.gxexplorer.SdtGxExplorer_services_TxoutFromAddresses(context);
+         GxExplorer_services_TxoutFromAddressesOUT = new SdtGxExplorer_services_TxoutFromAddresses(context);
          AV21HttpMessage = new GeneXus.Utils.SdtMessages_Message(context);
+         GxExplorer_services_resultGetRawTransactionOUT = new SdtGxExplorer_services_resultGetRawTransaction(context);
+         GXt_char2 = "";
+         AV30RawTransaction__postOutputOUT = new SdtRawTransaction__postOutput(context);
          BackMsgLst = new msglist();
          LclMsgLst = new msglist();
          /* GeneXus formulas. */
@@ -935,13 +1073,15 @@ namespace GeneXus.Programs {
       private short wbStart ;
       private short nDonePA ;
       private short gxcookieaux ;
+      private short AV27returnNumBlocks ;
       private short nGXWrapped ;
       private int edtavExtended_key_Enabled ;
-      private int AV26GXV1 ;
-      private int AV27GXV2 ;
+      private int AV35GXV1 ;
+      private int AV36GXV2 ;
       private int idxLst ;
       private long AV8lastBlock ;
       private long GXt_int1 ;
+      private decimal AV28estimatedFee ;
       private string gxfirstwebparm ;
       private string gxfirstwebparm_bkp ;
       private string sDynURL ;
@@ -964,6 +1104,12 @@ namespace GeneXus.Programs {
       private string bttParseserilizedextendedkey_Jsonclick ;
       private string bttGettransaccionsfromaddressesongxexplorer_Internalname ;
       private string bttGettransaccionsfromaddressesongxexplorer_Jsonclick ;
+      private string bttGetrawtransactionfromgxexplorer_Internalname ;
+      private string bttGetrawtransactionfromgxexplorer_Jsonclick ;
+      private string bttGetfeeestimatefromexplorer_Internalname ;
+      private string bttGetfeeestimatefromexplorer_Jsonclick ;
+      private string bttPostrawtransaction_Internalname ;
+      private string bttPostrawtransaction_Jsonclick ;
       private string sEvt ;
       private string EvtGridId ;
       private string EvtRowId ;
@@ -973,8 +1119,8 @@ namespace GeneXus.Programs {
       private string AV12networkType ;
       private string AV7extendedKeyType ;
       private string AV15deserializedExtPubKey ;
-      private string GXt_char2 ;
       private string AV18one_address ;
+      private string GXt_char2 ;
       private bool entryPointCalled ;
       private bool toggleJsOutput ;
       private bool wbLoad ;
@@ -988,13 +1134,16 @@ namespace GeneXus.Programs {
       private msglist LclMsgLst ;
       private GXProperties AV23ServerUrlTemplatingVar ;
       private GXWebForm Form ;
+      private SdtGxExplorer_services_resultGetRawTransaction GxExplorer_services_resultGetRawTransactionOUT ;
+      private SdtGxExplorer_services_TxoutFromAddresses GxExplorer_services_TxoutFromAddressesOUT ;
+      private GeneXus.Utils.SdtMessages_Message AV21HttpMessage ;
+      private SdtRawTransaction__postOutput AV30RawTransaction__postOutputOUT ;
+      private SdtRawTransaction__postInput AV32rawTransaction_postInput ;
       private GeneXus.Programs.nbitcoin.Sdtrpc_ScanTxOutSet_response AV10rpc_ScanTxOutSet_response ;
       private GeneXus.Programs.nbitcoin.SdtSDT_Addressess AV16sdt_addressess1 ;
       private GeneXus.Programs.nbitcoin.SdtSDT_Addressess AV17sdt_addressess2 ;
       private GeneXus.Programs.nbitcoin.SdtSDT_rpc AV11sdt_rpc ;
-      private GeneXus.Programs.gxexplorer.SdtTransactions__postInput AV19body ;
-      private GeneXus.Programs.gxexplorer.SdtGxExplorer_services_TxoutFromAddresses GxExplorer_services_TxoutFromAddressesOUT ;
-      private GeneXus.Utils.SdtMessages_Message AV21HttpMessage ;
+      private SdtGetTransactions__postInput AV31transaxtions_postInput ;
    }
 
 }

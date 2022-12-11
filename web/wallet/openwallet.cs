@@ -200,10 +200,10 @@ namespace GeneXus.Programs.wallet {
          }
          if ( ( ( context.GetBrowserType( ) == 1 ) || ( context.GetBrowserType( ) == 5 ) ) && ( StringUtil.StrCmp(context.GetBrowserVersion( ), "7.0") == 0 ) )
          {
-            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 2048100), false, true);
+            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 1948100), false, true);
          }
-         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 2048100), false, true);
-         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 1948100), false, true);
+         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 1948100), false, true);
          context.AddJavascriptSource("gxcfg.js", "?"+GetCacheInvalidationToken( ), false, true);
          if ( context.isSpaRequest( ) )
          {
@@ -1101,12 +1101,12 @@ namespace GeneXus.Programs.wallet {
                {
                   bDynCreated_Comp_mainwallet = true;
                }
-               if ( StringUtil.StrCmp(StringUtil.Lower( WebComp_Comp_mainwallet_Component), StringUtil.Lower( "Wallet.Bip44")) != 0 )
+               if ( StringUtil.StrCmp(StringUtil.Lower( WebComp_Comp_mainwallet_Component), StringUtil.Lower( "Wallet.MultyAddress")) != 0 )
                {
-                  WebComp_Comp_mainwallet = getWebComponent(GetType(), "GeneXus.Programs", "wallet.bip44", new Object[] {context} );
+                  WebComp_Comp_mainwallet = getWebComponent(GetType(), "GeneXus.Programs", "wallet.multyaddress", new Object[] {context} );
                   WebComp_Comp_mainwallet.ComponentInit();
-                  WebComp_Comp_mainwallet.Name = "Wallet.Bip44";
-                  WebComp_Comp_mainwallet_Component = "Wallet.Bip44";
+                  WebComp_Comp_mainwallet.Name = "Wallet.MultyAddress";
+                  WebComp_Comp_mainwallet_Component = "Wallet.MultyAddress";
                }
                if ( StringUtil.Len( WebComp_Comp_mainwallet_Component) != 0 )
                {
@@ -1205,7 +1205,7 @@ namespace GeneXus.Programs.wallet {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202211414152531", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2022121113184975", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1221,7 +1221,7 @@ namespace GeneXus.Programs.wallet {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("wallet/openwallet.js", "?202211414152532", false, true);
+         context.AddJavascriptSource("wallet/openwallet.js", "?2022121113184975", false, true);
          context.AddJavascriptSource("Shared/HistoryManager/HistoryManager.js", "", false, true);
          context.AddJavascriptSource("Shared/HistoryManager/rsh/json2005.js", "", false, true);
          context.AddJavascriptSource("Shared/HistoryManager/rsh/rsh.js", "", false, true);

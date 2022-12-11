@@ -201,10 +201,10 @@ namespace GeneXus.Programs.wallet {
          }
          if ( ( ( context.GetBrowserType( ) == 1 ) || ( context.GetBrowserType( ) == 5 ) ) && ( StringUtil.StrCmp(context.GetBrowserVersion( ), "7.0") == 0 ) )
          {
-            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 2048100), false, true);
+            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 1948100), false, true);
          }
-         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 2048100), false, true);
-         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 1948100), false, true);
+         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 1948100), false, true);
          context.AddJavascriptSource("gxcfg.js", "?"+GetCacheInvalidationToken( ), false, true);
          if ( context.isSpaRequest( ) )
          {
@@ -744,10 +744,31 @@ namespace GeneXus.Programs.wallet {
          GXt_SdtWallet2 = AV6wallet;
          new GeneXus.Programs.wallet.getwallet(context ).execute( out  GXt_SdtWallet2) ;
          AV6wallet = GXt_SdtWallet2;
-         AV7masterPublicKey = AV5extKeyInfo.gxTpr_Extended.gxTpr_Nuterpublickey;
-         AssignAttri("", false, "AV7masterPublicKey", AV7masterPublicKey);
-         AV8masterPrivateKey = AV5extKeyInfo.gxTpr_Extended.gxTpr_Privatekey;
-         AssignAttri("", false, "AV8masterPrivateKey", AV8masterPrivateKey);
+         if ( StringUtil.StrCmp(AV6wallet.gxTpr_Wallettype, "BIP44") == 0 )
+         {
+            AV7masterPublicKey = AV5extKeyInfo.gxTpr_Extended.gxTpr_Nuterpublickey;
+            AssignAttri("", false, "AV7masterPublicKey", AV7masterPublicKey);
+            AV8masterPrivateKey = AV5extKeyInfo.gxTpr_Extended.gxTpr_Privatekey;
+            AssignAttri("", false, "AV8masterPrivateKey", AV8masterPrivateKey);
+         }
+         else if ( StringUtil.StrCmp(AV6wallet.gxTpr_Wallettype, "BIP49") == 0 )
+         {
+            AV7masterPublicKey = AV5extKeyInfo.gxTpr_Extended.gxTpr_Nuterpublickeysegwitp2sh;
+            AssignAttri("", false, "AV7masterPublicKey", AV7masterPublicKey);
+            AV8masterPrivateKey = AV5extKeyInfo.gxTpr_Extended.gxTpr_Privatekeysegwitp2sh;
+            AssignAttri("", false, "AV8masterPrivateKey", AV8masterPrivateKey);
+         }
+         else if ( StringUtil.StrCmp(AV6wallet.gxTpr_Wallettype, "BIP84") == 0 )
+         {
+            AV7masterPublicKey = AV5extKeyInfo.gxTpr_Extended.gxTpr_Nuterpublickeysegwit;
+            AssignAttri("", false, "AV7masterPublicKey", AV7masterPublicKey);
+            AV8masterPrivateKey = AV5extKeyInfo.gxTpr_Extended.gxTpr_Privatekeysegwit;
+            AssignAttri("", false, "AV8masterPrivateKey", AV8masterPrivateKey);
+         }
+         else
+         {
+            GX_msglist.addItem("We couldn't find the this type of wallet addresses");
+         }
       }
 
       protected void nextLoad( )
@@ -799,7 +820,7 @@ namespace GeneXus.Programs.wallet {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20221141415248", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2022121113185018", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -817,7 +838,7 @@ namespace GeneXus.Programs.wallet {
          if ( nGXWrapped != 1 )
          {
             context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-            context.AddJavascriptSource("wallet/showextendedkey.js", "?20221141415248", false, true);
+            context.AddJavascriptSource("wallet/showextendedkey.js", "?2022121113185018", false, true);
          }
          /* End function include_jscripts */
       }

@@ -21,7 +21,7 @@
 		<ProjectReference Include=".\..\wallet.wallets\wallet.wallets.csproj" />
 		<ProjectReference Include=".\..\wallet.wallets\wallet.wallets.csproj" />
 		<ProjectReference Include=".\..\wallet.oneaddress\wallet.oneaddress.csproj" />
-		<ProjectReference Include=".\..\wallet.bip44\wallet.bip44.csproj" />
+		<ProjectReference Include=".\..\wallet.multyaddress\wallet.multyaddress.csproj" />
 		<ProjectReference Include=".\..\wallet.showkeydetail\wallet.showkeydetail.csproj" />
 		<ProjectReference Include=".\..\wallet.notes\wallet.notes.csproj" />
 		<ProjectReference Include=".\..\wallet.newnote\wallet.newnote.csproj" />
@@ -37,6 +37,7 @@
 		<ProjectReference Include=".\..\test2\test2.csproj" />
 		<ProjectReference Include=".\..\test3\test3.csproj" />
 		<ProjectReference Include=".\..\wallet.showkeydetailoneaddress\wallet.showkeydetailoneaddress.csproj" />
+		<ProjectReference Include=".\..\wallet.sendcoins\wallet.sendcoins.csproj" />
 		<ProjectReference Include=".\..\GeneXus.Programs.Common\GeneXus.Programs.Common.csproj" />
 
 	</ItemGroup>

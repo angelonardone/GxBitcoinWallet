@@ -26,6 +26,7 @@
 
 	</ItemGroup>
 	<ItemGroup>
+		<Compile Include = "$(WebDirectory)\nbitcoin\isaddressvalid.cs" />
 		<Compile Include = "$(WebDirectory)\test3.cs" />
 		<Compile Include = "$(WebDirectory)\wallet\isosunix.cs" />
 

@@ -38,9 +38,9 @@ namespace GeneXus.Programs.wallet {
          dsDefault = context.GetDataStore("Default");
       }
 
-      public void execute( int aP0_currentItem )
+      public void execute( string aP0_recAddress )
       {
-         this.AV5currentItem = aP0_currentItem;
+         this.AV16recAddress = aP0_recAddress;
          executePrivate();
       }
 
@@ -60,7 +60,7 @@ namespace GeneXus.Programs.wallet {
          if ( nGotPars == 0 )
          {
             entryPointCalled = false;
-            gxfirstwebparm = GetFirstPar( "currentItem");
+            gxfirstwebparm = GetFirstPar( "recAddress");
             gxfirstwebparm_bkp = gxfirstwebparm;
             gxfirstwebparm = DecryptAjaxCall( gxfirstwebparm);
             toggleJsOutput = isJsOutputEnabled( );
@@ -87,7 +87,7 @@ namespace GeneXus.Programs.wallet {
                   GxWebError = 1;
                   return  ;
                }
-               gxfirstwebparm = GetFirstPar( "currentItem");
+               gxfirstwebparm = GetFirstPar( "recAddress");
             }
             else if ( StringUtil.StrCmp(gxfirstwebparm, "gxfullajaxEvt") == 0 )
             {
@@ -96,7 +96,7 @@ namespace GeneXus.Programs.wallet {
                   GxWebError = 1;
                   return  ;
                }
-               gxfirstwebparm = GetFirstPar( "currentItem");
+               gxfirstwebparm = GetFirstPar( "recAddress");
             }
             else
             {
@@ -109,9 +109,9 @@ namespace GeneXus.Programs.wallet {
             }
             if ( ! entryPointCalled && ! ( isAjaxCallMode( ) || isFullAjaxMode( ) ) )
             {
-               AV5currentItem = (int)(NumberUtil.Val( gxfirstwebparm, "."));
-               AssignAttri("", false, "AV5currentItem", StringUtil.LTrimStr( (decimal)(AV5currentItem), 6, 0));
-               GxWebStd.gx_hidden_field( context, "gxhash_vCURRENTITEM", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV5currentItem), "ZZZZZ9"), context));
+               AV16recAddress = gxfirstwebparm;
+               AssignAttri("", false, "AV16recAddress", AV16recAddress);
+               GxWebStd.gx_hidden_field( context, "gxhash_vRECADDRESS", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( AV16recAddress, "")), context));
             }
             if ( toggleJsOutput )
             {
@@ -207,10 +207,10 @@ namespace GeneXus.Programs.wallet {
          }
          if ( ( ( context.GetBrowserType( ) == 1 ) || ( context.GetBrowserType( ) == 5 ) ) && ( StringUtil.StrCmp(context.GetBrowserVersion( ), "7.0") == 0 ) )
          {
-            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 2048100), false, true);
+            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 1948100), false, true);
          }
-         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 2048100), false, true);
-         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 1948100), false, true);
+         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 1948100), false, true);
          context.AddJavascriptSource("gxcfg.js", "?"+GetCacheInvalidationToken( ), false, true);
          if ( context.isSpaRequest( ) )
          {
@@ -222,7 +222,7 @@ namespace GeneXus.Programs.wallet {
          {
             disableOutput();
          }
-         FormProcess = ((nGXWrapped==0) ? " data-HasEnter=\"false\" data-Skiponenter=\"false\"" : "");
+         FormProcess = " data-HasEnter=\"false\" data-Skiponenter=\"false\"";
          context.WriteHtmlText( "<body ") ;
          bodyStyle = "" + "background-color:" + context.BuildHTMLColor( Form.Backcolor) + ";color:" + context.BuildHTMLColor( Form.Textcolor) + ";";
          if ( nGXWrapped == 0 )
@@ -236,15 +236,12 @@ namespace GeneXus.Programs.wallet {
          context.WriteHtmlText( " "+"class=\"form-horizontal Form\""+" "+ "style='"+bodyStyle+"'") ;
          context.WriteHtmlText( FormProcess+">") ;
          context.skipLines(1);
-         if ( nGXWrapped != 1 )
-         {
-            context.WriteHtmlTextNl( "<form id=\"MAINFORM\" autocomplete=\"off\" name=\"MAINFORM\" method=\"post\" tabindex=-1  class=\"form-horizontal Form\" data-gx-class=\"form-horizontal Form\" novalidate action=\""+formatLink("wallet.showkeydetail.aspx", new object[] {UrlEncode(StringUtil.LTrimStr(AV5currentItem,6,0))}, new string[] {"currentItem"}) +"\">") ;
-            GxWebStd.gx_hidden_field( context, "_EventName", "");
-            GxWebStd.gx_hidden_field( context, "_EventGridId", "");
-            GxWebStd.gx_hidden_field( context, "_EventRowId", "");
-            context.WriteHtmlText( "<input type=\"submit\" title=\"submit\" style=\"display:block;height:0;border:0;padding:0\" disabled>") ;
-            AssignProp("", false, "FORM", "Class", "form-horizontal Form", true);
-         }
+         context.WriteHtmlTextNl( "<form id=\"MAINFORM\" autocomplete=\"off\" name=\"MAINFORM\" method=\"post\" tabindex=-1  class=\"form-horizontal Form\" data-gx-class=\"form-horizontal Form\" novalidate action=\""+formatLink("wallet.showkeydetail.aspx", new object[] {UrlEncode(StringUtil.RTrim(AV16recAddress))}, new string[] {"recAddress"}) +"\">") ;
+         GxWebStd.gx_hidden_field( context, "_EventName", "");
+         GxWebStd.gx_hidden_field( context, "_EventGridId", "");
+         GxWebStd.gx_hidden_field( context, "_EventRowId", "");
+         context.WriteHtmlText( "<input type=\"submit\" title=\"submit\" style=\"display:block;height:0;border:0;padding:0\" disabled>") ;
+         AssignProp("", false, "FORM", "Class", "form-horizontal Form", true);
          toggleJsOutput = isJsOutputEnabled( );
          if ( context.isSpaRequest( ) )
          {
@@ -254,7 +251,7 @@ namespace GeneXus.Programs.wallet {
 
       protected void send_integrity_footer_hashes( )
       {
-         GxWebStd.gx_hidden_field( context, "gxhash_vCURRENTITEM", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV5currentItem), "ZZZZZ9"), context));
+         GxWebStd.gx_hidden_field( context, "gxhash_vRECADDRESS", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( AV16recAddress, "")), context));
          GXKey = Decrypt64( context.GetCookie( "GX_SESSION_ID"), Crypto.GetServerKey( ));
       }
 
@@ -263,8 +260,8 @@ namespace GeneXus.Programs.wallet {
          /* Send hidden variables. */
          /* Send saved values. */
          send_integrity_footer_hashes( ) ;
-         GxWebStd.gx_hidden_field( context, "vCURRENTITEM", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV5currentItem), 6, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "gxhash_vCURRENTITEM", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV5currentItem), "ZZZZZ9"), context));
+         GxWebStd.gx_hidden_field( context, "vRECADDRESS", StringUtil.RTrim( AV16recAddress));
+         GxWebStd.gx_hidden_field( context, "gxhash_vRECADDRESS", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( AV16recAddress, "")), context));
       }
 
       public override void RenderHtmlCloseForm( )
@@ -280,10 +277,7 @@ namespace GeneXus.Programs.wallet {
          {
             disableOutput();
          }
-         if ( nGXWrapped != 1 )
-         {
-            context.WriteHtmlTextNl( "</form>") ;
-         }
+         context.WriteHtmlTextNl( "</form>") ;
          if ( context.isSpaRequest( ) )
          {
             enableOutput();
@@ -321,7 +315,7 @@ namespace GeneXus.Programs.wallet {
 
       public override string GetSelfLink( )
       {
-         return formatLink("wallet.showkeydetail.aspx", new object[] {UrlEncode(StringUtil.LTrimStr(AV5currentItem,6,0))}, new string[] {"currentItem"})  ;
+         return formatLink("wallet.showkeydetail.aspx", new object[] {UrlEncode(StringUtil.RTrim(AV16recAddress))}, new string[] {"recAddress"})  ;
       }
 
       public override string GetPgmname( )
@@ -368,7 +362,7 @@ namespace GeneXus.Programs.wallet {
             StyleString = "";
             ClassString = "Attribute";
             StyleString = "";
-            GxWebStd.gx_html_textarea( context, edtavAddress_Internalname, StringUtil.RTrim( AV12address), "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,8);\"", 0, 1, edtavAddress_Enabled, 0, 80, "chr", 4, "row", 1, StyleString, ClassString, "", "", "250", -1, 0, "", "", -1, false, "", "'"+""+"'"+",false,"+"'"+""+"'", 0, "HLP_Wallet\\ShowKeyDetail.htm");
+            GxWebStd.gx_html_textarea( context, edtavAddress_Internalname, StringUtil.RTrim( AV12address), "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,8);\"", 0, 1, edtavAddress_Enabled, 0, 80, "chr", 4, "row", 1, StyleString, ClassString, "", "", "250", -1, 0, "", "", -1, true, "", "'"+""+"'"+",false,"+"'"+""+"'", 0, "HLP_Wallet\\ShowKeyDetail.htm");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
@@ -389,28 +383,7 @@ namespace GeneXus.Programs.wallet {
             StyleString = "";
             ClassString = "Attribute";
             StyleString = "";
-            GxWebStd.gx_html_textarea( context, edtavPublickey_Internalname, StringUtil.RTrim( AV10publicKey), "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,13);\"", 0, 1, edtavPublickey_Enabled, 0, 80, "chr", 4, "row", 1, StyleString, ClassString, "", "", "250", -1, 0, "", "", -1, false, "", "'"+""+"'"+",false,"+"'"+""+"'", 0, "HLP_Wallet\\ShowKeyDetail.htm");
-            GxWebStd.gx_div_end( context, "left", "top", "div");
-            GxWebStd.gx_div_end( context, "left", "top", "div");
-            GxWebStd.gx_div_end( context, "left", "top", "div");
-            GxWebStd.gx_div_end( context, "left", "top", "div");
-            /* Div Control */
-            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "left", "top", "", "", "div");
-            /* Div Control */
-            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "left", "top", "", "", "div");
-            /* Div Control */
-            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "left", "top", ""+" data-gx-for=\""+edtavScriptpublickey_Internalname+"\"", "", "div");
-            /* Attribute/Variable Label */
-            GxWebStd.gx_label_element( context, edtavScriptpublickey_Internalname, "script Public Key", "col-sm-3 AttributeLabel", 1, true, "");
-            /* Div Control */
-            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-sm-9 gx-attribute", "left", "top", "", "", "div");
-            /* Multiple line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 18,'',false,'',0)\"";
-            ClassString = "Attribute";
-            StyleString = "";
-            ClassString = "Attribute";
-            StyleString = "";
-            GxWebStd.gx_html_textarea( context, edtavScriptpublickey_Internalname, StringUtil.RTrim( AV13scriptPublicKey), "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,18);\"", 0, 1, edtavScriptpublickey_Enabled, 0, 80, "chr", 4, "row", 1, StyleString, ClassString, "", "", "250", -1, 0, "", "", -1, false, "", "'"+""+"'"+",false,"+"'"+""+"'", 0, "HLP_Wallet\\ShowKeyDetail.htm");
+            GxWebStd.gx_html_textarea( context, edtavPublickey_Internalname, StringUtil.RTrim( AV10publicKey), "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,13);\"", 0, 1, edtavPublickey_Enabled, 0, 80, "chr", 4, "row", 1, StyleString, ClassString, "", "", "250", -1, 0, "", "", -1, true, "", "'"+""+"'"+",false,"+"'"+""+"'", 0, "HLP_Wallet\\ShowKeyDetail.htm");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
@@ -426,8 +399,8 @@ namespace GeneXus.Programs.wallet {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-sm-9 gx-attribute", "left", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 23,'',false,'',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavPrivatekey_Internalname, StringUtil.RTrim( AV9privateKey), StringUtil.RTrim( context.localUtil.Format( AV9privateKey, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,23);\""+" "+"data-gx-password-reveal"+" ", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavPrivatekey_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavPrivatekey_Enabled, 0, "text", "", 80, "chr", 1, "row", 80, -1, 0, 0, 1, 0, -1, false, "", "left", true, "", "HLP_Wallet\\ShowKeyDetail.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 18,'',false,'',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavPrivatekey_Internalname, StringUtil.RTrim( AV9privateKey), StringUtil.RTrim( context.localUtil.Format( AV9privateKey, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,18);\""+" "+"data-gx-password-reveal"+" ", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavPrivatekey_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavPrivatekey_Enabled, 0, "text", "", 80, "chr", 1, "row", 80, -1, 0, 0, 1, 0, -1, true, "", "left", true, "", "HLP_Wallet\\ShowKeyDetail.htm");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
@@ -443,11 +416,21 @@ namespace GeneXus.Programs.wallet {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-sm-9 gx-attribute", "left", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 28,'',false,'',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavWif_Internalname, StringUtil.RTrim( AV11WIF), StringUtil.RTrim( context.localUtil.Format( AV11WIF, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,28);\""+" "+"data-gx-password-reveal"+" ", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavWif_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavWif_Enabled, 0, "text", "", 80, "chr", 1, "row", 80, -1, 0, 0, 1, 0, -1, false, "", "left", true, "", "HLP_Wallet\\ShowKeyDetail.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 23,'',false,'',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavWif_Internalname, StringUtil.RTrim( AV11WIF), StringUtil.RTrim( context.localUtil.Format( AV11WIF, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,23);\""+" "+"data-gx-password-reveal"+" ", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavWif_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavWif_Enabled, 0, "text", "", 80, "chr", 1, "row", 80, -1, 0, 0, 1, 0, -1, true, "", "left", true, "", "HLP_Wallet\\ShowKeyDetail.htm");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
+            GxWebStd.gx_div_end( context, "left", "top", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "left", "top", "", "", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "Right", "top", "", "", "div");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 26,'',false,'',0)\"";
+            ClassString = "Button";
+            StyleString = "";
+            GxWebStd.gx_button_ctrl( context, bttClose_Internalname, "", "Close", bttClose_Jsonclick, 5, "Close", "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"E\\'CLOSE\\'."+"'", TempTags, "", context.GetButtonType( ), "HLP_Wallet\\ShowKeyDetail.htm");
+            GxWebStd.gx_div_end( context, "Right", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
@@ -518,12 +501,19 @@ namespace GeneXus.Programs.wallet {
                               /* Execute user event: Start */
                               E110A2 ();
                            }
+                           else if ( StringUtil.StrCmp(sEvt, "'CLOSE'") == 0 )
+                           {
+                              context.wbHandled = 1;
+                              dynload_actions( ) ;
+                              /* Execute user event: 'Close' */
+                              E120A2 ();
+                           }
                            else if ( StringUtil.StrCmp(sEvt, "LOAD") == 0 )
                            {
                               context.wbHandled = 1;
                               dynload_actions( ) ;
                               /* Execute user event: Load */
-                              E120A2 ();
+                              E130A2 ();
                            }
                            else if ( StringUtil.StrCmp(sEvt, "ENTER") == 0 )
                            {
@@ -643,8 +633,6 @@ namespace GeneXus.Programs.wallet {
          AssignProp("", false, edtavAddress_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtavAddress_Enabled), 5, 0), true);
          edtavPublickey_Enabled = 0;
          AssignProp("", false, edtavPublickey_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtavPublickey_Enabled), 5, 0), true);
-         edtavScriptpublickey_Enabled = 0;
-         AssignProp("", false, edtavScriptpublickey_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtavScriptpublickey_Enabled), 5, 0), true);
       }
 
       protected void RF0A2( )
@@ -657,7 +645,7 @@ namespace GeneXus.Programs.wallet {
          if ( ! context.WillRedirect( ) && ( context.nUserReturn != 1 ) )
          {
             /* Execute user event: Load */
-            E120A2 ();
+            E130A2 ();
             WB0A0( ) ;
          }
       }
@@ -673,8 +661,6 @@ namespace GeneXus.Programs.wallet {
          AssignProp("", false, edtavAddress_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtavAddress_Enabled), 5, 0), true);
          edtavPublickey_Enabled = 0;
          AssignProp("", false, edtavPublickey_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtavPublickey_Enabled), 5, 0), true);
-         edtavScriptpublickey_Enabled = 0;
-         AssignProp("", false, edtavScriptpublickey_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtavScriptpublickey_Enabled), 5, 0), true);
          fix_multi_value_controls( ) ;
       }
 
@@ -693,6 +679,14 @@ namespace GeneXus.Programs.wallet {
             /* Read saved SDTs. */
             /* Read saved values. */
             /* Read variables values. */
+            AV12address = cgiGet( edtavAddress_Internalname);
+            AssignAttri("", false, "AV12address", AV12address);
+            AV10publicKey = cgiGet( edtavPublickey_Internalname);
+            AssignAttri("", false, "AV10publicKey", AV10publicKey);
+            AV9privateKey = cgiGet( edtavPrivatekey_Internalname);
+            AssignAttri("", false, "AV9privateKey", AV9privateKey);
+            AV11WIF = cgiGet( edtavWif_Internalname);
+            AssignAttri("", false, "AV11WIF", AV11WIF);
             /* Read subfile selected row values. */
             /* Read hidden variables. */
             GXKey = Decrypt64( context.GetCookie( "GX_SESSION_ID"), Crypto.GetServerKey( ));
@@ -714,30 +708,39 @@ namespace GeneXus.Programs.wallet {
       {
          /* Start Routine */
          returnInSub = false;
-         GXt_SdtWallet1 = AV8wallet;
-         new GeneXus.Programs.wallet.getwallet(context ).execute( out  GXt_SdtWallet1) ;
-         AV8wallet = GXt_SdtWallet1;
-         GXt_objcol_SdtWalletLine2 = AV7walletAllLines;
-         new GeneXus.Programs.wallet.getwalletalllines(context ).execute( out  GXt_objcol_SdtWalletLine2) ;
-         AV7walletAllLines = GXt_objcol_SdtWalletLine2;
-         AV6keyInfo = ((GeneXus.Programs.wallet.SdtWalletLine)AV7walletAllLines.Item(AV5currentItem)).gxTpr_Keyinfo;
-         AV10publicKey = AV6keyInfo.gxTpr_Publickey;
-         AssignAttri("", false, "AV10publicKey", AV10publicKey);
-         AV9privateKey = AV6keyInfo.gxTpr_Privatekey;
-         AssignAttri("", false, "AV9privateKey", AV9privateKey);
-         AV13scriptPublicKey = AV6keyInfo.gxTpr_Scriptpublickey;
-         AssignAttri("", false, "AV13scriptPublicKey", AV13scriptPublicKey);
-         AV11WIF = AV6keyInfo.gxTpr_Wif;
-         AssignAttri("", false, "AV11WIF", AV11WIF);
-         AV12address = AV6keyInfo.gxTpr_Address;
-         AssignAttri("", false, "AV12address", AV12address);
+         GXt_objcol_SdtKeyInfo1 = AV18allKeyInfo;
+         new GeneXus.Programs.wallet.getallkeys(context ).execute( out  GXt_objcol_SdtKeyInfo1) ;
+         AV18allKeyInfo = GXt_objcol_SdtKeyInfo1;
+         if ( new GeneXus.Programs.wallet.searchkeyinallkeys(context).executeUdp(  AV16recAddress,  AV18allKeyInfo, out  AV6keyInfo) )
+         {
+            AV10publicKey = AV6keyInfo.gxTpr_Publickey;
+            AssignAttri("", false, "AV10publicKey", AV10publicKey);
+            AV9privateKey = AV6keyInfo.gxTpr_Privatekey;
+            AssignAttri("", false, "AV9privateKey", AV9privateKey);
+            AV11WIF = AV6keyInfo.gxTpr_Wif;
+            AssignAttri("", false, "AV11WIF", AV11WIF);
+            AV12address = AV6keyInfo.gxTpr_Address;
+            AssignAttri("", false, "AV12address", AV12address);
+         }
+      }
+
+      protected void E120A2( )
+      {
+         /* 'Close' Routine */
+         returnInSub = false;
+         context.setWebReturnParms(new Object[] {});
+         context.setWebReturnParmsMetadata(new Object[] {});
+         context.wjLocDisableFrm = 1;
+         context.nUserReturn = 1;
+         returnInSub = true;
+         if (true) return;
       }
 
       protected void nextLoad( )
       {
       }
 
-      protected void E120A2( )
+      protected void E130A2( )
       {
          /* Load Routine */
          returnInSub = false;
@@ -747,9 +750,9 @@ namespace GeneXus.Programs.wallet {
       {
          createObjects();
          initialize();
-         AV5currentItem = Convert.ToInt32(getParm(obj,0));
-         AssignAttri("", false, "AV5currentItem", StringUtil.LTrimStr( (decimal)(AV5currentItem), 6, 0));
-         GxWebStd.gx_hidden_field( context, "gxhash_vCURRENTITEM", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV5currentItem), "ZZZZZ9"), context));
+         AV16recAddress = (string)getParm(obj,0);
+         AssignAttri("", false, "AV16recAddress", AV16recAddress);
+         GxWebStd.gx_hidden_field( context, "gxhash_vRECADDRESS", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( AV16recAddress, "")), context));
       }
 
       public override string getresponse( string sGXDynURL )
@@ -785,7 +788,7 @@ namespace GeneXus.Programs.wallet {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202211414152351", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2022121113184680", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -800,11 +803,8 @@ namespace GeneXus.Programs.wallet {
 
       protected void include_jscripts( )
       {
-         if ( nGXWrapped != 1 )
-         {
-            context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-            context.AddJavascriptSource("wallet/showkeydetail.js", "?202211414152351", false, true);
-         }
+         context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
+         context.AddJavascriptSource("wallet/showkeydetail.js", "?2022121113184680", false, true);
          /* End function include_jscripts */
       }
 
@@ -817,9 +817,9 @@ namespace GeneXus.Programs.wallet {
       {
          edtavAddress_Internalname = "vADDRESS";
          edtavPublickey_Internalname = "vPUBLICKEY";
-         edtavScriptpublickey_Internalname = "vSCRIPTPUBLICKEY";
          edtavPrivatekey_Internalname = "vPRIVATEKEY";
          edtavWif_Internalname = "vWIF";
+         bttClose_Internalname = "CLOSE";
          divMaintable_Internalname = "MAINTABLE";
          Form.Internalname = "FORM";
       }
@@ -836,7 +836,6 @@ namespace GeneXus.Programs.wallet {
          edtavWif_Enabled = 1;
          edtavPrivatekey_Jsonclick = "";
          edtavPrivatekey_Enabled = 1;
-         edtavScriptpublickey_Enabled = 1;
          edtavPublickey_Enabled = 1;
          edtavAddress_Enabled = 1;
          Form.Headerrawhtml = "";
@@ -857,8 +856,10 @@ namespace GeneXus.Programs.wallet {
 
       public override void InitializeDynEvents( )
       {
-         setEventMetadata("REFRESH","{handler:'Refresh',iparms:[{av:'AV5currentItem',fld:'vCURRENTITEM',pic:'ZZZZZ9',hsh:true}]");
+         setEventMetadata("REFRESH","{handler:'Refresh',iparms:[{av:'AV16recAddress',fld:'vRECADDRESS',pic:'',hsh:true}]");
          setEventMetadata("REFRESH",",oparms:[]}");
+         setEventMetadata("'CLOSE'","{handler:'E120A2',iparms:[]");
+         setEventMetadata("'CLOSE'",",oparms:[]}");
          return  ;
       }
 
@@ -878,6 +879,7 @@ namespace GeneXus.Programs.wallet {
 
       public override void initialize( )
       {
+         wcpOAV16recAddress = "";
          gxfirstwebparm = "";
          gxfirstwebparm_bkp = "";
          sDynURL = "";
@@ -892,17 +894,15 @@ namespace GeneXus.Programs.wallet {
          StyleString = "";
          AV12address = "";
          AV10publicKey = "";
-         AV13scriptPublicKey = "";
          AV9privateKey = "";
          AV11WIF = "";
+         bttClose_Jsonclick = "";
          sEvt = "";
          EvtGridId = "";
          EvtRowId = "";
          sEvtType = "";
-         AV8wallet = new GeneXus.Programs.wallet.SdtWallet(context);
-         GXt_SdtWallet1 = new GeneXus.Programs.wallet.SdtWallet(context);
-         AV7walletAllLines = new GXBaseCollection<GeneXus.Programs.wallet.SdtWalletLine>( context, "WalletLine", "GxBitcoinWallet");
-         GXt_objcol_SdtWalletLine2 = new GXBaseCollection<GeneXus.Programs.wallet.SdtWalletLine>( context, "WalletLine", "GxBitcoinWallet");
+         AV18allKeyInfo = new GXBaseCollection<GeneXus.Programs.nbitcoin.SdtKeyInfo>( context, "KeyInfo", "GxBitcoinWallet");
+         GXt_objcol_SdtKeyInfo1 = new GXBaseCollection<GeneXus.Programs.nbitcoin.SdtKeyInfo>( context, "KeyInfo", "GxBitcoinWallet");
          AV6keyInfo = new GeneXus.Programs.nbitcoin.SdtKeyInfo(context);
          BackMsgLst = new msglist();
          LclMsgLst = new msglist();
@@ -910,26 +910,24 @@ namespace GeneXus.Programs.wallet {
          context.Gx_err = 0;
          edtavAddress_Enabled = 0;
          edtavPublickey_Enabled = 0;
-         edtavScriptpublickey_Enabled = 0;
       }
 
       private short nGotPars ;
       private short GxWebError ;
       private short initialized ;
       private short gxajaxcallmode ;
-      private short nGXWrapped ;
       private short wbEnd ;
       private short wbStart ;
       private short nDonePA ;
       private short gxcookieaux ;
-      private int AV5currentItem ;
-      private int wcpOAV5currentItem ;
+      private short nGXWrapped ;
       private int edtavAddress_Enabled ;
       private int edtavPublickey_Enabled ;
-      private int edtavScriptpublickey_Enabled ;
       private int edtavPrivatekey_Enabled ;
       private int edtavWif_Enabled ;
       private int idxLst ;
+      private string AV16recAddress ;
+      private string wcpOAV16recAddress ;
       private string gxfirstwebparm ;
       private string gxfirstwebparm_bkp ;
       private string sDynURL ;
@@ -946,14 +944,14 @@ namespace GeneXus.Programs.wallet {
       private string AV12address ;
       private string edtavPublickey_Internalname ;
       private string AV10publicKey ;
-      private string edtavScriptpublickey_Internalname ;
-      private string AV13scriptPublicKey ;
       private string edtavPrivatekey_Internalname ;
       private string AV9privateKey ;
       private string edtavPrivatekey_Jsonclick ;
       private string edtavWif_Internalname ;
       private string AV11WIF ;
       private string edtavWif_Jsonclick ;
+      private string bttClose_Internalname ;
+      private string bttClose_Jsonclick ;
       private string sEvt ;
       private string EvtGridId ;
       private string EvtRowId ;
@@ -968,12 +966,10 @@ namespace GeneXus.Programs.wallet {
       private IGxDataStore dsDefault ;
       private msglist BackMsgLst ;
       private msglist LclMsgLst ;
-      private GXBaseCollection<GeneXus.Programs.wallet.SdtWalletLine> AV7walletAllLines ;
-      private GXBaseCollection<GeneXus.Programs.wallet.SdtWalletLine> GXt_objcol_SdtWalletLine2 ;
+      private GXBaseCollection<GeneXus.Programs.nbitcoin.SdtKeyInfo> AV18allKeyInfo ;
+      private GXBaseCollection<GeneXus.Programs.nbitcoin.SdtKeyInfo> GXt_objcol_SdtKeyInfo1 ;
       private GXWebForm Form ;
       private GeneXus.Programs.nbitcoin.SdtKeyInfo AV6keyInfo ;
-      private GeneXus.Programs.wallet.SdtWallet AV8wallet ;
-      private GeneXus.Programs.wallet.SdtWallet GXt_SdtWallet1 ;
    }
 
 }

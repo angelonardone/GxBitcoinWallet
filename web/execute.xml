@@ -55,4 +55,10 @@
     <ObjDesc>Wallet.Show Key Detail One Address</ObjDesc>
     <ObjLink>wallet.showkeydetailoneaddress.aspx</ObjLink>
   </Object>
+  <Object>
+    <ObjCls>13</ObjCls>
+    <ObjName>Wallet.SendCoins</ObjName>
+    <ObjDesc>Wallet.Send Coins</ObjDesc>
+    <ObjLink>wallet.sendcoins.aspx</ObjLink>
+  </Object>
 </Objects>

@@ -1,0 +1,10 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\GeneXus.Programs.Common.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\GeneXus.Programs.Common.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\GeneXus.Programs.Common\obj\Release\net6.0\win10-x64\GeneXus.Programs.Common.csproj.AssemblyReference.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\GeneXus.Programs.Common\obj\Release\net6.0\win10-x64\GeneXus.Programs.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\GeneXus.Programs.Common\obj\Release\net6.0\win10-x64\GeneXus.Programs.Common.csproj.CoreCompileInputs.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\GeneXus.Programs.Common\obj\Release\net6.0\win10-x64\GeneXus.Programs.Common.csproj.CopyComplete
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\GeneXus.Programs.Common\obj\Release\net6.0\win10-x64\GeneXus.Programs.Common.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\GeneXus.Programs.Common\obj\Release\net6.0\win10-x64\refint\GeneXus.Programs.Common.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\GeneXus.Programs.Common\obj\Release\net6.0\win10-x64\GeneXus.Programs.Common.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\GeneXus.Programs.Common\obj\Release\net6.0\win10-x64\ref\GeneXus.Programs.Common.dll

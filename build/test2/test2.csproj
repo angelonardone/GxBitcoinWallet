@@ -26,16 +26,22 @@
 
 	</ItemGroup>
 	<ItemGroup>
-		<Compile Include = "$(WebDirectory)\nbitcoin\deriveaddressfromextpubkey.cs" />
-		<Compile Include = "$(WebDirectory)\gxexplorer\apibaseurl.cs" />
-		<Compile Include = "$(WebDirectory)\test2.cs" />
-		<Compile Include = "$(WebDirectory)\gxexplorer\gxexplorerservicestansactionsfromaddressestransactionspost.cs" />
-		<Compile Include = "$(WebDirectory)\nbitcoin\parse_serialized_extended_key.cs" />
-		<Compile Include = "$(WebDirectory)\openapicommon\processserver.cs" />
-		<Compile Include = "$(WebDirectory)\nbitcoin\getblockcount.cs" />
 		<Compile Include = "$(WebDirectory)\nbitcoin\createexpubtkey.cs" />
-		<Compile Include = "$(WebDirectory)\openapicommon\callapi.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\parse_serialized_extended_key.cs" />
+		<Compile Include = "$(WebDirectory)\gxexplorerservicesrestgettransactionspost.cs" />
+		<Compile Include = "$(WebDirectory)\openapicommon\varchartojsonformat.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\deriveaddressfromextpubkey.cs" />
+		<Compile Include = "$(WebDirectory)\apibaseurllocalhost.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\getestimatesmartfee.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\getblockcount.cs" />
+		<Compile Include = "$(WebDirectory)\gxexplorerservicesrestestimatesmartfeeget.cs" />
+		<Compile Include = "$(WebDirectory)\gxexplorerservicesrestrawtransactionget.cs" />
 		<Compile Include = "$(WebDirectory)\nbitcoin\scantxoutset.cs" />
+		<Compile Include = "$(WebDirectory)\gxexplorerservicesrestrawtransactionpost.cs" />
+		<Compile Include = "$(WebDirectory)\test2.cs" />
+		<Compile Include = "$(WebDirectory)\openapicommon\processserver.cs" />
+		<Compile Include = "$(WebDirectory)\openapicommon\callapi.cs" />
+		<Compile Include = "$(WebDirectory)\openapicommon\numerictojsonformat.cs" />
 
 	</ItemGroup>
 	<ItemGroup Condition="'$(PostgresqlSupport)'=='true'">

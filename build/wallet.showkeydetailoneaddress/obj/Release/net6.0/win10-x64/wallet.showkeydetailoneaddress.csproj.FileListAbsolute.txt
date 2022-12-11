@@ -1,0 +1,10 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\wallet.showkeydetailoneaddress.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\wallet.showkeydetailoneaddress.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showkeydetailoneaddress\obj\Release\net6.0\win10-x64\wallet.showkeydetailoneaddress.csproj.AssemblyReference.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showkeydetailoneaddress\obj\Release\net6.0\win10-x64\wallet.showkeydetailoneaddress.GeneratedMSBuildEditorConfig.editorconfig
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showkeydetailoneaddress\obj\Release\net6.0\win10-x64\wallet.showkeydetailoneaddress.csproj.CoreCompileInputs.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showkeydetailoneaddress\obj\Release\net6.0\win10-x64\wallet.showkeydetailoneaddress.csproj.CopyComplete
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showkeydetailoneaddress\obj\Release\net6.0\win10-x64\wallet.showkeydetailoneaddress.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showkeydetailoneaddress\obj\Release\net6.0\win10-x64\refint\wallet.showkeydetailoneaddress.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showkeydetailoneaddress\obj\Release\net6.0\win10-x64\wallet.showkeydetailoneaddress.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\wallet.showkeydetailoneaddress\obj\Release\net6.0\win10-x64\ref\wallet.showkeydetailoneaddress.dll

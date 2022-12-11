@@ -1,0 +1,10 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\rwdpromptmasterpage.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\rwdpromptmasterpage.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\rwdpromptmasterpage\obj\Release\net6.0\win10-x64\rwdpromptmasterpage.csproj.AssemblyReference.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\rwdpromptmasterpage\obj\Release\net6.0\win10-x64\rwdpromptmasterpage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\rwdpromptmasterpage\obj\Release\net6.0\win10-x64\rwdpromptmasterpage.csproj.CoreCompileInputs.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\rwdpromptmasterpage\obj\Release\net6.0\win10-x64\rwdpromptmasterpage.csproj.CopyComplete
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\rwdpromptmasterpage\obj\Release\net6.0\win10-x64\rwdpromptmasterpage.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\rwdpromptmasterpage\obj\Release\net6.0\win10-x64\refint\rwdpromptmasterpage.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\rwdpromptmasterpage\obj\Release\net6.0\win10-x64\rwdpromptmasterpage.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\rwdpromptmasterpage\obj\Release\net6.0\win10-x64\ref\rwdpromptmasterpage.dll

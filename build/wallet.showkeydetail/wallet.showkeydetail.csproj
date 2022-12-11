@@ -20,9 +20,9 @@
 
 	</ItemGroup>
 	<ItemGroup>
-		<Compile Include = "$(WebDirectory)\wallet\getwalletalllines.cs" />
-		<Compile Include = "$(WebDirectory)\wallet\getwallet.cs" />
 		<Compile Include = "$(WebDirectory)\wallet\showkeydetail.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\getallkeys.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\searchkeyinallkeys.cs" />
 
 	</ItemGroup>
 	<ItemGroup Condition="'$(PostgresqlSupport)'=='true'">

@@ -1,0 +1,10 @@
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\nbitcoin.createextkeyunittest.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\web\bin\nbitcoin.createextkeyunittest.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.createextkeyunittest\obj\Release\net6.0\win10-x64\nbitcoin.createextkeyunittest.csproj.AssemblyReference.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.createextkeyunittest\obj\Release\net6.0\win10-x64\nbitcoin.createextkeyunittest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.createextkeyunittest\obj\Release\net6.0\win10-x64\nbitcoin.createextkeyunittest.csproj.CoreCompileInputs.cache
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.createextkeyunittest\obj\Release\net6.0\win10-x64\nbitcoin.createextkeyunittest.csproj.CopyComplete
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.createextkeyunittest\obj\Release\net6.0\win10-x64\nbitcoin.createextkeyunittest.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.createextkeyunittest\obj\Release\net6.0\win10-x64\refint\nbitcoin.createextkeyunittest.dll
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.createextkeyunittest\obj\Release\net6.0\win10-x64\nbitcoin.createextkeyunittest.pdb
+C:\Models\GxBitcoinWallet\NetCoreModel\GxBitcoinWallet\build\nbitcoin.createextkeyunittest\obj\Release\net6.0\win10-x64\ref\nbitcoin.createextkeyunittest.dll

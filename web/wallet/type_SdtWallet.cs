@@ -91,6 +91,9 @@ namespace GeneXus.Programs.wallet
 
 			AddObjectProperty("WalletBaseDirectory", gxTpr_Walletbasedirectory, false);
 
+
+			AddObjectProperty("WalletReadBalanceOnStart", gxTpr_Walletreadbalanceonstart, false);
+
 			return;
 		}
 		#endregion
@@ -208,6 +211,22 @@ namespace GeneXus.Programs.wallet
 
 
 
+
+		[SoapElement(ElementName="WalletReadBalanceOnStart")]
+		[XmlElement(ElementName="WalletReadBalanceOnStart")]
+		public bool gxTpr_Walletreadbalanceonstart
+		{
+			get {
+				return gxTv_SdtWallet_Walletreadbalanceonstart; 
+			}
+			set {
+				gxTv_SdtWallet_Walletreadbalanceonstart = value;
+				SetDirty("Walletreadbalanceonstart");
+			}
+		}
+
+
+
 		public override bool ShouldSerializeSdtJson()
 		{
 			return true;
@@ -228,6 +247,7 @@ namespace GeneXus.Programs.wallet
 			gxTv_SdtWallet_Networktype = "";
 			gxTv_SdtWallet_Walletfilename = "";
 			gxTv_SdtWallet_Walletbasedirectory = "";
+
 			return  ;
 		}
 
@@ -256,6 +276,9 @@ namespace GeneXus.Programs.wallet
 		 
 
 		protected string gxTv_SdtWallet_Walletbasedirectory;
+		 
+
+		protected bool gxTv_SdtWallet_Walletreadbalanceonstart;
 		 
 
 
@@ -356,6 +379,18 @@ namespace GeneXus.Programs.wallet
 			}
 			set { 
 				 sdt.gxTpr_Walletbasedirectory = value;
+			}
+		}
+
+		[DataMember(Name="WalletReadBalanceOnStart", Order=7)]
+		public bool gxTpr_Walletreadbalanceonstart
+		{
+			get { 
+				return sdt.gxTpr_Walletreadbalanceonstart;
+
+			}
+			set { 
+				sdt.gxTpr_Walletreadbalanceonstart = value;
 			}
 		}
 

@@ -35,6 +35,12 @@ namespace GeneXus.Programs.wallet {
          domain["Files"] = "Files";
          domain["*.enc"] = "Files Directory Extension";
          domain[".enc"] = "Files File Extension";
+         domain["HistoryWithBalance"] = "History With Balance";
+         domain["transactions.trn"] = "Transactions File";
+         domain["AllKeys"] = "All Keys";
+         domain["ReturnAddressess"] = "Return Addressess";
+         domain["ReceiveAddressess"] = "Receive Addressess";
+         domain["0.00001000"] = "Fee Used For Estimates";
       }
 
       public static string getDescription( IGxContext context ,
@@ -78,6 +84,12 @@ namespace GeneXus.Programs.wallet {
             domainMap["Files"] = "Files";
             domainMap["FilesDirectoryExtension"] = "*.enc";
             domainMap["FilesFileExtension"] = ".enc";
+            domainMap["HistoryWithBalance"] = "HistoryWithBalance";
+            domainMap["TransactionsFile"] = "transactions.trn";
+            domainMap["AllKeys"] = "AllKeys";
+            domainMap["ReturnAddressess"] = "ReturnAddressess";
+            domainMap["ReceiveAddressess"] = "ReceiveAddressess";
+            domainMap["FeeUsedForEstimates"] = "0.00001000";
          }
          return (string)domainMap[key] ;
       }

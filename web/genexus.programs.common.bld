@@ -4,6 +4,8 @@ SoapParm.cs
 GxFullTextSearchReindexer.cs
 GxModelInfoProvider.cs
 @genexus.programs.sdt.bld
+wallet\gxdomainestimatesmartfeetype.cs
+wallet\gxdomainlistofaddresstype.cs
 wallet\gxdomainwallettype.cs
 nbitcoin\gxdomainnetworktype.cs
 nbitcoin\gxdomaincreatekeytype.cs

@@ -200,10 +200,10 @@ namespace GeneXus.Programs {
          }
          if ( ( ( context.GetBrowserType( ) == 1 ) || ( context.GetBrowserType( ) == 5 ) ) && ( StringUtil.StrCmp(context.GetBrowserVersion( ), "7.0") == 0 ) )
          {
-            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 2048100), false, true);
+            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 1948100), false, true);
          }
-         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 2048100), false, true);
-         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 1948100), false, true);
+         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 1948100), false, true);
          context.AddJavascriptSource("gxcfg.js", "?"+GetCacheInvalidationToken( ), false, true);
          if ( context.isSpaRequest( ) )
          {
@@ -417,7 +417,7 @@ namespace GeneXus.Programs {
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 21,'',false,'',0)\"";
             ClassString = "Button";
             StyleString = "";
-            GxWebStd.gx_button_ctrl( context, bttGetnumberoftransactionsfromkeymainnet_Internalname, "", "Get Number of Transactions from Key (mainNet)", bttGetnumberoftransactionsfromkeymainnet_Jsonclick, 5, "Get Number of Transactions from Key (mainNet)", "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"E\\'GET NUMBER OF TRANSACTIONS FROM KEY (MAINNET)\\'."+"'", TempTags, "", context.GetButtonType( ), "HLP_Test1.htm");
+            GxWebStd.gx_button_ctrl( context, bttGetnumberoftransactionsfromkeymainnet_Internalname, "", "Get Number of Transactions from Key (mainNet)", bttGetnumberoftransactionsfromkeymainnet_Jsonclick, 7, "Get Number of Transactions from Key (mainNet)", "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"e110f1_client"+"'", TempTags, "", 2, "HLP_Test1.htm");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             /* Div Control */
@@ -785,20 +785,13 @@ namespace GeneXus.Programs {
                               context.wbHandled = 1;
                               dynload_actions( ) ;
                               /* Execute user event: 'Create KEY' */
-                              E110F2 ();
+                              E120F2 ();
                            }
                            else if ( StringUtil.StrCmp(sEvt, "'CREATE BRAINWALLET KEY'") == 0 )
                            {
                               context.wbHandled = 1;
                               dynload_actions( ) ;
                               /* Execute user event: 'Create BrainWallet Key' */
-                              E120F2 ();
-                           }
-                           else if ( StringUtil.StrCmp(sEvt, "'GET NUMBER OF TRANSACTIONS FROM KEY (MAINNET)'") == 0 )
-                           {
-                              context.wbHandled = 1;
-                              dynload_actions( ) ;
-                              /* Execute user event: 'Get Number of Transactions from Key (mainNet)' */
                               E130F2 ();
                            }
                            else if ( StringUtil.StrCmp(sEvt, "'COMBIEND WALLET AND TRANSACTIONS'") == 0 )
@@ -1161,6 +1154,7 @@ namespace GeneXus.Programs {
          if ( StringUtil.StrCmp(context.GetRequestMethod( ), "POST") == 0 )
          {
             /* Read saved SDTs. */
+            ajax_req_read_hidden_sdt(cgiGet( "vKEYINFO"), AV18keyInfo);
             /* Read saved values. */
             /* Read variables values. */
             AV5BrainWalletPhrase = cgiGet( edtavBrainwalletphrase_Internalname);
@@ -1189,7 +1183,7 @@ namespace GeneXus.Programs {
          }
       }
 
-      protected void E110F2( )
+      protected void E120F2( )
       {
          /* 'Create KEY' Routine */
          returnInSub = false;
@@ -1205,7 +1199,7 @@ namespace GeneXus.Programs {
          context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV18keyInfo", AV18keyInfo);
       }
 
-      protected void E120F2( )
+      protected void E130F2( )
       {
          /* 'Create BrainWallet Key' Routine */
          returnInSub = false;
@@ -1229,29 +1223,6 @@ namespace GeneXus.Programs {
          context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV18keyInfo", AV18keyInfo);
       }
 
-      protected void E130F2( )
-      {
-         /* 'Get Number of Transactions from Key (mainNet)' Routine */
-         returnInSub = false;
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV18keyInfo.gxTpr_Address)) )
-         {
-            GXt_char1 = AV9error;
-            new GeneXus.Programs.nbitcoin.qbitninja.retnumtransonaddress(context ).execute(  AV18keyInfo, out  AV27transactionsCount, out  GXt_char1) ;
-            AssignAttri("", false, "AV27transactionsCount", StringUtil.LTrimStr( (decimal)(AV27transactionsCount), 10, 0));
-            AV9error = GXt_char1;
-            GX_msglist.addItem("Num of Transactions= "+StringUtil.Str( (decimal)(AV27transactionsCount), 10, 0));
-            if ( AV27transactionsCount == 2 )
-            {
-               GX_msglist.addItem("Confirmed the Correct number of Transactions !");
-            }
-            else
-            {
-               GX_msglist.addItem("NO !!!! Brain Wallet transactions incorrect");
-            }
-         }
-         /*  Sending Event outputs  */
-      }
-
       protected void E140F2( )
       {
          /* 'Combiend wallet and transactions' Routine */
@@ -1270,10 +1241,6 @@ namespace GeneXus.Programs {
          AV9error = GXt_char1;
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV18keyInfo.gxTpr_Address)) )
          {
-            GXt_char1 = AV9error;
-            new GeneXus.Programs.nbitcoin.qbitninja.retnumtransonaddress(context ).execute(  AV18keyInfo, out  AV27transactionsCount, out  GXt_char1) ;
-            AssignAttri("", false, "AV27transactionsCount", StringUtil.LTrimStr( (decimal)(AV27transactionsCount), 10, 0));
-            AV9error = GXt_char1;
             GX_msglist.addItem("Num of Transactions= "+StringUtil.Str( (decimal)(AV27transactionsCount), 10, 0));
             if ( AV27transactionsCount == 2 )
             {
@@ -2101,10 +2068,6 @@ namespace GeneXus.Programs {
          AV9error = GXt_char1;
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV18keyInfo.gxTpr_Address)) )
          {
-            GXt_char1 = AV9error;
-            new GeneXus.Programs.nbitcoin.qbitninja.retnumtransonaddress(context ).execute(  AV18keyInfo, out  AV27transactionsCount, out  GXt_char1) ;
-            AssignAttri("", false, "AV27transactionsCount", StringUtil.LTrimStr( (decimal)(AV27transactionsCount), 10, 0));
-            AV9error = GXt_char1;
          }
          /*  Sending Event outputs  */
          context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV17keyCreate", AV17keyCreate);
@@ -2357,7 +2320,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202211414152633", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2022121113185096", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2373,7 +2336,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("test1.js", "?202211414152634", false, true);
+         context.AddJavascriptSource("test1.js", "?2022121113185097", false, true);
          /* End function include_jscripts */
       }
 
@@ -2453,14 +2416,14 @@ namespace GeneXus.Programs {
       {
          setEventMetadata("REFRESH","{handler:'Refresh',iparms:[]");
          setEventMetadata("REFRESH",",oparms:[]}");
-         setEventMetadata("'CREATE KEY'","{handler:'E110F2',iparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''}]");
+         setEventMetadata("'CREATE KEY'","{handler:'E120F2',iparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''}]");
          setEventMetadata("'CREATE KEY'",",oparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''},{av:'AV18keyInfo',fld:'vKEYINFO',pic:''}]}");
-         setEventMetadata("'CREATE BRAINWALLET KEY'","{handler:'E120F2',iparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''}]");
+         setEventMetadata("'CREATE BRAINWALLET KEY'","{handler:'E130F2',iparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''}]");
          setEventMetadata("'CREATE BRAINWALLET KEY'",",oparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''},{av:'AV18keyInfo',fld:'vKEYINFO',pic:''}]}");
-         setEventMetadata("'GET NUMBER OF TRANSACTIONS FROM KEY (MAINNET)'","{handler:'E130F2',iparms:[{av:'AV18keyInfo',fld:'vKEYINFO',pic:''}]");
-         setEventMetadata("'GET NUMBER OF TRANSACTIONS FROM KEY (MAINNET)'",",oparms:[{av:'AV27transactionsCount',fld:'vTRANSACTIONSCOUNT',pic:'ZZZZZZZZZ9'}]}");
-         setEventMetadata("'COMBIEND WALLET AND TRANSACTIONS'","{handler:'E140F2',iparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''}]");
-         setEventMetadata("'COMBIEND WALLET AND TRANSACTIONS'",",oparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''},{av:'AV18keyInfo',fld:'vKEYINFO',pic:''},{av:'AV27transactionsCount',fld:'vTRANSACTIONSCOUNT',pic:'ZZZZZZZZZ9'}]}");
+         setEventMetadata("'GET NUMBER OF TRANSACTIONS FROM KEY (MAINNET)'","{handler:'E110F1',iparms:[{av:'AV18keyInfo',fld:'vKEYINFO',pic:''},{av:'AV27transactionsCount',fld:'vTRANSACTIONSCOUNT',pic:'ZZZZZZZZZ9'}]");
+         setEventMetadata("'GET NUMBER OF TRANSACTIONS FROM KEY (MAINNET)'",",oparms:[]}");
+         setEventMetadata("'COMBIEND WALLET AND TRANSACTIONS'","{handler:'E140F2',iparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''},{av:'AV27transactionsCount',fld:'vTRANSACTIONSCOUNT',pic:'ZZZZZZZZZ9'}]");
+         setEventMetadata("'COMBIEND WALLET AND TRANSACTIONS'",",oparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''},{av:'AV18keyInfo',fld:'vKEYINFO',pic:''}]}");
          setEventMetadata("'CREATE KEY FROM PRIVET KEY'","{handler:'E150F2',iparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''}]");
          setEventMetadata("'CREATE KEY FROM PRIVET KEY'",",oparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''},{av:'AV18keyInfo',fld:'vKEYINFO',pic:''}]}");
          setEventMetadata("'CREATE KEY FROM WIF'","{handler:'E160F2',iparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''}]");
@@ -2508,7 +2471,7 @@ namespace GeneXus.Programs {
          setEventMetadata("'BIP 44 WITH TESTNET 3'","{handler:'E370F2',iparms:[{av:'AV11extKeyCreate',fld:'vEXTKEYCREATE',pic:''},{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''}]");
          setEventMetadata("'BIP 44 WITH TESTNET 3'",",oparms:[{av:'AV11extKeyCreate',fld:'vEXTKEYCREATE',pic:''},{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''},{av:'AV18keyInfo',fld:'vKEYINFO',pic:''}]}");
          setEventMetadata("'TEST BRAIN WALLET PHRASE'","{handler:'E380F2',iparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''},{av:'AV5BrainWalletPhrase',fld:'vBRAINWALLETPHRASE',pic:''}]");
-         setEventMetadata("'TEST BRAIN WALLET PHRASE'",",oparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''},{av:'AV18keyInfo',fld:'vKEYINFO',pic:''},{av:'AV27transactionsCount',fld:'vTRANSACTIONSCOUNT',pic:'ZZZZZZZZZ9'}]}");
+         setEventMetadata("'TEST BRAIN WALLET PHRASE'",",oparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''},{av:'AV18keyInfo',fld:'vKEYINFO',pic:''}]}");
          setEventMetadata("'ENCRYPT & DECRYPT FILE'","{handler:'E390F2',iparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''}]");
          setEventMetadata("'ENCRYPT & DECRYPT FILE'",",oparms:[{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''},{av:'AV18keyInfo',fld:'vKEYINFO',pic:''}]}");
          setEventMetadata("'BIP 49 WITH TESTNET'","{handler:'E400F2',iparms:[{av:'AV11extKeyCreate',fld:'vEXTKEYCREATE',pic:''},{av:'AV17keyCreate',fld:'vKEYCREATE',pic:''}]");

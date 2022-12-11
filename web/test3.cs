@@ -200,10 +200,10 @@ namespace GeneXus.Programs {
          }
          if ( ( ( context.GetBrowserType( ) == 1 ) || ( context.GetBrowserType( ) == 5 ) ) && ( StringUtil.StrCmp(context.GetBrowserVersion( ), "7.0") == 0 ) )
          {
-            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 2048100), false, true);
+            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 1948100), false, true);
          }
-         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 2048100), false, true);
-         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 1948100), false, true);
+         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 1948100), false, true);
          context.AddJavascriptSource("gxcfg.js", "?"+GetCacheInvalidationToken( ), false, true);
          if ( context.isSpaRequest( ) )
          {
@@ -427,6 +427,36 @@ namespace GeneXus.Programs {
             GxWebStd.gx_button_ctrl( context, bttSimplenotification_Internalname, "", "Show Simple", bttSimplenotification_Jsonclick, 7, "Show Simple", "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"e150m1_client"+"'", TempTags, "", 2, "HLP_Test3.htm");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "left", "top", "", "", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "left", "top", "", "", "div");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 29,'',false,'',0)\"";
+            ClassString = "Button";
+            StyleString = "";
+            GxWebStd.gx_button_ctrl( context, bttVerifyaddressess_Internalname, "", "Verify Addressess", bttVerifyaddressess_Jsonclick, 5, "Verify Addressess", "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"E\\'VERIFY ADDRESSESS\\'."+"'", TempTags, "", context.GetButtonType( ), "HLP_Test3.htm");
+            GxWebStd.gx_div_end( context, "left", "top", "div");
+            GxWebStd.gx_div_end( context, "left", "top", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "left", "top", "", "", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "left", "top", "", "", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "form-group gx-form-group", "left", "top", ""+" data-gx-for=\""+imgavQrcode_Internalname+"\"", "", "div");
+            /* Attribute/Variable Label */
+            GxWebStd.gx_label_element( context, "", "qr Code", "col-sm-3 ImageLabel", 1, true, "");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-sm-9 gx-attribute", "left", "top", "", "", "div");
+            /* Static Bitmap Variable */
+            ClassString = "Image";
+            StyleString = "";
+            AV15qrCode_IsBlob = (bool)((String.IsNullOrEmpty(StringUtil.RTrim( AV15qrCode))&&String.IsNullOrEmpty(StringUtil.RTrim( AV18Qrcode_GXI)))||!String.IsNullOrEmpty(StringUtil.RTrim( AV15qrCode)));
+            sImgUrl = (String.IsNullOrEmpty(StringUtil.RTrim( AV15qrCode)) ? AV18Qrcode_GXI : context.PathToRelativeUrl( AV15qrCode));
+            GxWebStd.gx_bitmap( context, imgavQrcode_Internalname, sImgUrl, "", "", "", context.GetTheme( ), 1, 0, "", "", 0, -1, 0, "", 0, "", 0, 0, 0, "", "", StyleString, ClassString, "", "", "", "", "", "", "", 1, AV15qrCode_IsBlob, false, context.GetImageSrcSet( sImgUrl), "HLP_Test3.htm");
+            GxWebStd.gx_div_end( context, "left", "top", "div");
+            GxWebStd.gx_div_end( context, "left", "top", "div");
+            GxWebStd.gx_div_end( context, "left", "top", "div");
+            GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
             GxWebStd.gx_div_end( context, "left", "top", "div");
          }
@@ -502,12 +532,26 @@ namespace GeneXus.Programs {
                               dynload_actions( ) ;
                               E170M2 ();
                            }
+                           else if ( StringUtil.StrCmp(sEvt, "'VERIFY ADDRESSESS'") == 0 )
+                           {
+                              context.wbHandled = 1;
+                              dynload_actions( ) ;
+                              /* Execute user event: 'Verify Addressess' */
+                              E180M2 ();
+                           }
+                           else if ( StringUtil.StrCmp(sEvt, "START") == 0 )
+                           {
+                              context.wbHandled = 1;
+                              dynload_actions( ) ;
+                              /* Execute user event: Start */
+                              E190M2 ();
+                           }
                            else if ( StringUtil.StrCmp(sEvt, "LOAD") == 0 )
                            {
                               context.wbHandled = 1;
                               dynload_actions( ) ;
                               /* Execute user event: Load */
-                              E180M2 ();
+                              E200M2 ();
                            }
                            else if ( StringUtil.StrCmp(sEvt, "ENTER") == 0 )
                            {
@@ -635,7 +679,7 @@ namespace GeneXus.Programs {
          if ( ! context.WillRedirect( ) && ( context.nUserReturn != 1 ) )
          {
             /* Execute user event: Load */
-            E180M2 ();
+            E200M2 ();
             WB0M0( ) ;
          }
       }
@@ -654,6 +698,10 @@ namespace GeneXus.Programs {
       {
          /* Before Start, stand alone formulas. */
          before_start_formulas( ) ;
+         /* Execute Start event if defined. */
+         context.wbGlbDoneStart = 0;
+         /* Execute user event: Start */
+         E190M2 ();
          context.wbGlbDoneStart = 1;
          /* After Start, stand alone formulas. */
          if ( StringUtil.StrCmp(context.GetRequestMethod( ), "POST") == 0 )
@@ -669,6 +717,7 @@ namespace GeneXus.Programs {
             /* Read variables values. */
             AV12url = cgiGet( edtavUrl_Internalname);
             AssignAttri("", false, "AV12url", AV12url);
+            AV15qrCode = cgiGet( imgavQrcode_Internalname);
             /* Read subfile selected row values. */
             /* Read hidden variables. */
             GXKey = Decrypt64( context.GetCookie( "GX_SESSION_ID"), Crypto.GetServerKey( ));
@@ -696,11 +745,38 @@ namespace GeneXus.Programs {
          this.executeExternalObjectMethod("", false, "gx.extensions.web.dialogs", "showAlert", new Object[] {"User Confirm Response: "+StringUtil.BoolToStr( AV13UserResponse)}, false);
       }
 
+      protected void E180M2( )
+      {
+         /* 'Verify Addressess' Routine */
+         returnInSub = false;
+         GXt_char2 = AV14error;
+         new GeneXus.Programs.nbitcoin.isaddressvalid(context ).execute(  "mz8SWTfreWP8dePqjwBy4788RPXEwD5mTm",  "TestNet", out  GXt_char2) ;
+         AV14error = GXt_char2;
+         GX_msglist.addItem(AV14error);
+         GXt_char2 = AV14error;
+         new GeneXus.Programs.nbitcoin.isaddressvalid(context ).execute(  "mz8SWTfreWP8deBqjwBy4788RPXEwD5mTm",  "TestNet", out  GXt_char2) ;
+         AV14error = GXt_char2;
+         GX_msglist.addItem(AV14error);
+      }
+
+      protected void GXStart( )
+      {
+         /* Execute user event: Start */
+         E190M2 ();
+         if (returnInSub) return;
+      }
+
+      protected void E190M2( )
+      {
+         /* Start Routine */
+         returnInSub = false;
+      }
+
       protected void nextLoad( )
       {
       }
 
-      protected void E180M2( )
+      protected void E200M2( )
       {
          /* Load Routine */
          returnInSub = false;
@@ -745,7 +821,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202211414152627", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2022121113185071", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -761,7 +837,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("test3.js", "?202211414152627", false, true);
+         context.AddJavascriptSource("test3.js", "?2022121113185072", false, true);
          context.AddJavascriptSource("web-extension/gx-web-extensions.js", "", false, true);
          context.AddJavascriptSource("web-extension/gx-web-extensions.js", "", false, true);
          context.AddJavascriptSource("web-extension/gx-web-extensions.js", "", false, true);
@@ -782,6 +858,8 @@ namespace GeneXus.Programs {
          bttShownotification_Internalname = "SHOWNOTIFICATION";
          bttHidenotification_Internalname = "HIDENOTIFICATION";
          bttSimplenotification_Internalname = "SIMPLENOTIFICATION";
+         bttVerifyaddressess_Internalname = "VERIFYADDRESSESS";
+         imgavQrcode_Internalname = "vQRCODE";
          divMaintable_Internalname = "MAINTABLE";
          Form.Internalname = "FORM";
       }
@@ -830,6 +908,8 @@ namespace GeneXus.Programs {
          setEventMetadata("'HIDE NOTIFICATION'",",oparms:[]}");
          setEventMetadata("'SHOWSIMPLE'","{handler:'E150M1',iparms:[]");
          setEventMetadata("'SHOWSIMPLE'",",oparms:[]}");
+         setEventMetadata("'VERIFY ADDRESSESS'","{handler:'E180M2',iparms:[]");
+         setEventMetadata("'VERIFY ADDRESSESS'",",oparms:[]}");
          setEventMetadata("VALIDV_URL","{handler:'Validv_Url',iparms:[]");
          setEventMetadata("VALIDV_URL",",oparms:[]}");
          return  ;
@@ -876,10 +956,16 @@ namespace GeneXus.Programs {
          bttShownotification_Jsonclick = "";
          bttHidenotification_Jsonclick = "";
          bttSimplenotification_Jsonclick = "";
+         bttVerifyaddressess_Jsonclick = "";
+         AV15qrCode = "";
+         AV18Qrcode_GXI = "";
+         sImgUrl = "";
          sEvt = "";
          EvtGridId = "";
          EvtRowId = "";
          sEvtType = "";
+         AV14error = "";
+         GXt_char2 = "";
          BackMsgLst = new msglist();
          LclMsgLst = new msglist();
          /* GeneXus formulas. */
@@ -926,14 +1012,21 @@ namespace GeneXus.Programs {
       private string bttHidenotification_Jsonclick ;
       private string bttSimplenotification_Internalname ;
       private string bttSimplenotification_Jsonclick ;
+      private string bttVerifyaddressess_Internalname ;
+      private string bttVerifyaddressess_Jsonclick ;
+      private string imgavQrcode_Internalname ;
+      private string sImgUrl ;
       private string sEvt ;
       private string EvtGridId ;
       private string EvtRowId ;
       private string sEvtType ;
+      private string AV14error ;
+      private string GXt_char2 ;
       private bool entryPointCalled ;
       private bool toggleJsOutput ;
       private bool AV13UserResponse ;
       private bool wbLoad ;
+      private bool AV15qrCode_IsBlob ;
       private bool Rfr0gs ;
       private bool wbErr ;
       private bool gxdyncontrolsrefreshing ;
@@ -943,6 +1036,8 @@ namespace GeneXus.Programs {
       private string AV7NotificationBody ;
       private string AV10permission ;
       private string AV12url ;
+      private string AV18Qrcode_GXI ;
+      private string AV15qrCode ;
       private IGxDataStore dsDefault ;
       private msglist BackMsgLst ;
       private msglist LclMsgLst ;

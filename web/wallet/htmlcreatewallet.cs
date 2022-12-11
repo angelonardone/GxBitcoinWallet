@@ -203,10 +203,10 @@ namespace GeneXus.Programs.wallet {
          }
          if ( ( ( context.GetBrowserType( ) == 1 ) || ( context.GetBrowserType( ) == 5 ) ) && ( StringUtil.StrCmp(context.GetBrowserVersion( ), "7.0") == 0 ) )
          {
-            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 2048100), false, true);
+            context.AddJavascriptSource("json2.js", "?"+context.GetBuildNumber( 1948100), false, true);
          }
-         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 2048100), false, true);
-         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 2048100), false, true);
+         context.AddJavascriptSource("jquery.js", "?"+context.GetBuildNumber( 1948100), false, true);
+         context.AddJavascriptSource("gxgral.js", "?"+context.GetBuildNumber( 1948100), false, true);
          context.AddJavascriptSource("gxcfg.js", "?"+GetCacheInvalidationToken( ), false, true);
          if ( context.isSpaRequest( ) )
          {
@@ -839,11 +839,11 @@ namespace GeneXus.Programs.wallet {
          AV8extKeyCreate.gxTpr_Mnemoniclanguage = AV12mnemonicLanguage;
          if ( StringUtil.StrCmp(AV15networkType, "Main") == 0 )
          {
-            AV8extKeyCreate.gxTpr_Keypath = "m/44'/0'/0'";
+            AV8extKeyCreate.gxTpr_Keypath = "m/84'/0'/0'";
          }
          else
          {
-            AV8extKeyCreate.gxTpr_Keypath = "m/44'/1'/0'";
+            AV8extKeyCreate.gxTpr_Keypath = "m/84'/1'/0'";
          }
          GXt_char1 = AV7error;
          new GeneXus.Programs.nbitcoin.createextkey(context ).execute(  AV8extKeyCreate,  AV16newPass, out  AV9extKeyInfo, out  GXt_char1) ;
@@ -856,7 +856,7 @@ namespace GeneXus.Programs.wallet {
             new GeneXus.Programs.nbitcoin.eccenctrypt(context ).execute(  AV9extKeyInfo.gxTpr_Publickey,  AV9extKeyInfo.gxTpr_Extended.gxTpr_Privatekey, out  AV6cypherText, out  GXt_char1) ;
             AV7error = GXt_char1;
             AV19wallet.gxTpr_Extencryptedsecret = AV6cypherText;
-            AV19wallet.gxTpr_Wallettype = "BIP44";
+            AV19wallet.gxTpr_Wallettype = "BIP84";
             AV19wallet.gxTpr_Walletname = AV20walletName;
             AV14MnemonicText = AV9extKeyInfo.gxTpr_Mnemonic;
             AssignAttri("", false, "AV14MnemonicText", AV14MnemonicText);
@@ -980,7 +980,7 @@ namespace GeneXus.Programs.wallet {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20221141415248", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2022121113184811", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -996,7 +996,7 @@ namespace GeneXus.Programs.wallet {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("wallet/htmlcreatewallet.js", "?20221141415248", false, true);
+         context.AddJavascriptSource("wallet/htmlcreatewallet.js", "?2022121113184811", false, true);
          /* End function include_jscripts */
       }
 
