@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
+	<Import Project="..\..\web\GeneXus.Programs.Common.sdts.targets" Condition="Exists('..\..\web\GeneXus.Programs.Common.sdts.targets')"/>
+
+	
+	<PropertyGroup>
+		<AssemblyName>GeneXus.Programs.Common</AssemblyName>
+		<TargetFramework>$(TargetFramework)</TargetFramework>
+		<OutputType>Library</OutputType>
+		<GenerateDependencyFile>false</GenerateDependencyFile>
+		<CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+		<PostgresqlSupport>false</PostgresqlSupport>
+		<OfficeSupport>false</OfficeSupport>
+		<MailSupport>false</MailSupport>
+		<GrpcClientSupport>false</GrpcClientSupport>
+		<PdfLibrary></PdfLibrary>
+	</PropertyGroup>
+	
+	<ItemGroup>
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="GxInternetLib.dll" > 
+			<HintPath>$(WebBinDirectory)\GxInternetLib.dll</HintPath>
+		</Reference>
+
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include = "$(WebDirectory)\electrum\gxdomainconnectiontype.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\gxdomainlistofaddresstype.cs" />
+		<Compile Include = "$(WebDirectory)\GxWebServicesConfig.cs" />
+		<Compile Include = "$(WebDirectory)\GxFullTextSearchReindexer.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\gxdomainaddresstype.cs" />
+		<Compile Include = "$(WebDirectory)\gxdomainfckeditorobjectinterface.cs" />
+		<Compile Include = "$(WebDirectory)\GxWebStd.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\gxdomainmnemonicnumberwords.cs" />
+		<Compile Include = "$(WebDirectory)\electrum\gxdomainmessagetype.cs" />
+		<Compile Include = "$(WebDirectory)\gxinternetlib\type_SdtOperationResult.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\gxdomaincreatekeytype.cs" />
+		<Compile Include = "$(WebDirectory)\gxinternetlib\type_SdtGxInternetLibWs.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\gxdomainestimatesmartfeetype.cs" />
+		<Compile Include = "$(WebDirectory)\sudodb\gxdomainconstants.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\gxdomainwallettype.cs" />
+		<Compile Include = "$(WebDirectory)\SoapParm.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\gxdomainextendedkeytype.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\gxdomaincreateextkeytype.cs" />
+		<Compile Include = "$(WebDirectory)\wallet\gxdomainconstants.cs" />
+		<Compile Include = "$(WebDirectory)\gxinternetlib\type_SdtGxInternetLibTcp.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\gxdomainmnemoniclanguage.cs" />
+		<Compile Include = "$(WebDirectory)\gxdomainswipedirection.cs" />
+		<Compile Include = "$(WebDirectory)\nbitcoin\gxdomainnetworktype.cs" />
+		<Compile Include = "$(WebDirectory)\gxdomainfckeditormodes.cs" />
+		<Compile Include = "$(WebDirectory)\GxModelInfoProvider.cs" />
+
+	</ItemGroup>
+	<ItemGroup Condition="'$(PostgresqlSupport)'=='true'">
+		<PackageReference Include="Npgsql" Version="3.2.7" PrivateAssets="All"/>
+	</ItemGroup>
+
+	<Import Project="..\DotNetCoreBaseProject.targets"/>	
+</Project>
+

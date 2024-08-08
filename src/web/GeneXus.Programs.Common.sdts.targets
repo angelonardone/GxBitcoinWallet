@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+<ItemGroup>
+</ItemGroup>
+
+<ItemGroup>
+ 	<Compile Include="$(WebDirectory)\electrum\type_SdtConnection.cs" />
+ 	<Compile Include="$(WebDirectory)\electrum\type_SdtConnectionParameters_ConnectionParametersItem.cs" />
+ 	<Compile Include="$(WebDirectory)\electrum\type_SdtelectrumRespBroadcastTran.cs" />
+ 	<Compile Include="$(WebDirectory)\electrum\type_SdtelectrumRespEstimateFee.cs" />
+ 	<Compile Include="$(WebDirectory)\electrum\type_SdtelectrumRespGetHistory.cs" />
+ 	<Compile Include="$(WebDirectory)\electrum\type_SdtelectrumRespGetHistory_resultItem.cs" />
+ 	<Compile Include="$(WebDirectory)\electrum\type_SdtelectrumRespGetTransactionId.cs" />
+ 	<Compile Include="$(WebDirectory)\electrum\type_SdtelectrumRespGetTransactionId_result.cs" />
+ 	<Compile Include="$(WebDirectory)\electrum\type_SdtelectrumRespGetTransactionId_result_vinItem.cs" />
+ 	<Compile Include="$(WebDirectory)\electrum\type_SdtelectrumRespGetTransactionId_result_vinItem_scriptSig.cs" />
+ 	<Compile Include="$(WebDirectory)\electrum\type_SdtelectrumRespGetTransactionId_result_voutItem.cs" />
+ 	<Compile Include="$(WebDirectory)\electrum\type_SdtelectrumRespGetTransactionId_result_voutItem_scriptPubKey.cs" />
+ 	<Compile Include="$(WebDirectory)\electrum\type_SdtelectrumResponse.cs" />
+ 	<Compile Include="$(WebDirectory)\electrum\type_SdtretAddressElectrumFormatUnitTestSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtEstimateSmartFee__getOutput.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGetTransactions__postInput.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxExplorer_SDT_estimateSmartFee_result.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxExplorer_SDT_estimateSmartFee_result_result.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxExplorer_SDT_sendBlock_result.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxExplorer_SDT_sendBlock_result_error.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxExplorer_services_resultGetRawTransaction.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxExplorer_services_TxoutFromAddresses.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxExplorer_services_TxoutFromAddresses_Transaction_TransactionItem.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxExplorer_services_TxoutFromAddresses_Transaction_Used.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxExplorer_services_TxoutFromAddresses_Transaction_Used_UsedTo_Item.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtLinkList_LinkItem.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdtCreateExPubtKeyUnitTestSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdtCreateExtKeyUnitTestSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdtCreateKeyUnitTestSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdtderiveAddressFromExtPubKeyUnitTestSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdtECCsignMsgUnitTestSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdtECCverifyMsgUnitTestSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdtExtKeyCreate.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdtExtKeyInfo.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdtExtKeyInfo_Extended.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdtExtPubKeyInfo.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdtFromPassphraseCode.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdtisAddressValidUnitTestSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdtKeyCreate.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdtKeyInfo.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_Sdtparse_serialized_extended_keyUnitTestSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdtSDT_Addressess.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdttestBIP32UnitTestSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdttestECCencryptANDdecryptUnitTestSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_SdttestSLIP0132UnitTestSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_Sdttest_BIP32_in.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_Sdttest_BIP32_out.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_Sdttest_SLIP0132_in.cs" />
+ 	<Compile Include="$(WebDirectory)\nbitcoin\type_Sdttest_SLIP0132_out.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtNBitcoin_SDT_Addressess.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSendRawTransaction__postInput.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSendRawTransaction__postOutput.cs" />
+ 	<Compile Include="$(WebDirectory)\sudodb\type_SdtTransaction.cs" />
+ 	<Compile Include="$(WebDirectory)\sudodb\type_SdtvIN.cs" />
+ 	<Compile Include="$(WebDirectory)\sudodb\type_SdtvOUT.cs" />
+ 	<Compile Include="$(WebDirectory)\wallet\type_SdtNote.cs" />
+ 	<Compile Include="$(WebDirectory)\wallet\type_SdtSDTAddressHistory.cs" />
+ 	<Compile Include="$(WebDirectory)\wallet\type_SdtSDT_ReturnAddresses_SDT_ReturnAddressesItem.cs" />
+ 	<Compile Include="$(WebDirectory)\wallet\type_SdtStoredTransactions.cs" />
+ 	<Compile Include="$(WebDirectory)\wallet\type_SdtStoredTransactions_TransactionItem.cs" />
+ 	<Compile Include="$(WebDirectory)\wallet\type_SdtStoredTransactions_TransactionItem_UsedIn.cs" />
+ 	<Compile Include="$(WebDirectory)\wallet\type_SdtStoredTransactions_TransactionItem_UsedIn_UsedToItem.cs" />
+ 	<Compile Include="$(WebDirectory)\wallet\type_SdtWallet.cs" />
+
+</ItemGroup>
+
+</Project>
